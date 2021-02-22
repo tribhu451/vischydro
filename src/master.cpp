@@ -96,8 +96,8 @@ void master::run_hydro()
      
 
       h->evolve();
-      find_hyper_surface(istep, h->get_tau()); // [Caution!!!]order matters
-      save_for_fo(istep); // first find hypersurface then save for fo
+      //find_hyper_surface(istep, h->get_tau()); // [Caution!!!]order matters
+      //save_for_fo(istep); // first find hypersurface then save for fo
 
 
       int gg=(istep+1)/map->stepsave;
@@ -144,6 +144,14 @@ int master::check_to_stop(grid* f, EoS* eos, double tau , double tfreeze)
 	 cell* c = f->get_cell(ix,iy,iz); 
 	 c->get_physical_var(eos, tau, e, p, nb, nq, ns, vx, vy, vz);
 	 double temperature = eos->temperature(e,nb,nq,ns);
+
+         if(ix < 4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
+         if(ix > IDB->nx-4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
+         if(iy < 4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
+         if(iy > IDB->ny-4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
+         if(iz < 4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
+         if(iz > IDB->neta-4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
+
          if (temperature > max_temp ) { max_temp = temperature ; }
          if (e > max_eps) { max_eps = e ; }
 	 if (temperature > tfreeze){flag += 1; } else {continue;}
