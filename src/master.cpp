@@ -16,6 +16,29 @@ master::master(idb* _IDB)
 
    CN = new cnvrt();
 
+
+   // [BEGIN] a check delete it later
+   /* std::ofstream File1;
+    File1.open("eps_2_entr.dat");
+
+   std::ofstream File2;
+   File2.open("entr_2_eps.dat");
+
+   for (double e = 0; e < 1300; e += 0.1)
+    {
+      File1 << e << "\t" << eos->entropy(e,0,0,0) << endl; 
+    }
+
+
+   for (double s = 0; s < 1300; s += 0.1)
+    {
+      File2 << eos->entr_2_eps(s,0,0,0) << "\t" << s << endl; 
+    }
+    */
+   // [END] a check delete it later
+  
+
+
 }
 
 master::~master()

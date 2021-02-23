@@ -496,6 +496,55 @@ double EoS1::temp_2_entr( double T,double _nb, double _nq, double _ns)
 }
 
 
+//! This function returns local energy density [1/fm^4] from
+//! a given entropy density [1/fm^3] and rhob [1/fm^3]
+//! using binary search
+// [Taken from MUSIC // Copyright 2018 @ Chun Shen ]
+double EoS1::entr_2_eps( double s,double _nb, double _nq, double _ns)  
+{
+    double eps_lower = 1e-15;
+    double eps_upper = e0_7;
+    double eps_mid   = (eps_upper + eps_lower)/2.;
+    double s_lower   = entropy(eps_lower, 0,0,0);
+    double s_upper   = entropy(eps_upper, 0,0,0);
+    int ntol         = 1000;
+    if (s < 0.0 || s > s_upper) {
+        cout << "get_s2e_finite_rhob:: s is out of bound, "
+             << "s = " << s << ", s_upper = " << s_upper
+             << ", s_lower = " << s_lower << endl;
+        exit(1);
+    }
+    if (s < s_lower) return(eps_lower);
+
+    double rel_accuracy = 1e-8;
+    double abs_accuracy = 1e-15;
+    double s_mid;
+    int iter = 0;
+    while (((eps_upper - eps_lower)/eps_mid > rel_accuracy
+            && (eps_upper - eps_lower) > abs_accuracy) && iter < ntol) {
+        s_mid = entropy(eps_mid, 0,0,0);
+        if (s < s_mid)
+            eps_upper = eps_mid;
+        else 
+            eps_lower = eps_mid;
+        eps_mid = (eps_upper + eps_lower)/2.;
+        iter++;
+    }
+    if (iter == ntol) {
+        cout << "get_s2e_finite_rhob:: max iteration reached, "
+             << "s = " << s  << endl;
+        cout << "s_upper = " << entropy(eps_upper, 0,0,0)
+             << " , s_lower = " << entropy(eps_lower, 0,0,0) << endl;
+        cout << "eps_upper = " << eps_upper
+             << " , eps_lower = " << eps_lower
+             << ", diff = " << (eps_upper - eps_lower) << endl;
+        exit(1);
+    }
+    return (eps_mid);
+}
+
+
+
 
 
 void EoS1::check_eos()

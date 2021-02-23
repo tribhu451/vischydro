@@ -38,6 +38,7 @@ double cs_(){return sqrt(1./3.) ;};
 double temp_2_eps( double T,double _nb, double _nq, double _ns)  ;
 double temp_2_prs( double T,double _nb, double _nq, double _ns)  ;
 double temp_2_entr( double T,double _nb, double _nq, double _ns)  ;
+double entr_2_eps(double eg,double _nb, double _nq, double _ns)  ;
 
 private:
   void is_file_exist(fstream& file);

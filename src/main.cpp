@@ -39,7 +39,9 @@ int main(int argc, char **argv)
 
   master* head = new master(IDB);
   head->init(); // initialize
-  head->run_hydro(); 
+  head->run_hydro(); // run hydro 
+ 
+
  
 
  delete head;
