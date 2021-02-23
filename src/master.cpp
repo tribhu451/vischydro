@@ -172,8 +172,8 @@ int master::check_to_stop(grid* f, EoS* eos, double tau , double tfreeze)
          if(ix > IDB->nx-4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
          if(iy < 4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
          if(iy > IDB->ny-4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
-         if(iz < 4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
-         if(iz > IDB->neta-4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
+         if(IDB->neta != 1 && iz < 4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
+         if(IDB->neta != 1 && iz > IDB->neta-4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
 
          if (temperature > max_temp ) { max_temp = temperature ; }
          if (e > max_eps) { max_eps = e ; }
