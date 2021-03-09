@@ -61,7 +61,7 @@ class opt_glau
   
   void set_opt_glau_params()
   { 
-    if(IDB->species == "Au") {A= 197; B=197; R = 6.41; a=0.535; beta2 = 0.0; beta4 =0.0;}
+    if(IDB->species == "Au") {A= 197; B=197; R = 6.38; a=0.535; beta2 = 0.0; beta4 =0.0;} // see ideal hdro MUSIC paper or Bozek's ideal hydro paper
     else if(IDB->species == "U") {A =238; B = 238; R = 6.81; a=0.53; beta2 = 0.28; beta4 =0.093;}
     else {cout<<"species not recognized, it's : "<<IDB->species<<endl; exit(1);}
 
