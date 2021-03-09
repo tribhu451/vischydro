@@ -134,8 +134,8 @@ void opt_glau::set_ic(grid* f, EoS* eos)
 
   cout<<"      Optical Glauber Model    "<<endl;
   cout<<"      *********************    "<<endl; 
-  cout<<IDB->species<<"+"<<IDB->species<<" at "<<IDB->SNN<<"GeV("<<sigma<<"fm)"<<endl;
-  cout<<"deformation parameter (Beta-2) : "<<beta2<<" and (Beta-4) : "<<beta4<<endl;
+  cout<<"\t"<<IDB->species<<"+"<<IDB->species<<" at "<<IDB->SNN<<"GeV("<<sigma<<"fm)"<<endl;
+  cout<<"\tdeformation parameter (Beta-2) : "<<beta2<<" and (Beta-4) : "<<beta4<<endl;
   
   TRandom* t1=new TRandom();
   t1->SetSeed(0);
@@ -144,12 +144,14 @@ void opt_glau::set_ic(grid* f, EoS* eos)
   TF1* f1= new TF1("f1","x",0.0,25.0);
   
   b = f1->GetRandom(bmin,bmax);
-  cout<<"Impact parameter : "<<b<<" fm"<<endl;
+  cout<<"\tImpact parameter :\t"<<b<<" (fm)"<<endl;
   double Npart = npart();
   double Ncoll = ncoll();
-  cout<<"No. of participants : "<<Npart<<endl;
-  cout<<"No. of binary collisions : "<<Ncoll<<endl;
-  cout<<"Multiplicity scaling factor eps0 : "<<eps0<<endl;
+  cout<<"\tNo. of participants :\t"<<Npart<<endl;
+  cout<<"\tNo. of binary collisions :\t"<<Ncoll<<endl;
+  cout<<"\tMultiplicity scaling factor eps0 :\t"<<eps0<<endl;
+  cout<<"\tHardness factor in two component glauber :\t"<<X_hard<<endl;
+  cout<<"\tn_pp for two component glauber :\t"<<n_pp<<endl;
   
   std::ofstream File0;
   File0.open("hydro_output/optical_glauber_ic_dist.dat");

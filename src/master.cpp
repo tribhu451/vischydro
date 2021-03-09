@@ -127,12 +127,12 @@ void master::run_hydro()
       if ((gg*map->stepsave)==(istep+1))
 	{
 	  map->put(gg,g,h->get_tau(),eos);
-	  cout<<" saving for time="<<h->get_tau()<<" evolution step="<<istep+1<<
-	    ", "<<gg+1<<" step saved"<<endl;
+	  cout<<"\nsaving for time="<<h->get_tau()<<" evolution step="<<istep+1<<
+	    ", "<<gg+1<<" step saved\n"<<endl;
 	}
 
 
-      int stop_flag = check_to_stop(g,eos,h->get_tau(),IDB->Tfreeze) ;
+      int stop_flag = check_to_stop(g,eos,h->get_tau(),IDB->Tfreeze - 0.002) ;
           if (stop_flag > 0) 
             { continue; }
 	  else 
@@ -180,7 +180,7 @@ int master::check_to_stop(grid* f, EoS* eos, double tau , double tfreeze)
 	 if (temperature > tfreeze){flag += 1; } else {continue;}
       }
 
-       cout << "max T : "<< max_temp*1000 << " GeV\tmax e : "<< max_eps << " GeV/fm^3" <<endl;
+       cout << "max T : "<< max_temp*1000 << " MeV\tmax e : "<< max_eps << " GeV/fm^3 \t  max s : " << eos->entropy(max_eps,0,0,0)<<" fm^-3" <<endl;
   
   return flag;
 }

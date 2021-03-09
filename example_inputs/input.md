@@ -25,14 +25,14 @@ init_file_name example_inputs/optical_glauber_ic_dist.dat
 SNN 200.0
 
 #impact parameter
-bmin  6.2999
-bmax  6.3001
+bmin  2.2999
+bmax  2.3001
 
 
 #If [Optical Glauber] is choosen fill below :
 #[Info] currently in optical glauber model only same species collision is possible
 species Au
-opt_eps0 5.0
+opt_eps0 18.5
 
 
 #If [MC Glauber] is choosen fill below :
