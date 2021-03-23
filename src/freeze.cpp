@@ -143,23 +143,23 @@ void evolve::ini(grid* grid,double t0,double maxtime,double dtauin){
 
 void evolve::gethypersurface(grid* grid, EoS* EOS,double Tf){
   Tfreeze=Tf;
-  cout<<"calculating freeze-out hypersurface at Tf="<<Tfreeze<<endl;
-
+  cout<< "\n" << endl;
+  cout<<"calculating freeze-out hypersurface at temperature = "<< Tfreeze*1000.0 << " MeV" <<endl;
   double Efreeze=EOS->temp_2_eps(Tfreeze,0,0,0);
-  cout<<"calculating freeze-out hypersurface at Ef="<<Efreeze<<endl;
+  cout<<"calculating freeze-out hypersurface at energy density = "<<Efreeze<< " GeV/fm^3" <<endl;
   double dzeta=par::Pi/2./(par::nzeta-1);
   double dphi=par::Pi*2./(par::nphi-1);
   double dtheta=par::Pi/(par::ntheta-1);
   etafreeze=etavis(EOS->temp_2_eps(Tf,0,0,0),EOS,grid)/EOS->entropy(Efreeze,0,0,0);
   grid->trcoef->getEta(EOS->temp_2_eps(Tf,0,0,0),Tf,etaovs,zetaovs);
-  cout<<"calculating freeze-out hypersurface at etaf="<<etafreeze<<endl;
+  cout<<"calculating freeze-out hypersurface at eta/s = "<<etafreeze<<endl;
   cs2freeze=EOS->cs2(Efreeze,0,0,0);
   //cout<<EOS->DPE(Efreeze)<<endl;
-  cout<<"calculating freeze-out hypersurface at cs2="<<cs2freeze<<endl;
+  cout<<"calculating freeze-out hypersurface at cs2 = "<< cs2freeze << endl;
 
   double entalpyfreeze=Efreeze+EOS->pressure(Efreeze,0,0,0);
   double pressfreeze=EOS->pressure(Efreeze,0,0,0);
-  cout<<pressfreeze<<endl;
+  cout<<" calculating freeze-out hypersurface at pressure = "<< pressfreeze << "GeV/fm^3" << endl;
   for (int i=0;i<par::nzeta;i++){
     double zeta=i*dzeta;
     //    cout<<zeta<<endl;
@@ -452,9 +452,10 @@ void evolve::hypersurface(const char* dirname,int eventcount1){
       
  }
     else{
-      sprintf(filename,"%.0fsrzad%.1fe%.2fTi%.0ft%.2fTf%.0fe%03i.xml",
-	      sqrts,b,etafreeze,T0center*1000,tmin,Tfreeze*1000
-	      ,eventcount1);    
+     // sprintf(filename,"%.0fsrzad%.1fe%.2fTi%.0ft%.2fTf%.0fe%03i.xml",
+     //  sqrts,b,etafreeze,T0center*1000,tmin,Tfreeze*1000
+     // ,eventcount1); 
+       sprintf(filename,"Tf%.0fe%03i.xml",Tfreeze*1000,eventcount1);    
     }
 
 strcat(fullfilenameloc,filename);
@@ -525,13 +526,13 @@ hypersurface.xsd\">"<<endl;
     writeVector3D(oh,"FluidUx"," ",uxhyper);
     writeVector3D(oh,"FluidUy"," ",uyhyper);
     writeVector3D(oh,"FluidRap"," ",Yhyper);
-      writeVector3D(oh,"Pixx"," ",pixxhyper);
-      writeVector3D(oh,"Pixy"," ",pixyhyper);
-      writeVector3D(oh,"Pixe"," ",pixehyper);
-      writeVector3D(oh,"Piyy"," ",piyyhyper);
-      writeVector3D(oh,"Piye"," ",piyehyper);
-      writeVector3D(oh,"Piee"," ",pieehyper);
-      writeVector3D(oh,"PI"," ",bulkhyper);
+    writeVector3D(oh,"Pixx"," ",pixxhyper);
+    writeVector3D(oh,"Pixy"," ",pixyhyper);
+    writeVector3D(oh,"Pixe"," ",pixehyper);
+    writeVector3D(oh,"Piyy"," ",piyyhyper);
+    writeVector3D(oh,"Piye"," ",piyehyper);
+    writeVector3D(oh,"Piee"," ",pieehyper);
+    writeVector3D(oh,"PI"," ",bulkhyper);
     
   }
 }
