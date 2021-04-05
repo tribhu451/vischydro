@@ -132,7 +132,7 @@ void master::run_hydro()
 	}
 
 
-      int stop_flag = check_to_stop(g,eos,h->get_tau(),IDB->Tfreeze - 0.002) ;
+      int stop_flag = check_to_stop(g,eos,h->get_tau(),IDB->Tfreeze - 0.01 - 0.001) ;
           if (stop_flag > 0) 
             { continue; }
 	  else 
@@ -140,6 +140,7 @@ void master::run_hydro()
 	     
       
     }// step loop
+
 
 
  // Getting the freezeout hypersurface in .xml file .
@@ -190,19 +191,19 @@ int master::check_to_stop(grid* f, EoS* eos, double tau , double tfreeze)
 	 c->get_physical_var(eos, tau, e, p, nb, nq, ns, vx, vy, vz);
 	 double temperature = eos->temperature(e,nb,nq,ns);
 
-         if(ix < 4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
-         if(ix > IDB->nx-4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
-         if(iy < 4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
-         if(iy > IDB->ny-4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
-         if(IDB->neta != 1 && iz < 4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
-         if(IDB->neta != 1 && iz > IDB->neta-4 && temperature > IDB->Tfreeze ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
+         if(ix < 4 && temperature > IDB->Tfreeze + 0.01 ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
+         if(ix > IDB->nx-4 && temperature > IDB->Tfreeze + 0.01 ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
+         if(iy < 4 && temperature > IDB->Tfreeze + 0.01 ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
+         if(iy > IDB->ny-4 && temperature > IDB->Tfreeze + 0.01 ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
+         if(IDB->neta != 1 && iz < 4 && temperature > IDB->Tfreeze + 0.01 ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
+         if(IDB->neta != 1 && iz > IDB->neta-4 && temperature > IDB->Tfreeze + 0.01 ) {cout << "SMALL GRID [EXIT]" << endl; exit(1) ; }
 
          if (temperature > max_temp ) { max_temp = temperature ; }
          if (e > max_eps) { max_eps = e ; }
 	 if (temperature > tfreeze){flag += 1; } else {continue;}
       }
 
-       cout << "max T : "<< max_temp*1000 << " MeV\tmax e : "<< max_eps << " GeV/fm^3\tmax s : " << eos->entropy(max_eps,0,0,0)<<" fm^-3" <<endl;
+       cout << "max T : "<< max_temp*1000 << " MeV\tmax e : "<< max_eps << " GeV/fm^3\tmax s : " << eos->entropy(max_eps,nb,nq,ns)<<" fm^-3" <<endl;
   
   return flag;
 }

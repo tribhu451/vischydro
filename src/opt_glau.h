@@ -34,7 +34,7 @@ class opt_glau
   double sigma;
   double A;
   double B;
-  double n_pp = 3.92;
+  double n_pp = 2.25;
   double X_hard = 0.14;
   
   double mThetaA =0;
@@ -69,9 +69,9 @@ class opt_glau
     eps0 = IDB->opt_eps0;
     bmin = IDB->bmin; bmax = IDB->bmax;
     if(IDB->SNN == 62.4){sigma = 3.155;} 
-    if(IDB->SNN == 200.0){sigma = 4.2;} 
-    if(IDB->SNN == 2760.0){sigma = 6.4;} 
-    if(IDB->SNN == 5500.0){sigma = 7.2 ;} 
+    else if(IDB->SNN == 200.0){sigma = 4.2;} 
+    else if(IDB->SNN == 2760.0){sigma = 6.4;} 
+    else if(IDB->SNN == 5500.0){sigma = 7.2 ;} 
     else{cout<<"SNN(energy) not recognised"<<endl; exit(1);}
   }
   
