@@ -148,6 +148,28 @@ void master::run_hydro()
   map->gethypersurface(g,eos,Tfreeze);
   map->hypersurface("hydro_output/",1);
   
+  Tfreeze = IDB->Tfreeze - 5  ;
+  cout<<"\n\n freezeout temperature : "<<Tfreeze<<" GeV"<<endl;
+  map->gethypersurface(g,eos,Tfreeze);
+  map->hypersurface("hydro_output/",1);
+
+  Tfreeze = IDB->Tfreeze - 10  ;
+  cout<<"\n\n freezeout temperature : "<<Tfreeze<<" GeV"<<endl;
+  map->gethypersurface(g,eos,Tfreeze);
+  map->hypersurface("hydro_output/",1);
+
+  Tfreeze = IDB->Tfreeze + 5  ;
+  cout<<"\n\n freezeout temperature : "<<Tfreeze<<" GeV"<<endl;
+  map->gethypersurface(g,eos,Tfreeze);
+  map->hypersurface("hydro_output/",1);
+
+  Tfreeze = IDB->Tfreeze + 10  ;
+  cout<<"\n\n freezeout temperature : "<<Tfreeze<<" GeV"<<endl;
+  map->gethypersurface(g,eos,Tfreeze);
+  map->hypersurface("hydro_output/",1);
+
+
+
 
 }
 
@@ -180,7 +202,7 @@ int master::check_to_stop(grid* f, EoS* eos, double tau , double tfreeze)
 	 if (temperature > tfreeze){flag += 1; } else {continue;}
       }
 
-       cout << "max T : "<< max_temp*1000 << " MeV\tmax e : "<< max_eps << " GeV/fm^3 \t  max s : " << eos->entropy(max_eps,0,0,0)<<" fm^-3" <<endl;
+       cout << "max T : "<< max_temp*1000 << " MeV\tmax e : "<< max_eps << " GeV/fm^3\tmax s : " << eos->entropy(max_eps,0,0,0)<<" fm^-3" <<endl;
   
   return flag;
 }

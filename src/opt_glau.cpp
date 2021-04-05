@@ -144,14 +144,14 @@ void opt_glau::set_ic(grid* f, EoS* eos)
   TF1* f1= new TF1("f1","x",0.0,25.0);
   
   b = f1->GetRandom(bmin,bmax);
-  cout<<"\tImpact parameter :\t"<<b<<" (fm)"<<endl;
+  cout<<"Impact parameter :\t"<<b<<" (fm)"<<endl;
   double Npart = npart();
   double Ncoll = ncoll();
-  cout<<"\tNo. of participants :\t"<<Npart<<endl;
-  cout<<"\tNo. of binary collisions :\t"<<Ncoll<<endl;
-  cout<<"\tMultiplicity scaling factor eps0 :\t"<<eps0<<endl;
-  cout<<"\tHardness factor in two component glauber :\t"<<X_hard<<endl;
-  cout<<"\tn_pp for two component glauber :\t"<<n_pp<<endl;
+  cout<<"No. of participants :\t"<<Npart<<endl;
+  cout<<"No. of binary collisions :\t"<<Ncoll<<endl;
+  cout<<"Multiplicity scaling factor eps0 :\t"<<eps0<<endl;
+  cout<<"Hardness factor in two component glauber :\t"<<X_hard<<endl;
+  cout<<"n_pp for two component glauber :\t"<<n_pp<<endl;
   
   std::ofstream File0;
   File0.open("hydro_output/optical_glauber_ic_dist.dat");

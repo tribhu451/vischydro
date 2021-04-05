@@ -87,6 +87,7 @@ void grid::make_grid()
    {
      cout << "[Error]  too big delta_tau : " << IDB->dtau <<
           "  tau*deta/2. = "<< IDB->tau0*IDB->deta/2. << endl; 
+     exit(1);
    }
   
   
