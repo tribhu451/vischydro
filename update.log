@@ -1,0 +1,979 @@
+event no : 1
+
+[Info] allocating s95p-v1 EoS from arXiv:0912.2541
+
+[info] viscous hydro running ...
+[info] const eta/s = 0.095
+[info] bulk off zeta/s = 0 
+
+
+[Info] nx = 201
+[Info] ny = 201
+[info] neta = 101
+
+      Optical Glauber Model    
+      *********************    
+	Pb+Pb at 2760GeV(6.4fm)
+	deformation parameter (Beta-2) : 0 and (Beta-4) : 0
+Impact parameter :	2.25279 (fm)
+No. of participants :	378.546
+No. of binary collisions :	1785.35
+Multiplicity scaling factor eps0 :	25.8
+Hardness factor in two component glauber :	0.14
+n_pp for two component glauber :	2.25
+total amount of deposited entropy is = 1.00783e+08
+
+ time step 0.02
+ save every 10 step
+ calculating 1481 timesteps
+ saving 149 timesteps
+ maxtimesaved 29.6
+[Info] Freezeout temperature = 0.15 GeV
+[Info] Freeze-out hypersurface at Ef = 0.239978 GeV/fm^3
+
+[Info] after time 0.4 data is recorded
+[Info] total energy and entropy stored at 0.4 fm.
+[Info] anisotropy stored at 0.4 fm.
+[ 0 mins. ] 	[ tau : 0.40 fm ] 	[ 0/1480 ]	max T : 504.987 MeV	max e : 123.949 GeV/fm^3	max s : 321.234 fm^-3
+[ 1 mins. ] 	[ tau : 0.42 fm ] 	[ 1/1480 ]	max T : 497.612 MeV	max e : 116.745 GeV/fm^3	max s : 306.864 fm^-3
+[ 2 mins. ] 	[ tau : 0.44 fm ] 	[ 2/1480 ]	max T : 490.733 MeV	max e : 110.312 GeV/fm^3	max s : 293.846 fm^-3
+[ 3 mins. ] 	[ tau : 0.46 fm ] 	[ 3/1480 ]	max T : 484.29 MeV	max e : 104.53 GeV/fm^3	max s : 281.986 fm^-3
+[ 4 mins. ] 	[ tau : 0.48 fm ] 	[ 4/1480 ]	max T : 478.234 MeV	max e : 99.3036 GeV/fm^3	max s : 271.126 fm^-3
+[ 5 mins. ] 	[ tau : 0.50 fm ] 	[ 5/1480 ]	max T : 472.522 MeV	max e : 94.5549 GeV/fm^3	max s : 261.137 fm^-3
+[ 6 mins. ] 	[ tau : 0.52 fm ] 	[ 6/1480 ]	max T : 467.117 MeV	max e : 90.2205 GeV/fm^3	max s : 251.912 fm^-3
+[ 7 mins. ] 	[ tau : 0.54 fm ] 	[ 7/1480 ]	max T : 461.992 MeV	max e : 86.2476 GeV/fm^3	max s : 243.36 fm^-3
+[ 8 mins. ] 	[ tau : 0.56 fm ] 	[ 8/1480 ]	max T : 457.118 MeV	max e : 82.5924 GeV/fm^3	max s : 235.407 fm^-3
+[ 9 mins. ] 	[ tau : 0.58 fm ] 	[ 9/1480 ]	
+saving for time=0.6 evolution step=10, 2 step saved
+
+max T : 452.473 MeV	max e : 79.2177 GeV/fm^3	max s : 227.986 fm^-3
+[ 11 mins. ] 	[ tau : 0.60 fm ] 	[ 10/1480 ]	max T : 448.038 MeV	max e : 76.0921 GeV/fm^3	max s : 221.045 fm^-3
+[ 12 mins. ] 	[ tau : 0.62 fm ] 	[ 11/1480 ]	max T : 443.795 MeV	max e : 73.1887 GeV/fm^3	max s : 214.534 fm^-3
+[ 13 mins. ] 	[ tau : 0.64 fm ] 	[ 12/1480 ]	max T : 439.73 MeV	max e : 70.4846 GeV/fm^3	max s : 208.413 fm^-3
+[ 14 mins. ] 	[ tau : 0.66 fm ] 	[ 13/1480 ]	max T : 435.827 MeV	max e : 67.9596 GeV/fm^3	max s : 202.645 fm^-3
+[ 15 mins. ] 	[ tau : 0.68 fm ] 	[ 14/1480 ]	max T : 432.075 MeV	max e : 65.5965 GeV/fm^3	max s : 197.199 fm^-3
+[ 16 mins. ] 	[ tau : 0.70 fm ] 	[ 15/1480 ]	max T : 428.463 MeV	max e : 63.38 GeV/fm^3	max s : 192.048 fm^-3
+[ 17 mins. ] 	[ tau : 0.72 fm ] 	[ 16/1480 ]	max T : 424.982 MeV	max e : 61.297 GeV/fm^3	max s : 187.167 fm^-3
+[ 18 mins. ] 	[ tau : 0.74 fm ] 	[ 17/1480 ]	max T : 421.624 MeV	max e : 59.3357 GeV/fm^3	max s : 182.534 fm^-3
+[ 20 mins. ] 	[ tau : 0.76 fm ] 	[ 18/1480 ]	max T : 418.379 MeV	max e : 57.4857 GeV/fm^3	max s : 178.129 fm^-3
+[ 21 mins. ] 	[ tau : 0.78 fm ] 	[ 19/1480 ]	
+saving for time=0.8 evolution step=20, 3 step saved
+
+max T : 415.241 MeV	max e : 55.7378 GeV/fm^3	max s : 173.935 fm^-3
+[ 22 mins. ] 	[ tau : 0.80 fm ] 	[ 20/1480 ]	max T : 412.204 MeV	max e : 54.0838 GeV/fm^3	max s : 169.938 fm^-3
+[ 23 mins. ] 	[ tau : 0.82 fm ] 	[ 21/1480 ]	max T : 409.261 MeV	max e : 52.5162 GeV/fm^3	max s : 166.121 fm^-3
+[ 24 mins. ] 	[ tau : 0.84 fm ] 	[ 22/1480 ]	max T : 406.407 MeV	max e : 51.0286 GeV/fm^3	max s : 162.474 fm^-3
+[ 25 mins. ] 	[ tau : 0.86 fm ] 	[ 23/1480 ]	max T : 403.637 MeV	max e : 49.615 GeV/fm^3	max s : 158.983 fm^-3
+[ 26 mins. ] 	[ tau : 0.88 fm ] 	[ 24/1480 ]	max T : 400.946 MeV	max e : 48.2699 GeV/fm^3	max s : 155.64 fm^-3
+[ 27 mins. ] 	[ tau : 0.90 fm ] 	[ 25/1480 ]	max T : 398.331 MeV	max e : 46.9887 GeV/fm^3	max s : 152.434 fm^-3
+[ 28 mins. ] 	[ tau : 0.92 fm ] 	[ 26/1480 ]	max T : 395.787 MeV	max e : 45.7668 GeV/fm^3	max s : 149.357 fm^-3
+[ 30 mins. ] 	[ tau : 0.94 fm ] 	[ 27/1480 ]	max T : 393.311 MeV	max e : 44.6003 GeV/fm^3	max s : 146.4 fm^-3
+[ 31 mins. ] 	[ tau : 0.96 fm ] 	[ 28/1480 ]	max T : 390.899 MeV	max e : 43.4855 GeV/fm^3	max s : 143.557 fm^-3
+[ 32 mins. ] 	[ tau : 0.98 fm ] 	[ 29/1480 ]	
+saving for time=1 evolution step=30, 4 step saved
+
+max T : 388.549 MeV	max e : 42.419 GeV/fm^3	max s : 140.82 fm^-3
+[ 33 mins. ] 	[ tau : 1.00 fm ] 	[ 30/1480 ]	max T : 386.256 MeV	max e : 41.3979 GeV/fm^3	max s : 138.185 fm^-3
+[ 34 mins. ] 	[ tau : 1.02 fm ] 	[ 31/1480 ]	max T : 384.02 MeV	max e : 40.4193 GeV/fm^3	max s : 135.644 fm^-3
+[ 35 mins. ] 	[ tau : 1.04 fm ] 	[ 32/1480 ]	max T : 381.837 MeV	max e : 39.4807 GeV/fm^3	max s : 133.193 fm^-3
+[ 36 mins. ] 	[ tau : 1.06 fm ] 	[ 33/1480 ]	max T : 379.705 MeV	max e : 38.5796 GeV/fm^3	max s : 130.826 fm^-3
+[ 37 mins. ] 	[ tau : 1.08 fm ] 	[ 34/1480 ]	max T : 377.621 MeV	max e : 37.7139 GeV/fm^3	max s : 128.54 fm^-3
+[ 38 mins. ] 	[ tau : 1.10 fm ] 	[ 35/1480 ]	max T : 375.584 MeV	max e : 36.8817 GeV/fm^3	max s : 126.33 fm^-3
+[ 40 mins. ] 	[ tau : 1.12 fm ] 	[ 36/1480 ]	max T : 373.592 MeV	max e : 36.0809 GeV/fm^3	max s : 124.192 fm^-3
+[ 41 mins. ] 	[ tau : 1.14 fm ] 	[ 37/1480 ]	max T : 371.642 MeV	max e : 35.3098 GeV/fm^3	max s : 122.123 fm^-3
+[ 42 mins. ] 	[ tau : 1.16 fm ] 	[ 38/1480 ]	max T : 369.734 MeV	max e : 34.567 GeV/fm^3	max s : 120.119 fm^-3
+[ 43 mins. ] 	[ tau : 1.18 fm ] 	[ 39/1480 ]	
+saving for time=1.2 evolution step=40, 5 step saved
+
+max T : 367.865 MeV	max e : 33.8508 GeV/fm^3	max s : 118.177 fm^-3
+[ 44 mins. ] 	[ tau : 1.20 fm ] 	[ 40/1480 ]	max T : 366.034 MeV	max e : 33.1599 GeV/fm^3	max s : 116.294 fm^-3
+[ 45 mins. ] 	[ tau : 1.22 fm ] 	[ 41/1480 ]	max T : 364.239 MeV	max e : 32.493 GeV/fm^3	max s : 114.468 fm^-3
+[ 46 mins. ] 	[ tau : 1.24 fm ] 	[ 42/1480 ]	max T : 362.48 MeV	max e : 31.8488 GeV/fm^3	max s : 112.695 fm^-3
+[ 47 mins. ] 	[ tau : 1.26 fm ] 	[ 43/1480 ]	max T : 360.755 MeV	max e : 31.2263 GeV/fm^3	max s : 110.974 fm^-3
+[ 49 mins. ] 	[ tau : 1.28 fm ] 	[ 44/1480 ]	max T : 359.062 MeV	max e : 30.6243 GeV/fm^3	max s : 109.301 fm^-3
+[ 50 mins. ] 	[ tau : 1.30 fm ] 	[ 45/1480 ]	max T : 357.401 MeV	max e : 30.042 GeV/fm^3	max s : 107.676 fm^-3
+[ 51 mins. ] 	[ tau : 1.32 fm ] 	[ 46/1480 ]	max T : 355.77 MeV	max e : 29.4783 GeV/fm^3	max s : 106.095 fm^-3
+[ 52 mins. ] 	[ tau : 1.34 fm ] 	[ 47/1480 ]	max T : 354.169 MeV	max e : 28.9324 GeV/fm^3	max s : 104.557 fm^-3
+[ 53 mins. ] 	[ tau : 1.36 fm ] 	[ 48/1480 ]	max T : 352.595 MeV	max e : 28.4035 GeV/fm^3	max s : 103.06 fm^-3
+[ 54 mins. ] 	[ tau : 1.38 fm ] 	[ 49/1480 ]	
+saving for time=1.4 evolution step=50, 6 step saved
+
+max T : 351.049 MeV	max e : 27.8907 GeV/fm^3	max s : 101.603 fm^-3
+[ 55 mins. ] 	[ tau : 1.40 fm ] 	[ 50/1480 ]	max T : 349.53 MeV	max e : 27.3935 GeV/fm^3	max s : 100.183 fm^-3
+[ 56 mins. ] 	[ tau : 1.42 fm ] 	[ 51/1480 ]	max T : 348.036 MeV	max e : 26.911 GeV/fm^3	max s : 98.7999 fm^-3
+[ 57 mins. ] 	[ tau : 1.44 fm ] 	[ 52/1480 ]	max T : 346.567 MeV	max e : 26.4427 GeV/fm^3	max s : 97.4514 fm^-3
+[ 59 mins. ] 	[ tau : 1.46 fm ] 	[ 53/1480 ]	max T : 345.122 MeV	max e : 25.9879 GeV/fm^3	max s : 96.1365 fm^-3
+[ 60 mins. ] 	[ tau : 1.48 fm ] 	[ 54/1480 ]	max T : 343.7 MeV	max e : 25.5461 GeV/fm^3	max s : 94.8537 fm^-3
+[ 61 mins. ] 	[ tau : 1.50 fm ] 	[ 55/1480 ]	max T : 342.301 MeV	max e : 25.1168 GeV/fm^3	max s : 93.6019 fm^-3
+[ 62 mins. ] 	[ tau : 1.52 fm ] 	[ 56/1480 ]	max T : 340.923 MeV	max e : 24.6993 GeV/fm^3	max s : 92.38 fm^-3
+[ 63 mins. ] 	[ tau : 1.54 fm ] 	[ 57/1480 ]	max T : 339.567 MeV	max e : 24.2933 GeV/fm^3	max s : 91.1867 fm^-3
+[ 64 mins. ] 	[ tau : 1.56 fm ] 	[ 58/1480 ]	max T : 338.231 MeV	max e : 23.8983 GeV/fm^3	max s : 90.0211 fm^-3
+[ 65 mins. ] 	[ tau : 1.58 fm ] 	[ 59/1480 ]	
+saving for time=1.6 evolution step=60, 7 step saved
+
+max T : 336.915 MeV	max e : 23.5138 GeV/fm^3	max s : 88.8821 fm^-3
+[ 66 mins. ] 	[ tau : 1.60 fm ] 	[ 60/1480 ]	max T : 335.618 MeV	max e : 23.1395 GeV/fm^3	max s : 87.7689 fm^-3
+[ 68 mins. ] 	[ tau : 1.62 fm ] 	[ 61/1480 ]	max T : 334.34 MeV	max e : 22.7748 GeV/fm^3	max s : 86.6804 fm^-3
+[ 69 mins. ] 	[ tau : 1.64 fm ] 	[ 62/1480 ]	max T : 333.081 MeV	max e : 22.4196 GeV/fm^3	max s : 85.6159 fm^-3
+[ 70 mins. ] 	[ tau : 1.66 fm ] 	[ 63/1480 ]	max T : 331.839 MeV	max e : 22.0734 GeV/fm^3	max s : 84.5745 fm^-3
+[ 71 mins. ] 	[ tau : 1.68 fm ] 	[ 64/1480 ]	max T : 330.614 MeV	max e : 21.7359 GeV/fm^3	max s : 83.5555 fm^-3
+[ 72 mins. ] 	[ tau : 1.70 fm ] 	[ 65/1480 ]	max T : 329.407 MeV	max e : 21.4067 GeV/fm^3	max s : 82.558 fm^-3
+[ 73 mins. ] 	[ tau : 1.72 fm ] 	[ 66/1480 ]	max T : 328.215 MeV	max e : 21.0856 GeV/fm^3	max s : 81.5814 fm^-3
+[ 74 mins. ] 	[ tau : 1.74 fm ] 	[ 67/1480 ]	max T : 327.04 MeV	max e : 20.7722 GeV/fm^3	max s : 80.625 fm^-3
+[ 75 mins. ] 	[ tau : 1.76 fm ] 	[ 68/1480 ]	max T : 325.879 MeV	max e : 20.4664 GeV/fm^3	max s : 79.6882 fm^-3
+[ 76 mins. ] 	[ tau : 1.78 fm ] 	[ 69/1480 ]	
+saving for time=1.8 evolution step=70, 8 step saved
+
+max T : 324.734 MeV	max e : 20.1678 GeV/fm^3	max s : 78.7702 fm^-3
+[ 78 mins. ] 	[ tau : 1.80 fm ] 	[ 70/1480 ]	max T : 323.604 MeV	max e : 19.8761 GeV/fm^3	max s : 77.8706 fm^-3
+[ 79 mins. ] 	[ tau : 1.82 fm ] 	[ 71/1480 ]	max T : 322.488 MeV	max e : 19.5912 GeV/fm^3	max s : 76.9888 fm^-3
+[ 80 mins. ] 	[ tau : 1.84 fm ] 	[ 72/1480 ]	max T : 321.386 MeV	max e : 19.3129 GeV/fm^3	max s : 76.1241 fm^-3
+[ 81 mins. ] 	[ tau : 1.86 fm ] 	[ 73/1480 ]	max T : 320.297 MeV	max e : 19.0408 GeV/fm^3	max s : 75.276 fm^-3
+[ 82 mins. ] 	[ tau : 1.88 fm ] 	[ 74/1480 ]	max T : 319.222 MeV	max e : 18.7748 GeV/fm^3	max s : 74.4441 fm^-3
+[ 83 mins. ] 	[ tau : 1.90 fm ] 	[ 75/1480 ]	max T : 318.159 MeV	max e : 18.5147 GeV/fm^3	max s : 73.628 fm^-3
+[ 85 mins. ] 	[ tau : 1.92 fm ] 	[ 76/1480 ]	max T : 317.109 MeV	max e : 18.2603 GeV/fm^3	max s : 72.827 fm^-3
+[ 86 mins. ] 	[ tau : 1.94 fm ] 	[ 77/1480 ]	max T : 316.072 MeV	max e : 18.0113 GeV/fm^3	max s : 72.0408 fm^-3
+[ 87 mins. ] 	[ tau : 1.96 fm ] 	[ 78/1480 ]	max T : 315.046 MeV	max e : 17.7678 GeV/fm^3	max s : 71.2688 fm^-3
+[ 88 mins. ] 	[ tau : 1.98 fm ] 	[ 79/1480 ]	
+saving for time=2 evolution step=80, 9 step saved
+
+max T : 314.033 MeV	max e : 17.5293 GeV/fm^3	max s : 70.5109 fm^-3
+[ 89 mins. ] 	[ tau : 2.00 fm ] 	[ 80/1480 ]	max T : 313.03 MeV	max e : 17.2959 GeV/fm^3	max s : 69.7664 fm^-3
+[ 90 mins. ] 	[ tau : 2.02 fm ] 	[ 81/1480 ]	max T : 312.039 MeV	max e : 17.0674 GeV/fm^3	max s : 69.0351 fm^-3
+[ 92 mins. ] 	[ tau : 2.04 fm ] 	[ 82/1480 ]	max T : 311.059 MeV	max e : 16.8435 GeV/fm^3	max s : 68.3165 fm^-3
+[ 93 mins. ] 	[ tau : 2.06 fm ] 	[ 83/1480 ]	max T : 310.089 MeV	max e : 16.6242 GeV/fm^3	max s : 67.6104 fm^-3
+[ 94 mins. ] 	[ tau : 2.08 fm ] 	[ 84/1480 ]	max T : 309.13 MeV	max e : 16.4093 GeV/fm^3	max s : 66.9164 fm^-3
+[ 95 mins. ] 	[ tau : 2.10 fm ] 	[ 85/1480 ]	max T : 308.181 MeV	max e : 16.1987 GeV/fm^3	max s : 66.2341 fm^-3
+[ 96 mins. ] 	[ tau : 2.12 fm ] 	[ 86/1480 ]	max T : 307.242 MeV	max e : 15.9923 GeV/fm^3	max s : 65.5632 fm^-3
+[ 98 mins. ] 	[ tau : 2.14 fm ] 	[ 87/1480 ]	max T : 306.313 MeV	max e : 15.7899 GeV/fm^3	max s : 64.9034 fm^-3
+[ 99 mins. ] 	[ tau : 2.16 fm ] 	[ 88/1480 ]	max T : 305.393 MeV	max e : 15.5914 GeV/fm^3	max s : 64.2545 fm^-3
+[ 100 mins. ] 	[ tau : 2.18 fm ] 	[ 89/1480 ]	
+saving for time=2.2 evolution step=90, 10 step saved
+
+max T : 304.483 MeV	max e : 15.3967 GeV/fm^3	max s : 63.6161 fm^-3
+[ 101 mins. ] 	[ tau : 2.20 fm ] 	[ 90/1480 ]	max T : 303.581 MeV	max e : 15.2058 GeV/fm^3	max s : 62.988 fm^-3
+[ 102 mins. ] 	[ tau : 2.22 fm ] 	[ 91/1480 ]	max T : 302.689 MeV	max e : 15.0184 GeV/fm^3	max s : 62.3699 fm^-3
+[ 103 mins. ] 	[ tau : 2.24 fm ] 	[ 92/1480 ]	max T : 301.805 MeV	max e : 14.8345 GeV/fm^3	max s : 61.7615 fm^-3
+[ 105 mins. ] 	[ tau : 2.26 fm ] 	[ 93/1480 ]	max T : 300.93 MeV	max e : 14.6541 GeV/fm^3	max s : 61.1627 fm^-3
+[ 106 mins. ] 	[ tau : 2.28 fm ] 	[ 94/1480 ]	max T : 300.063 MeV	max e : 14.4769 GeV/fm^3	max s : 60.5731 fm^-3
+[ 107 mins. ] 	[ tau : 2.30 fm ] 	[ 95/1480 ]	max T : 299.205 MeV	max e : 14.3029 GeV/fm^3	max s : 59.9926 fm^-3
+[ 108 mins. ] 	[ tau : 2.32 fm ] 	[ 96/1480 ]	max T : 298.354 MeV	max e : 14.1321 GeV/fm^3	max s : 59.4209 fm^-3
+[ 109 mins. ] 	[ tau : 2.34 fm ] 	[ 97/1480 ]	max T : 297.511 MeV	max e : 13.9644 GeV/fm^3	max s : 58.8577 fm^-3
+[ 111 mins. ] 	[ tau : 2.36 fm ] 	[ 98/1480 ]	max T : 296.677 MeV	max e : 13.7996 GeV/fm^3	max s : 58.3031 fm^-3
+[ 112 mins. ] 	[ tau : 2.38 fm ] 	[ 99/1480 ]	
+saving for time=2.4 evolution step=100, 11 step saved
+
+max T : 295.849 MeV	max e : 13.6376 GeV/fm^3	max s : 57.7565 fm^-3
+[ 113 mins. ] 	[ tau : 2.40 fm ] 	[ 100/1480 ]	max T : 295.029 MeV	max e : 13.4785 GeV/fm^3	max s : 57.218 fm^-3
+[ 114 mins. ] 	[ tau : 2.42 fm ] 	[ 101/1480 ]	max T : 294.217 MeV	max e : 13.3222 GeV/fm^3	max s : 56.6873 fm^-3
+[ 115 mins. ] 	[ tau : 2.44 fm ] 	[ 102/1480 ]	max T : 293.411 MeV	max e : 13.1685 GeV/fm^3	max s : 56.1642 fm^-3
+[ 116 mins. ] 	[ tau : 2.46 fm ] 	[ 103/1480 ]	max T : 292.612 MeV	max e : 13.0174 GeV/fm^3	max s : 55.6486 fm^-3
+[ 118 mins. ] 	[ tau : 2.48 fm ] 	[ 104/1480 ]	max T : 291.821 MeV	max e : 12.8689 GeV/fm^3	max s : 55.1402 fm^-3
+[ 119 mins. ] 	[ tau : 2.50 fm ] 	[ 105/1480 ]	max T : 291.036 MeV	max e : 12.7228 GeV/fm^3	max s : 54.639 fm^-3
+[ 120 mins. ] 	[ tau : 2.52 fm ] 	[ 106/1480 ]	max T : 290.257 MeV	max e : 12.5791 GeV/fm^3	max s : 54.1447 fm^-3
+[ 121 mins. ] 	[ tau : 2.54 fm ] 	[ 107/1480 ]	max T : 289.485 MeV	max e : 12.4378 GeV/fm^3	max s : 53.6573 fm^-3
+[ 122 mins. ] 	[ tau : 2.56 fm ] 	[ 108/1480 ]	max T : 288.72 MeV	max e : 12.2988 GeV/fm^3	max s : 53.1765 fm^-3
+[ 124 mins. ] 	[ tau : 2.58 fm ] 	[ 109/1480 ]	
+saving for time=2.6 evolution step=110, 12 step saved
+
+max T : 287.96 MeV	max e : 12.1621 GeV/fm^3	max s : 52.7021 fm^-3
+[ 125 mins. ] 	[ tau : 2.60 fm ] 	[ 110/1480 ]	max T : 287.207 MeV	max e : 12.0275 GeV/fm^3	max s : 52.2342 fm^-3
+[ 126 mins. ] 	[ tau : 2.62 fm ] 	[ 111/1480 ]	max T : 286.46 MeV	max e : 11.895 GeV/fm^3	max s : 51.7725 fm^-3
+[ 127 mins. ] 	[ tau : 2.64 fm ] 	[ 112/1480 ]	max T : 285.718 MeV	max e : 11.7647 GeV/fm^3	max s : 51.3167 fm^-3
+[ 128 mins. ] 	[ tau : 2.66 fm ] 	[ 113/1480 ]	max T : 284.983 MeV	max e : 11.6364 GeV/fm^3	max s : 50.8671 fm^-3
+[ 130 mins. ] 	[ tau : 2.68 fm ] 	[ 114/1480 ]	max T : 284.253 MeV	max e : 11.51 GeV/fm^3	max s : 50.4232 fm^-3
+[ 131 mins. ] 	[ tau : 2.70 fm ] 	[ 115/1480 ]	max T : 283.529 MeV	max e : 11.3856 GeV/fm^3	max s : 49.9851 fm^-3
+[ 132 mins. ] 	[ tau : 2.72 fm ] 	[ 116/1480 ]	max T : 282.81 MeV	max e : 11.2631 GeV/fm^3	max s : 49.5525 fm^-3
+[ 133 mins. ] 	[ tau : 2.74 fm ] 	[ 117/1480 ]	max T : 282.097 MeV	max e : 11.1425 GeV/fm^3	max s : 49.1254 fm^-3
+[ 134 mins. ] 	[ tau : 2.76 fm ] 	[ 118/1480 ]	max T : 281.389 MeV	max e : 11.0237 GeV/fm^3	max s : 48.7037 fm^-3
+[ 136 mins. ] 	[ tau : 2.78 fm ] 	[ 119/1480 ]	
+saving for time=2.8 evolution step=120, 13 step saved
+
+max T : 280.686 MeV	max e : 10.9066 GeV/fm^3	max s : 48.2872 fm^-3
+[ 137 mins. ] 	[ tau : 2.80 fm ] 	[ 120/1480 ]	max T : 279.988 MeV	max e : 10.7913 GeV/fm^3	max s : 47.8759 fm^-3
+[ 138 mins. ] 	[ tau : 2.82 fm ] 	[ 121/1480 ]	max T : 279.296 MeV	max e : 10.6777 GeV/fm^3	max s : 47.4696 fm^-3
+[ 139 mins. ] 	[ tau : 2.84 fm ] 	[ 122/1480 ]	max T : 278.608 MeV	max e : 10.5658 GeV/fm^3	max s : 47.0683 fm^-3
+[ 141 mins. ] 	[ tau : 2.86 fm ] 	[ 123/1480 ]	max T : 277.925 MeV	max e : 10.4554 GeV/fm^3	max s : 46.6718 fm^-3
+[ 142 mins. ] 	[ tau : 2.88 fm ] 	[ 124/1480 ]	max T : 277.247 MeV	max e : 10.3467 GeV/fm^3	max s : 46.28 fm^-3
+[ 143 mins. ] 	[ tau : 2.90 fm ] 	[ 125/1480 ]	max T : 276.574 MeV	max e : 10.2395 GeV/fm^3	max s : 45.8929 fm^-3
+[ 144 mins. ] 	[ tau : 2.92 fm ] 	[ 126/1480 ]	max T : 275.905 MeV	max e : 10.1338 GeV/fm^3	max s : 45.5104 fm^-3
+[ 146 mins. ] 	[ tau : 2.94 fm ] 	[ 127/1480 ]	max T : 275.241 MeV	max e : 10.0296 GeV/fm^3	max s : 45.1323 fm^-3
+[ 147 mins. ] 	[ tau : 2.96 fm ] 	[ 128/1480 ]	max T : 274.581 MeV	max e : 9.92691 GeV/fm^3	max s : 44.7587 fm^-3
+[ 148 mins. ] 	[ tau : 2.98 fm ] 	[ 129/1480 ]	
+saving for time=3 evolution step=130, 14 step saved
+
+max T : 273.926 MeV	max e : 9.82562 GeV/fm^3	max s : 44.3893 fm^-3
+[ 149 mins. ] 	[ tau : 3.00 fm ] 	[ 130/1480 ]	max T : 273.275 MeV	max e : 9.72572 GeV/fm^3	max s : 44.0242 fm^-3
+[ 151 mins. ] 	[ tau : 3.02 fm ] 	[ 131/1480 ]	max T : 272.628 MeV	max e : 9.62719 GeV/fm^3	max s : 43.6632 fm^-3
+[ 152 mins. ] 	[ tau : 3.04 fm ] 	[ 132/1480 ]	max T : 271.986 MeV	max e : 9.53001 GeV/fm^3	max s : 43.3063 fm^-3
+[ 153 mins. ] 	[ tau : 3.06 fm ] 	[ 133/1480 ]	max T : 271.348 MeV	max e : 9.43414 GeV/fm^3	max s : 42.9535 fm^-3
+[ 154 mins. ] 	[ tau : 3.08 fm ] 	[ 134/1480 ]	max T : 270.714 MeV	max e : 9.33956 GeV/fm^3	max s : 42.6045 fm^-3
+[ 156 mins. ] 	[ tau : 3.10 fm ] 	[ 135/1480 ]	max T : 270.084 MeV	max e : 9.24624 GeV/fm^3	max s : 42.2594 fm^-3
+[ 157 mins. ] 	[ tau : 3.12 fm ] 	[ 136/1480 ]	max T : 269.457 MeV	max e : 9.15417 GeV/fm^3	max s : 41.9181 fm^-3
+[ 158 mins. ] 	[ tau : 3.14 fm ] 	[ 137/1480 ]	max T : 268.835 MeV	max e : 9.0633 GeV/fm^3	max s : 41.5805 fm^-3
+[ 159 mins. ] 	[ tau : 3.16 fm ] 	[ 138/1480 ]	max T : 268.217 MeV	max e : 8.97363 GeV/fm^3	max s : 41.2465 fm^-3
+[ 161 mins. ] 	[ tau : 3.18 fm ] 	[ 139/1480 ]	
+saving for time=3.2 evolution step=140, 15 step saved
+
+max T : 267.602 MeV	max e : 8.88512 GeV/fm^3	max s : 40.9162 fm^-3
+[ 162 mins. ] 	[ tau : 3.20 fm ] 	[ 140/1480 ]	max T : 266.991 MeV	max e : 8.79776 GeV/fm^3	max s : 40.5893 fm^-3
+[ 163 mins. ] 	[ tau : 3.22 fm ] 	[ 141/1480 ]	max T : 266.384 MeV	max e : 8.71152 GeV/fm^3	max s : 40.266 fm^-3
+[ 164 mins. ] 	[ tau : 3.24 fm ] 	[ 142/1480 ]	max T : 265.781 MeV	max e : 8.62639 GeV/fm^3	max s : 39.946 fm^-3
+[ 166 mins. ] 	[ tau : 3.26 fm ] 	[ 143/1480 ]	max T : 265.181 MeV	max e : 8.54233 GeV/fm^3	max s : 39.6294 fm^-3
+[ 167 mins. ] 	[ tau : 3.28 fm ] 	[ 144/1480 ]	max T : 264.584 MeV	max e : 8.45934 GeV/fm^3	max s : 39.3161 fm^-3
+[ 168 mins. ] 	[ tau : 3.30 fm ] 	[ 145/1480 ]	max T : 263.991 MeV	max e : 8.37739 GeV/fm^3	max s : 39.006 fm^-3
+[ 169 mins. ] 	[ tau : 3.32 fm ] 	[ 146/1480 ]	max T : 263.402 MeV	max e : 8.29646 GeV/fm^3	max s : 38.6991 fm^-3
+[ 171 mins. ] 	[ tau : 3.34 fm ] 	[ 147/1480 ]	max T : 262.816 MeV	max e : 8.21653 GeV/fm^3	max s : 38.3953 fm^-3
+[ 172 mins. ] 	[ tau : 3.36 fm ] 	[ 148/1480 ]	max T : 262.233 MeV	max e : 8.13759 GeV/fm^3	max s : 38.0946 fm^-3
+[ 173 mins. ] 	[ tau : 3.38 fm ] 	[ 149/1480 ]	
+saving for time=3.4 evolution step=150, 16 step saved
+
+max T : 261.654 MeV	max e : 8.05962 GeV/fm^3	max s : 37.7969 fm^-3
+[ 174 mins. ] 	[ tau : 3.40 fm ] 	[ 150/1480 ]	max T : 261.078 MeV	max e : 7.9826 GeV/fm^3	max s : 37.5023 fm^-3
+[ 176 mins. ] 	[ tau : 3.42 fm ] 	[ 151/1480 ]	max T : 260.505 MeV	max e : 7.90651 GeV/fm^3	max s : 37.2105 fm^-3
+[ 177 mins. ] 	[ tau : 3.44 fm ] 	[ 152/1480 ]	max T : 259.935 MeV	max e : 7.83134 GeV/fm^3	max s : 36.9216 fm^-3
+[ 178 mins. ] 	[ tau : 3.46 fm ] 	[ 153/1480 ]	max T : 259.368 MeV	max e : 7.75707 GeV/fm^3	max s : 36.6356 fm^-3
+[ 179 mins. ] 	[ tau : 3.48 fm ] 	[ 154/1480 ]	max T : 258.805 MeV	max e : 7.68368 GeV/fm^3	max s : 36.3523 fm^-3
+[ 181 mins. ] 	[ tau : 3.50 fm ] 	[ 155/1480 ]	max T : 258.244 MeV	max e : 7.61117 GeV/fm^3	max s : 36.0718 fm^-3
+[ 182 mins. ] 	[ tau : 3.52 fm ] 	[ 156/1480 ]	max T : 257.687 MeV	max e : 7.53951 GeV/fm^3	max s : 35.7941 fm^-3
+[ 183 mins. ] 	[ tau : 3.54 fm ] 	[ 157/1480 ]	max T : 257.132 MeV	max e : 7.46869 GeV/fm^3	max s : 35.5189 fm^-3
+[ 184 mins. ] 	[ tau : 3.56 fm ] 	[ 158/1480 ]	max T : 256.581 MeV	max e : 7.3987 GeV/fm^3	max s : 35.2464 fm^-3
+[ 186 mins. ] 	[ tau : 3.58 fm ] 	[ 159/1480 ]	
+saving for time=3.6 evolution step=160, 17 step saved
+
+max T : 256.032 MeV	max e : 7.32951 GeV/fm^3	max s : 34.9765 fm^-3
+[ 187 mins. ] 	[ tau : 3.60 fm ] 	[ 160/1480 ]	max T : 255.486 MeV	max e : 7.26113 GeV/fm^3	max s : 34.7091 fm^-3
+[ 188 mins. ] 	[ tau : 3.62 fm ] 	[ 161/1480 ]	max T : 254.943 MeV	max e : 7.19353 GeV/fm^3	max s : 34.4443 fm^-3
+[ 189 mins. ] 	[ tau : 3.64 fm ] 	[ 162/1480 ]	max T : 254.403 MeV	max e : 7.12671 GeV/fm^3	max s : 34.1819 fm^-3
+[ 191 mins. ] 	[ tau : 3.66 fm ] 	[ 163/1480 ]	max T : 253.866 MeV	max e : 7.06064 GeV/fm^3	max s : 33.9219 fm^-3
+[ 192 mins. ] 	[ tau : 3.68 fm ] 	[ 164/1480 ]	max T : 253.331 MeV	max e : 6.99532 GeV/fm^3	max s : 33.6643 fm^-3
+[ 193 mins. ] 	[ tau : 3.70 fm ] 	[ 165/1480 ]	max T : 252.8 MeV	max e : 6.93074 GeV/fm^3	max s : 33.4091 fm^-3
+[ 194 mins. ] 	[ tau : 3.72 fm ] 	[ 166/1480 ]	max T : 252.27 MeV	max e : 6.86688 GeV/fm^3	max s : 33.1563 fm^-3
+[ 196 mins. ] 	[ tau : 3.74 fm ] 	[ 167/1480 ]	max T : 251.744 MeV	max e : 6.80373 GeV/fm^3	max s : 32.9057 fm^-3
+[ 197 mins. ] 	[ tau : 3.76 fm ] 	[ 168/1480 ]	max T : 251.22 MeV	max e : 6.74128 GeV/fm^3	max s : 32.6574 fm^-3
+[ 198 mins. ] 	[ tau : 3.78 fm ] 	[ 169/1480 ]	
+saving for time=3.8 evolution step=170, 18 step saved
+
+max T : 250.699 MeV	max e : 6.67953 GeV/fm^3	max s : 32.4113 fm^-3
+[ 200 mins. ] 	[ tau : 3.80 fm ] 	[ 170/1480 ]	max T : 250.18 MeV	max e : 6.61845 GeV/fm^3	max s : 32.1674 fm^-3
+[ 201 mins. ] 	[ tau : 3.82 fm ] 	[ 171/1480 ]	max T : 249.664 MeV	max e : 6.55803 GeV/fm^3	max s : 31.9257 fm^-3
+[ 202 mins. ] 	[ tau : 3.84 fm ] 	[ 172/1480 ]	max T : 249.15 MeV	max e : 6.49828 GeV/fm^3	max s : 31.6861 fm^-3
+[ 203 mins. ] 	[ tau : 3.86 fm ] 	[ 173/1480 ]	max T : 248.639 MeV	max e : 6.43917 GeV/fm^3	max s : 31.4486 fm^-3
+[ 205 mins. ] 	[ tau : 3.88 fm ] 	[ 174/1480 ]	max T : 248.13 MeV	max e : 6.3807 GeV/fm^3	max s : 31.2132 fm^-3
+[ 206 mins. ] 	[ tau : 3.90 fm ] 	[ 175/1480 ]	max T : 247.624 MeV	max e : 6.32286 GeV/fm^3	max s : 30.9798 fm^-3
+[ 207 mins. ] 	[ tau : 3.92 fm ] 	[ 176/1480 ]	max T : 247.12 MeV	max e : 6.26564 GeV/fm^3	max s : 30.7485 fm^-3
+[ 208 mins. ] 	[ tau : 3.94 fm ] 	[ 177/1480 ]	max T : 246.619 MeV	max e : 6.20902 GeV/fm^3	max s : 30.5192 fm^-3
+[ 210 mins. ] 	[ tau : 3.96 fm ] 	[ 178/1480 ]	max T : 246.12 MeV	max e : 6.15301 GeV/fm^3	max s : 30.2918 fm^-3
+[ 211 mins. ] 	[ tau : 3.98 fm ] 	[ 179/1480 ]	
+saving for time=4 evolution step=180, 19 step saved
+
+max T : 245.623 MeV	max e : 6.09759 GeV/fm^3	max s : 30.0664 fm^-3
+[ 212 mins. ] 	[ tau : 4.00 fm ] 	[ 180/1480 ]	max T : 245.129 MeV	max e : 6.04275 GeV/fm^3	max s : 29.8429 fm^-3
+[ 213 mins. ] 	[ tau : 4.02 fm ] 	[ 181/1480 ]	max T : 244.637 MeV	max e : 5.98848 GeV/fm^3	max s : 29.6213 fm^-3
+[ 215 mins. ] 	[ tau : 4.04 fm ] 	[ 182/1480 ]	max T : 244.147 MeV	max e : 5.93478 GeV/fm^3	max s : 29.4016 fm^-3
+[ 216 mins. ] 	[ tau : 4.06 fm ] 	[ 183/1480 ]	max T : 243.66 MeV	max e : 5.88164 GeV/fm^3	max s : 29.1837 fm^-3
+[ 217 mins. ] 	[ tau : 4.08 fm ] 	[ 184/1480 ]	max T : 243.175 MeV	max e : 5.82904 GeV/fm^3	max s : 28.9677 fm^-3
+[ 218 mins. ] 	[ tau : 4.10 fm ] 	[ 185/1480 ]	max T : 242.692 MeV	max e : 5.77699 GeV/fm^3	max s : 28.7534 fm^-3
+[ 220 mins. ] 	[ tau : 4.12 fm ] 	[ 186/1480 ]	max T : 242.211 MeV	max e : 5.72547 GeV/fm^3	max s : 28.5409 fm^-3
+[ 221 mins. ] 	[ tau : 4.14 fm ] 	[ 187/1480 ]	max T : 241.733 MeV	max e : 5.67448 GeV/fm^3	max s : 28.3302 fm^-3
+[ 222 mins. ] 	[ tau : 4.16 fm ] 	[ 188/1480 ]	max T : 241.257 MeV	max e : 5.62401 GeV/fm^3	max s : 28.1212 fm^-3
+[ 223 mins. ] 	[ tau : 4.18 fm ] 	[ 189/1480 ]	
+saving for time=4.2 evolution step=190, 20 step saved
+
+max T : 240.782 MeV	max e : 5.57405 GeV/fm^3	max s : 27.9139 fm^-3
+[ 225 mins. ] 	[ tau : 4.20 fm ] 	[ 190/1480 ]	max T : 240.31 MeV	max e : 5.52459 GeV/fm^3	max s : 27.7083 fm^-3
+[ 226 mins. ] 	[ tau : 4.22 fm ] 	[ 191/1480 ]	max T : 239.841 MeV	max e : 5.47564 GeV/fm^3	max s : 27.5044 fm^-3
+[ 227 mins. ] 	[ tau : 4.24 fm ] 	[ 192/1480 ]	max T : 239.373 MeV	max e : 5.42717 GeV/fm^3	max s : 27.3021 fm^-3
+[ 229 mins. ] 	[ tau : 4.26 fm ] 	[ 193/1480 ]	max T : 238.907 MeV	max e : 5.37919 GeV/fm^3	max s : 27.1014 fm^-3
+[ 230 mins. ] 	[ tau : 4.28 fm ] 	[ 194/1480 ]	max T : 238.444 MeV	max e : 5.33168 GeV/fm^3	max s : 26.9024 fm^-3
+[ 231 mins. ] 	[ tau : 4.30 fm ] 	[ 195/1480 ]	max T : 237.982 MeV	max e : 5.28465 GeV/fm^3	max s : 26.705 fm^-3
+[ 232 mins. ] 	[ tau : 4.32 fm ] 	[ 196/1480 ]	max T : 237.523 MeV	max e : 5.23808 GeV/fm^3	max s : 26.5091 fm^-3
+[ 234 mins. ] 	[ tau : 4.34 fm ] 	[ 197/1480 ]	max T : 237.066 MeV	max e : 5.19197 GeV/fm^3	max s : 26.3148 fm^-3
+[ 235 mins. ] 	[ tau : 4.36 fm ] 	[ 198/1480 ]	max T : 236.611 MeV	max e : 5.14632 GeV/fm^3	max s : 26.122 fm^-3
+[ 236 mins. ] 	[ tau : 4.38 fm ] 	[ 199/1480 ]	
+saving for time=4.4 evolution step=200, 21 step saved
+
+max T : 236.157 MeV	max e : 5.10111 GeV/fm^3	max s : 25.9308 fm^-3
+[ 237 mins. ] 	[ tau : 4.40 fm ] 	[ 200/1480 ]	max T : 235.706 MeV	max e : 5.05634 GeV/fm^3	max s : 25.741 fm^-3
+[ 239 mins. ] 	[ tau : 4.42 fm ] 	[ 201/1480 ]	max T : 235.257 MeV	max e : 5.01201 GeV/fm^3	max s : 25.5528 fm^-3
+[ 240 mins. ] 	[ tau : 4.44 fm ] 	[ 202/1480 ]	max T : 234.81 MeV	max e : 4.96811 GeV/fm^3	max s : 25.366 fm^-3
+[ 241 mins. ] 	[ tau : 4.46 fm ] 	[ 203/1480 ]	max T : 234.365 MeV	max e : 4.92463 GeV/fm^3	max s : 25.1806 fm^-3
+[ 242 mins. ] 	[ tau : 4.48 fm ] 	[ 204/1480 ]	max T : 233.921 MeV	max e : 4.88158 GeV/fm^3	max s : 24.9968 fm^-3
+[ 244 mins. ] 	[ tau : 4.50 fm ] 	[ 205/1480 ]	max T : 233.48 MeV	max e : 4.83893 GeV/fm^3	max s : 24.8143 fm^-3
+[ 245 mins. ] 	[ tau : 4.52 fm ] 	[ 206/1480 ]	max T : 233.041 MeV	max e : 4.7967 GeV/fm^3	max s : 24.6332 fm^-3
+[ 246 mins. ] 	[ tau : 4.54 fm ] 	[ 207/1480 ]	max T : 232.603 MeV	max e : 4.75487 GeV/fm^3	max s : 24.4536 fm^-3
+[ 247 mins. ] 	[ tau : 4.56 fm ] 	[ 208/1480 ]	max T : 232.168 MeV	max e : 4.71344 GeV/fm^3	max s : 24.2753 fm^-3
+[ 249 mins. ] 	[ tau : 4.58 fm ] 	[ 209/1480 ]	
+saving for time=4.6 evolution step=210, 22 step saved
+
+max T : 231.734 MeV	max e : 4.6724 GeV/fm^3	max s : 24.0983 fm^-3
+[ 250 mins. ] 	[ tau : 4.60 fm ] 	[ 210/1480 ]	max T : 231.303 MeV	max e : 4.63175 GeV/fm^3	max s : 23.9228 fm^-3
+[ 251 mins. ] 	[ tau : 4.62 fm ] 	[ 211/1480 ]	max T : 230.873 MeV	max e : 4.59148 GeV/fm^3	max s : 23.7485 fm^-3
+[ 252 mins. ] 	[ tau : 4.64 fm ] 	[ 212/1480 ]	max T : 230.445 MeV	max e : 4.5516 GeV/fm^3	max s : 23.5756 fm^-3
+[ 254 mins. ] 	[ tau : 4.66 fm ] 	[ 213/1480 ]	max T : 230.019 MeV	max e : 4.51209 GeV/fm^3	max s : 23.404 fm^-3
+[ 255 mins. ] 	[ tau : 4.68 fm ] 	[ 214/1480 ]	max T : 229.596 MeV	max e : 4.47295 GeV/fm^3	max s : 23.2337 fm^-3
+[ 256 mins. ] 	[ tau : 4.70 fm ] 	[ 215/1480 ]	max T : 229.173 MeV	max e : 4.43417 GeV/fm^3	max s : 23.0646 fm^-3
+[ 258 mins. ] 	[ tau : 4.72 fm ] 	[ 216/1480 ]	max T : 228.753 MeV	max e : 4.39576 GeV/fm^3	max s : 22.8969 fm^-3
+[ 259 mins. ] 	[ tau : 4.74 fm ] 	[ 217/1480 ]	max T : 228.335 MeV	max e : 4.35771 GeV/fm^3	max s : 22.7304 fm^-3
+[ 260 mins. ] 	[ tau : 4.76 fm ] 	[ 218/1480 ]	max T : 227.918 MeV	max e : 4.32 GeV/fm^3	max s : 22.5651 fm^-3
+[ 261 mins. ] 	[ tau : 4.78 fm ] 	[ 219/1480 ]	
+saving for time=4.8 evolution step=220, 23 step saved
+
+max T : 227.504 MeV	max e : 4.28265 GeV/fm^3	max s : 22.4011 fm^-3
+[ 263 mins. ] 	[ tau : 4.80 fm ] 	[ 220/1480 ]	max T : 227.091 MeV	max e : 4.24565 GeV/fm^3	max s : 22.2383 fm^-3
+[ 264 mins. ] 	[ tau : 4.82 fm ] 	[ 221/1480 ]	max T : 226.68 MeV	max e : 4.20898 GeV/fm^3	max s : 22.0767 fm^-3
+[ 265 mins. ] 	[ tau : 4.84 fm ] 	[ 222/1480 ]	max T : 226.271 MeV	max e : 4.17266 GeV/fm^3	max s : 21.9163 fm^-3
+[ 266 mins. ] 	[ tau : 4.86 fm ] 	[ 223/1480 ]	max T : 225.864 MeV	max e : 4.13666 GeV/fm^3	max s : 21.757 fm^-3
+[ 268 mins. ] 	[ tau : 4.88 fm ] 	[ 224/1480 ]	max T : 225.458 MeV	max e : 4.101 GeV/fm^3	max s : 21.599 fm^-3
+[ 269 mins. ] 	[ tau : 4.90 fm ] 	[ 225/1480 ]	max T : 225.055 MeV	max e : 4.06566 GeV/fm^3	max s : 21.4421 fm^-3
+[ 270 mins. ] 	[ tau : 4.92 fm ] 	[ 226/1480 ]	max T : 224.653 MeV	max e : 4.03065 GeV/fm^3	max s : 21.2864 fm^-3
+[ 272 mins. ] 	[ tau : 4.94 fm ] 	[ 227/1480 ]	max T : 224.253 MeV	max e : 3.99595 GeV/fm^3	max s : 21.1318 fm^-3
+[ 273 mins. ] 	[ tau : 4.96 fm ] 	[ 228/1480 ]	max T : 223.855 MeV	max e : 3.96158 GeV/fm^3	max s : 20.9784 fm^-3
+[ 274 mins. ] 	[ tau : 4.98 fm ] 	[ 229/1480 ]	
+saving for time=5 evolution step=230, 24 step saved
+
+max T : 223.458 MeV	max e : 3.92751 GeV/fm^3	max s : 20.8261 fm^-3
+[ 275 mins. ] 	[ tau : 5.00 fm ] 	[ 230/1480 ]	max T : 223.064 MeV	max e : 3.89375 GeV/fm^3	max s : 20.6749 fm^-3
+[ 277 mins. ] 	[ tau : 5.02 fm ] 	[ 231/1480 ]	max T : 222.671 MeV	max e : 3.8603 GeV/fm^3	max s : 20.5248 fm^-3
+[ 278 mins. ] 	[ tau : 5.04 fm ] 	[ 232/1480 ]	max T : 222.28 MeV	max e : 3.82715 GeV/fm^3	max s : 20.3758 fm^-3
+[ 279 mins. ] 	[ tau : 5.06 fm ] 	[ 233/1480 ]	max T : 221.891 MeV	max e : 3.7943 GeV/fm^3	max s : 20.2278 fm^-3
+[ 281 mins. ] 	[ tau : 5.08 fm ] 	[ 234/1480 ]	max T : 221.504 MeV	max e : 3.76174 GeV/fm^3	max s : 20.081 fm^-3
+[ 282 mins. ] 	[ tau : 5.10 fm ] 	[ 235/1480 ]	max T : 221.118 MeV	max e : 3.72948 GeV/fm^3	max s : 19.9352 fm^-3
+[ 283 mins. ] 	[ tau : 5.12 fm ] 	[ 236/1480 ]	max T : 220.735 MeV	max e : 3.69751 GeV/fm^3	max s : 19.7905 fm^-3
+[ 284 mins. ] 	[ tau : 5.14 fm ] 	[ 237/1480 ]	max T : 220.353 MeV	max e : 3.66582 GeV/fm^3	max s : 19.6468 fm^-3
+[ 286 mins. ] 	[ tau : 5.16 fm ] 	[ 238/1480 ]	max T : 219.972 MeV	max e : 3.63442 GeV/fm^3	max s : 19.5042 fm^-3
+[ 287 mins. ] 	[ tau : 5.18 fm ] 	[ 239/1480 ]	
+saving for time=5.2 evolution step=240, 25 step saved
+
+max T : 219.594 MeV	max e : 3.6033 GeV/fm^3	max s : 19.3626 fm^-3
+[ 288 mins. ] 	[ tau : 5.20 fm ] 	[ 240/1480 ]	max T : 219.217 MeV	max e : 3.57245 GeV/fm^3	max s : 19.222 fm^-3
+[ 290 mins. ] 	[ tau : 5.22 fm ] 	[ 241/1480 ]	max T : 218.843 MeV	max e : 3.54188 GeV/fm^3	max s : 19.0825 fm^-3
+[ 291 mins. ] 	[ tau : 5.24 fm ] 	[ 242/1480 ]	max T : 218.47 MeV	max e : 3.51159 GeV/fm^3	max s : 18.9439 fm^-3
+[ 292 mins. ] 	[ tau : 5.26 fm ] 	[ 243/1480 ]	max T : 218.099 MeV	max e : 3.48156 GeV/fm^3	max s : 18.8063 fm^-3
+[ 293 mins. ] 	[ tau : 5.28 fm ] 	[ 244/1480 ]	max T : 217.729 MeV	max e : 3.4518 GeV/fm^3	max s : 18.6698 fm^-3
+[ 295 mins. ] 	[ tau : 5.30 fm ] 	[ 245/1480 ]	max T : 217.361 MeV	max e : 3.4223 GeV/fm^3	max s : 18.5342 fm^-3
+[ 296 mins. ] 	[ tau : 5.32 fm ] 	[ 246/1480 ]	max T : 216.995 MeV	max e : 3.39307 GeV/fm^3	max s : 18.3996 fm^-3
+[ 297 mins. ] 	[ tau : 5.34 fm ] 	[ 247/1480 ]	max T : 216.631 MeV	max e : 3.36409 GeV/fm^3	max s : 18.2659 fm^-3
+[ 298 mins. ] 	[ tau : 5.36 fm ] 	[ 248/1480 ]	max T : 216.269 MeV	max e : 3.33537 GeV/fm^3	max s : 18.1332 fm^-3
+[ 300 mins. ] 	[ tau : 5.38 fm ] 	[ 249/1480 ]	
+saving for time=5.4 evolution step=250, 26 step saved
+
+max T : 215.908 MeV	max e : 3.30691 GeV/fm^3	max s : 18.0015 fm^-3
+[ 301 mins. ] 	[ tau : 5.40 fm ] 	[ 250/1480 ]	max T : 215.55 MeV	max e : 3.27869 GeV/fm^3	max s : 17.8707 fm^-3
+[ 302 mins. ] 	[ tau : 5.42 fm ] 	[ 251/1480 ]	max T : 215.193 MeV	max e : 3.25073 GeV/fm^3	max s : 17.7409 fm^-3
+[ 304 mins. ] 	[ tau : 5.44 fm ] 	[ 252/1480 ]	max T : 214.837 MeV	max e : 3.22301 GeV/fm^3	max s : 17.612 fm^-3
+[ 305 mins. ] 	[ tau : 5.46 fm ] 	[ 253/1480 ]	max T : 214.484 MeV	max e : 3.19553 GeV/fm^3	max s : 17.484 fm^-3
+[ 306 mins. ] 	[ tau : 5.48 fm ] 	[ 254/1480 ]	max T : 214.132 MeV	max e : 3.1683 GeV/fm^3	max s : 17.3569 fm^-3
+[ 307 mins. ] 	[ tau : 5.50 fm ] 	[ 255/1480 ]	max T : 213.782 MeV	max e : 3.14131 GeV/fm^3	max s : 17.2307 fm^-3
+[ 309 mins. ] 	[ tau : 5.52 fm ] 	[ 256/1480 ]	max T : 213.434 MeV	max e : 3.11455 GeV/fm^3	max s : 17.1055 fm^-3
+[ 310 mins. ] 	[ tau : 5.54 fm ] 	[ 257/1480 ]	max T : 213.088 MeV	max e : 3.08803 GeV/fm^3	max s : 16.9811 fm^-3
+[ 311 mins. ] 	[ tau : 5.56 fm ] 	[ 258/1480 ]	max T : 212.743 MeV	max e : 3.06174 GeV/fm^3	max s : 16.8576 fm^-3
+[ 312 mins. ] 	[ tau : 5.58 fm ] 	[ 259/1480 ]	
+saving for time=5.6 evolution step=260, 27 step saved
+
+max T : 212.4 MeV	max e : 3.03568 GeV/fm^3	max s : 16.735 fm^-3
+[ 314 mins. ] 	[ tau : 5.60 fm ] 	[ 260/1480 ]	max T : 212.059 MeV	max e : 3.00985 GeV/fm^3	max s : 16.6133 fm^-3
+[ 315 mins. ] 	[ tau : 5.62 fm ] 	[ 261/1480 ]	max T : 211.72 MeV	max e : 2.98425 GeV/fm^3	max s : 16.4925 fm^-3
+[ 316 mins. ] 	[ tau : 5.64 fm ] 	[ 262/1480 ]	max T : 211.382 MeV	max e : 2.95887 GeV/fm^3	max s : 16.3725 fm^-3
+[ 318 mins. ] 	[ tau : 5.66 fm ] 	[ 263/1480 ]	max T : 211.046 MeV	max e : 2.93371 GeV/fm^3	max s : 16.2534 fm^-3
+[ 319 mins. ] 	[ tau : 5.68 fm ] 	[ 264/1480 ]	max T : 210.712 MeV	max e : 2.90878 GeV/fm^3	max s : 16.1352 fm^-3
+[ 320 mins. ] 	[ tau : 5.70 fm ] 	[ 265/1480 ]	max T : 210.38 MeV	max e : 2.88406 GeV/fm^3	max s : 16.0178 fm^-3
+[ 321 mins. ] 	[ tau : 5.72 fm ] 	[ 266/1480 ]	max T : 210.049 MeV	max e : 2.85955 GeV/fm^3	max s : 15.9012 fm^-3
+[ 323 mins. ] 	[ tau : 5.74 fm ] 	[ 267/1480 ]	max T : 209.721 MeV	max e : 2.83527 GeV/fm^3	max s : 15.7855 fm^-3
+[ 324 mins. ] 	[ tau : 5.76 fm ] 	[ 268/1480 ]	max T : 209.394 MeV	max e : 2.81119 GeV/fm^3	max s : 15.6706 fm^-3
+[ 325 mins. ] 	[ tau : 5.78 fm ] 	[ 269/1480 ]	
+saving for time=5.8 evolution step=270, 28 step saved
+
+max T : 209.068 MeV	max e : 2.78732 GeV/fm^3	max s : 15.5565 fm^-3
+[ 327 mins. ] 	[ tau : 5.80 fm ] 	[ 270/1480 ]	max T : 208.745 MeV	max e : 2.76367 GeV/fm^3	max s : 15.4433 fm^-3
+[ 328 mins. ] 	[ tau : 5.82 fm ] 	[ 271/1480 ]	max T : 208.423 MeV	max e : 2.74021 GeV/fm^3	max s : 15.3309 fm^-3
+[ 329 mins. ] 	[ tau : 5.84 fm ] 	[ 272/1480 ]	max T : 208.103 MeV	max e : 2.71697 GeV/fm^3	max s : 15.2192 fm^-3
+[ 330 mins. ] 	[ tau : 5.86 fm ] 	[ 273/1480 ]	max T : 207.785 MeV	max e : 2.69392 GeV/fm^3	max s : 15.1084 fm^-3
+[ 332 mins. ] 	[ tau : 5.88 fm ] 	[ 274/1480 ]	max T : 207.468 MeV	max e : 2.67108 GeV/fm^3	max s : 14.9984 fm^-3
+[ 333 mins. ] 	[ tau : 5.90 fm ] 	[ 275/1480 ]	max T : 207.153 MeV	max e : 2.64844 GeV/fm^3	max s : 14.8892 fm^-3
+[ 334 mins. ] 	[ tau : 5.92 fm ] 	[ 276/1480 ]	max T : 206.84 MeV	max e : 2.62599 GeV/fm^3	max s : 14.7807 fm^-3
+[ 336 mins. ] 	[ tau : 5.94 fm ] 	[ 277/1480 ]	max T : 206.529 MeV	max e : 2.60374 GeV/fm^3	max s : 14.6731 fm^-3
+[ 337 mins. ] 	[ tau : 5.96 fm ] 	[ 278/1480 ]	max T : 206.22 MeV	max e : 2.58169 GeV/fm^3	max s : 14.5662 fm^-3
+[ 338 mins. ] 	[ tau : 5.98 fm ] 	[ 279/1480 ]	
+saving for time=6 evolution step=280, 29 step saved
+
+max T : 205.912 MeV	max e : 2.55983 GeV/fm^3	max s : 14.4601 fm^-3
+[ 339 mins. ] 	[ tau : 6.00 fm ] 	[ 280/1480 ]	max T : 205.606 MeV	max e : 2.53815 GeV/fm^3	max s : 14.3548 fm^-3
+[ 341 mins. ] 	[ tau : 6.02 fm ] 	[ 281/1480 ]	max T : 205.301 MeV	max e : 2.51667 GeV/fm^3	max s : 14.2502 fm^-3
+[ 342 mins. ] 	[ tau : 6.04 fm ] 	[ 282/1480 ]	max T : 204.999 MeV	max e : 2.49537 GeV/fm^3	max s : 14.1464 fm^-3
+[ 343 mins. ] 	[ tau : 6.06 fm ] 	[ 283/1480 ]	max T : 204.698 MeV	max e : 2.47426 GeV/fm^3	max s : 14.0434 fm^-3
+[ 345 mins. ] 	[ tau : 6.08 fm ] 	[ 284/1480 ]	max T : 204.399 MeV	max e : 2.45334 GeV/fm^3	max s : 13.9411 fm^-3
+[ 346 mins. ] 	[ tau : 6.10 fm ] 	[ 285/1480 ]	max T : 204.101 MeV	max e : 2.4326 GeV/fm^3	max s : 13.8395 fm^-3
+[ 347 mins. ] 	[ tau : 6.12 fm ] 	[ 286/1480 ]	max T : 203.806 MeV	max e : 2.41203 GeV/fm^3	max s : 13.7387 fm^-3
+[ 348 mins. ] 	[ tau : 6.14 fm ] 	[ 287/1480 ]	max T : 203.512 MeV	max e : 2.39165 GeV/fm^3	max s : 13.6386 fm^-3
+[ 350 mins. ] 	[ tau : 6.16 fm ] 	[ 288/1480 ]	max T : 203.219 MeV	max e : 2.37145 GeV/fm^3	max s : 13.5393 fm^-3
+[ 351 mins. ] 	[ tau : 6.18 fm ] 	[ 289/1480 ]	
+saving for time=6.2 evolution step=290, 30 step saved
+
+max T : 202.929 MeV	max e : 2.35142 GeV/fm^3	max s : 13.4406 fm^-3
+[ 352 mins. ] 	[ tau : 6.20 fm ] 	[ 290/1480 ]	max T : 202.64 MeV	max e : 2.33156 GeV/fm^3	max s : 13.3427 fm^-3
+[ 354 mins. ] 	[ tau : 6.22 fm ] 	[ 291/1480 ]	max T : 202.352 MeV	max e : 2.31189 GeV/fm^3	max s : 13.2456 fm^-3
+[ 355 mins. ] 	[ tau : 6.24 fm ] 	[ 292/1480 ]	max T : 202.067 MeV	max e : 2.29238 GeV/fm^3	max s : 13.1491 fm^-3
+[ 356 mins. ] 	[ tau : 6.26 fm ] 	[ 293/1480 ]	max T : 201.783 MeV	max e : 2.27304 GeV/fm^3	max s : 13.0533 fm^-3
+[ 357 mins. ] 	[ tau : 6.28 fm ] 	[ 294/1480 ]	max T : 201.501 MeV	max e : 2.25387 GeV/fm^3	max s : 12.9583 fm^-3
+[ 359 mins. ] 	[ tau : 6.30 fm ] 	[ 295/1480 ]	max T : 201.221 MeV	max e : 2.23487 GeV/fm^3	max s : 12.8639 fm^-3
+[ 360 mins. ] 	[ tau : 6.32 fm ] 	[ 296/1480 ]	max T : 200.942 MeV	max e : 2.21604 GeV/fm^3	max s : 12.7702 fm^-3
+[ 361 mins. ] 	[ tau : 6.34 fm ] 	[ 297/1480 ]	max T : 200.665 MeV	max e : 2.19737 GeV/fm^3	max s : 12.6773 fm^-3
+[ 363 mins. ] 	[ tau : 6.36 fm ] 	[ 298/1480 ]	max T : 200.389 MeV	max e : 2.17886 GeV/fm^3	max s : 12.585 fm^-3
+[ 364 mins. ] 	[ tau : 6.38 fm ] 	[ 299/1480 ]	
+saving for time=6.4 evolution step=300, 31 step saved
+
+max T : 200.115 MeV	max e : 2.16052 GeV/fm^3	max s : 12.4934 fm^-3
+[ 365 mins. ] 	[ tau : 6.40 fm ] 	[ 300/1480 ]	max T : 199.843 MeV	max e : 2.14234 GeV/fm^3	max s : 12.4025 fm^-3
+[ 366 mins. ] 	[ tau : 6.42 fm ] 	[ 301/1480 ]	max T : 199.573 MeV	max e : 2.12431 GeV/fm^3	max s : 12.3122 fm^-3
+[ 368 mins. ] 	[ tau : 6.44 fm ] 	[ 302/1480 ]	max T : 199.304 MeV	max e : 2.10645 GeV/fm^3	max s : 12.2226 fm^-3
+[ 369 mins. ] 	[ tau : 6.46 fm ] 	[ 303/1480 ]	max T : 199.036 MeV	max e : 2.08874 GeV/fm^3	max s : 12.1337 fm^-3
+[ 370 mins. ] 	[ tau : 6.48 fm ] 	[ 304/1480 ]	max T : 198.771 MeV	max e : 2.07119 GeV/fm^3	max s : 12.0455 fm^-3
+[ 372 mins. ] 	[ tau : 6.50 fm ] 	[ 305/1480 ]	max T : 198.507 MeV	max e : 2.05379 GeV/fm^3	max s : 11.9579 fm^-3
+[ 373 mins. ] 	[ tau : 6.52 fm ] 	[ 306/1480 ]	max T : 198.244 MeV	max e : 2.03654 GeV/fm^3	max s : 11.871 fm^-3
+[ 374 mins. ] 	[ tau : 6.54 fm ] 	[ 307/1480 ]	max T : 197.984 MeV	max e : 2.01945 GeV/fm^3	max s : 11.7847 fm^-3
+[ 375 mins. ] 	[ tau : 6.56 fm ] 	[ 308/1480 ]	max T : 197.724 MeV	max e : 2.00251 GeV/fm^3	max s : 11.699 fm^-3
+[ 377 mins. ] 	[ tau : 6.58 fm ] 	[ 309/1480 ]	
+saving for time=6.6 evolution step=310, 32 step saved
+
+max T : 197.467 MeV	max e : 1.98571 GeV/fm^3	max s : 11.614 fm^-3
+[ 378 mins. ] 	[ tau : 6.60 fm ] 	[ 310/1480 ]	max T : 197.21 MeV	max e : 1.96906 GeV/fm^3	max s : 11.5297 fm^-3
+[ 379 mins. ] 	[ tau : 6.62 fm ] 	[ 311/1480 ]	max T : 196.956 MeV	max e : 1.95256 GeV/fm^3	max s : 11.4459 fm^-3
+[ 381 mins. ] 	[ tau : 6.64 fm ] 	[ 312/1480 ]	max T : 196.703 MeV	max e : 1.93621 GeV/fm^3	max s : 11.3628 fm^-3
+[ 382 mins. ] 	[ tau : 6.66 fm ] 	[ 313/1480 ]	max T : 196.452 MeV	max e : 1.91999 GeV/fm^3	max s : 11.2804 fm^-3
+[ 383 mins. ] 	[ tau : 6.68 fm ] 	[ 314/1480 ]	max T : 196.202 MeV	max e : 1.90392 GeV/fm^3	max s : 11.1985 fm^-3
+[ 384 mins. ] 	[ tau : 6.70 fm ] 	[ 315/1480 ]	max T : 195.953 MeV	max e : 1.888 GeV/fm^3	max s : 11.1173 fm^-3
+[ 386 mins. ] 	[ tau : 6.72 fm ] 	[ 316/1480 ]	max T : 195.706 MeV	max e : 1.87221 GeV/fm^3	max s : 11.0367 fm^-3
+[ 387 mins. ] 	[ tau : 6.74 fm ] 	[ 317/1480 ]	max T : 195.461 MeV	max e : 1.85656 GeV/fm^3	max s : 10.9567 fm^-3
+[ 388 mins. ] 	[ tau : 6.76 fm ] 	[ 318/1480 ]	max T : 195.217 MeV	max e : 1.84105 GeV/fm^3	max s : 10.8773 fm^-3
+[ 389 mins. ] 	[ tau : 6.78 fm ] 	[ 319/1480 ]	
+saving for time=6.8 evolution step=320, 33 step saved
+
+max T : 194.975 MeV	max e : 1.82568 GeV/fm^3	max s : 10.7985 fm^-3
+[ 391 mins. ] 	[ tau : 6.80 fm ] 	[ 320/1480 ]	max T : 194.734 MeV	max e : 1.81044 GeV/fm^3	max s : 10.7203 fm^-3
+[ 392 mins. ] 	[ tau : 6.82 fm ] 	[ 321/1480 ]	max T : 194.494 MeV	max e : 1.79534 GeV/fm^3	max s : 10.6427 fm^-3
+[ 393 mins. ] 	[ tau : 6.84 fm ] 	[ 322/1480 ]	max T : 194.256 MeV	max e : 1.78037 GeV/fm^3	max s : 10.5657 fm^-3
+[ 394 mins. ] 	[ tau : 6.86 fm ] 	[ 323/1480 ]	max T : 194.02 MeV	max e : 1.76553 GeV/fm^3	max s : 10.4892 fm^-3
+[ 396 mins. ] 	[ tau : 6.88 fm ] 	[ 324/1480 ]	max T : 193.784 MeV	max e : 1.75082 GeV/fm^3	max s : 10.4134 fm^-3
+[ 397 mins. ] 	[ tau : 6.90 fm ] 	[ 325/1480 ]	max T : 193.551 MeV	max e : 1.73625 GeV/fm^3	max s : 10.3381 fm^-3
+[ 398 mins. ] 	[ tau : 6.92 fm ] 	[ 326/1480 ]	max T : 193.318 MeV	max e : 1.7218 GeV/fm^3	max s : 10.2634 fm^-3
+[ 399 mins. ] 	[ tau : 6.94 fm ] 	[ 327/1480 ]	max T : 193.087 MeV	max e : 1.70748 GeV/fm^3	max s : 10.1893 fm^-3
+[ 401 mins. ] 	[ tau : 6.96 fm ] 	[ 328/1480 ]	max T : 192.858 MeV	max e : 1.69329 GeV/fm^3	max s : 10.1158 fm^-3
+[ 402 mins. ] 	[ tau : 6.98 fm ] 	[ 329/1480 ]	
+saving for time=7 evolution step=330, 34 step saved
+
+max T : 192.629 MeV	max e : 1.67922 GeV/fm^3	max s : 10.0428 fm^-3
+[ 403 mins. ] 	[ tau : 7.00 fm ] 	[ 330/1480 ]	max T : 192.403 MeV	max e : 1.66528 GeV/fm^3	max s : 9.97037 fm^-3
+[ 404 mins. ] 	[ tau : 7.02 fm ] 	[ 331/1480 ]	max T : 192.177 MeV	max e : 1.65146 GeV/fm^3	max s : 9.8985 fm^-3
+[ 406 mins. ] 	[ tau : 7.04 fm ] 	[ 332/1480 ]	max T : 191.953 MeV	max e : 1.63777 GeV/fm^3	max s : 9.82721 fm^-3
+[ 407 mins. ] 	[ tau : 7.06 fm ] 	[ 333/1480 ]	max T : 191.73 MeV	max e : 1.62419 GeV/fm^3	max s : 9.75645 fm^-3
+[ 408 mins. ] 	[ tau : 7.08 fm ] 	[ 334/1480 ]	max T : 191.508 MeV	max e : 1.61074 GeV/fm^3	max s : 9.68623 fm^-3
+[ 410 mins. ] 	[ tau : 7.10 fm ] 	[ 335/1480 ]	max T : 191.288 MeV	max e : 1.59741 GeV/fm^3	max s : 9.61656 fm^-3
+[ 411 mins. ] 	[ tau : 7.12 fm ] 	[ 336/1480 ]	max T : 191.068 MeV	max e : 1.58419 GeV/fm^3	max s : 9.54744 fm^-3
+[ 412 mins. ] 	[ tau : 7.14 fm ] 	[ 337/1480 ]	max T : 190.85 MeV	max e : 1.57109 GeV/fm^3	max s : 9.47883 fm^-3
+[ 413 mins. ] 	[ tau : 7.16 fm ] 	[ 338/1480 ]	max T : 190.634 MeV	max e : 1.55811 GeV/fm^3	max s : 9.41078 fm^-3
+[ 415 mins. ] 	[ tau : 7.18 fm ] 	[ 339/1480 ]	
+saving for time=7.2 evolution step=340, 35 step saved
+
+max T : 190.418 MeV	max e : 1.54524 GeV/fm^3	max s : 9.34324 fm^-3
+[ 416 mins. ] 	[ tau : 7.20 fm ] 	[ 340/1480 ]	max T : 190.204 MeV	max e : 1.53249 GeV/fm^3	max s : 9.27622 fm^-3
+[ 417 mins. ] 	[ tau : 7.22 fm ] 	[ 341/1480 ]	max T : 189.991 MeV	max e : 1.51985 GeV/fm^3	max s : 9.20975 fm^-3
+[ 418 mins. ] 	[ tau : 7.24 fm ] 	[ 342/1480 ]	max T : 189.779 MeV	max e : 1.50732 GeV/fm^3	max s : 9.14376 fm^-3
+[ 420 mins. ] 	[ tau : 7.26 fm ] 	[ 343/1480 ]	max T : 189.568 MeV	max e : 1.4949 GeV/fm^3	max s : 9.0783 fm^-3
+[ 421 mins. ] 	[ tau : 7.28 fm ] 	[ 344/1480 ]	max T : 189.359 MeV	max e : 1.4826 GeV/fm^3	max s : 9.01336 fm^-3
+[ 422 mins. ] 	[ tau : 7.30 fm ] 	[ 345/1480 ]	max T : 189.15 MeV	max e : 1.4704 GeV/fm^3	max s : 8.9489 fm^-3
+[ 423 mins. ] 	[ tau : 7.32 fm ] 	[ 346/1480 ]	max T : 188.942 MeV	max e : 1.45831 GeV/fm^3	max s : 8.88497 fm^-3
+[ 425 mins. ] 	[ tau : 7.34 fm ] 	[ 347/1480 ]	max T : 188.736 MeV	max e : 1.44633 GeV/fm^3	max s : 8.82152 fm^-3
+[ 426 mins. ] 	[ tau : 7.36 fm ] 	[ 348/1480 ]	max T : 188.53 MeV	max e : 1.43446 GeV/fm^3	max s : 8.75857 fm^-3
+[ 427 mins. ] 	[ tau : 7.38 fm ] 	[ 349/1480 ]	
+saving for time=7.4 evolution step=350, 36 step saved
+
+max T : 188.326 MeV	max e : 1.42269 GeV/fm^3	max s : 8.69613 fm^-3
+[ 429 mins. ] 	[ tau : 7.40 fm ] 	[ 350/1480 ]	max T : 188.123 MeV	max e : 1.41103 GeV/fm^3	max s : 8.63415 fm^-3
+[ 430 mins. ] 	[ tau : 7.42 fm ] 	[ 351/1480 ]	max T : 187.921 MeV	max e : 1.39947 GeV/fm^3	max s : 8.57269 fm^-3
+[ 431 mins. ] 	[ tau : 7.44 fm ] 	[ 352/1480 ]	max T : 187.719 MeV	max e : 1.38801 GeV/fm^3	max s : 8.51167 fm^-3
+[ 432 mins. ] 	[ tau : 7.46 fm ] 	[ 353/1480 ]	max T : 187.518 MeV	max e : 1.37666 GeV/fm^3	max s : 8.45116 fm^-3
+[ 434 mins. ] 	[ tau : 7.48 fm ] 	[ 354/1480 ]	max T : 187.319 MeV	max e : 1.3654 GeV/fm^3	max s : 8.39111 fm^-3
+[ 435 mins. ] 	[ tau : 7.50 fm ] 	[ 355/1480 ]	max T : 187.12 MeV	max e : 1.35425 GeV/fm^3	max s : 8.33153 fm^-3
+[ 436 mins. ] 	[ tau : 7.52 fm ] 	[ 356/1480 ]	max T : 186.923 MeV	max e : 1.34319 GeV/fm^3	max s : 8.27243 fm^-3
+[ 437 mins. ] 	[ tau : 7.54 fm ] 	[ 357/1480 ]	max T : 186.725 MeV	max e : 1.33224 GeV/fm^3	max s : 8.21377 fm^-3
+[ 439 mins. ] 	[ tau : 7.56 fm ] 	[ 358/1480 ]	max T : 186.53 MeV	max e : 1.32138 GeV/fm^3	max s : 8.15561 fm^-3
+[ 440 mins. ] 	[ tau : 7.58 fm ] 	[ 359/1480 ]	
+saving for time=7.6 evolution step=360, 37 step saved
+
+max T : 186.334 MeV	max e : 1.31062 GeV/fm^3	max s : 8.09786 fm^-3
+[ 441 mins. ] 	[ tau : 7.60 fm ] 	[ 360/1480 ]	max T : 186.14 MeV	max e : 1.29995 GeV/fm^3	max s : 8.04061 fm^-3
+[ 442 mins. ] 	[ tau : 7.62 fm ] 	[ 361/1480 ]	max T : 185.946 MeV	max e : 1.28938 GeV/fm^3	max s : 7.98376 fm^-3
+[ 444 mins. ] 	[ tau : 7.64 fm ] 	[ 362/1480 ]	max T : 185.753 MeV	max e : 1.2789 GeV/fm^3	max s : 7.9274 fm^-3
+[ 445 mins. ] 	[ tau : 7.66 fm ] 	[ 363/1480 ]	max T : 185.56 MeV	max e : 1.26852 GeV/fm^3	max s : 7.87145 fm^-3
+[ 446 mins. ] 	[ tau : 7.68 fm ] 	[ 364/1480 ]	max T : 185.369 MeV	max e : 1.25822 GeV/fm^3	max s : 7.81597 fm^-3
+[ 447 mins. ] 	[ tau : 7.70 fm ] 	[ 365/1480 ]	max T : 185.177 MeV	max e : 1.24802 GeV/fm^3	max s : 7.7609 fm^-3
+[ 449 mins. ] 	[ tau : 7.72 fm ] 	[ 366/1480 ]	max T : 184.987 MeV	max e : 1.23791 GeV/fm^3	max s : 7.70629 fm^-3
+[ 450 mins. ] 	[ tau : 7.74 fm ] 	[ 367/1480 ]	max T : 184.797 MeV	max e : 1.22789 GeV/fm^3	max s : 7.65208 fm^-3
+[ 451 mins. ] 	[ tau : 7.76 fm ] 	[ 368/1480 ]	max T : 184.608 MeV	max e : 1.21796 GeV/fm^3	max s : 7.59832 fm^-3
+[ 452 mins. ] 	[ tau : 7.78 fm ] 	[ 369/1480 ]	
+saving for time=7.8 evolution step=370, 38 step saved
+
+max T : 184.419 MeV	max e : 1.20812 GeV/fm^3	max s : 7.54496 fm^-3
+[ 454 mins. ] 	[ tau : 7.80 fm ] 	[ 370/1480 ]	max T : 184.231 MeV	max e : 1.19836 GeV/fm^3	max s : 7.49205 fm^-3
+[ 455 mins. ] 	[ tau : 7.82 fm ] 	[ 371/1480 ]	max T : 184.042 MeV	max e : 1.18869 GeV/fm^3	max s : 7.43952 fm^-3
+[ 456 mins. ] 	[ tau : 7.84 fm ] 	[ 372/1480 ]	max T : 183.855 MeV	max e : 1.17911 GeV/fm^3	max s : 7.38744 fm^-3
+[ 457 mins. ] 	[ tau : 7.86 fm ] 	[ 373/1480 ]	max T : 183.667 MeV	max e : 1.16961 GeV/fm^3	max s : 7.33574 fm^-3
+[ 458 mins. ] 	[ tau : 7.88 fm ] 	[ 374/1480 ]	max T : 183.481 MeV	max e : 1.1602 GeV/fm^3	max s : 7.28448 fm^-3
+[ 460 mins. ] 	[ tau : 7.90 fm ] 	[ 375/1480 ]	max T : 183.294 MeV	max e : 1.15087 GeV/fm^3	max s : 7.23357 fm^-3
+[ 461 mins. ] 	[ tau : 7.92 fm ] 	[ 376/1480 ]	max T : 183.108 MeV	max e : 1.14162 GeV/fm^3	max s : 7.18312 fm^-3
+[ 462 mins. ] 	[ tau : 7.94 fm ] 	[ 377/1480 ]	max T : 182.922 MeV	max e : 1.13245 GeV/fm^3	max s : 7.13301 fm^-3
+[ 463 mins. ] 	[ tau : 7.96 fm ] 	[ 378/1480 ]	max T : 182.737 MeV	max e : 1.12337 GeV/fm^3	max s : 7.08334 fm^-3
+[ 465 mins. ] 	[ tau : 7.98 fm ] 	[ 379/1480 ]	
+saving for time=8 evolution step=380, 39 step saved
+
+max T : 182.551 MeV	max e : 1.11436 GeV/fm^3	max s : 7.03402 fm^-3
+[ 466 mins. ] 	[ tau : 8.00 fm ] 	[ 380/1480 ]	max T : 182.367 MeV	max e : 1.10544 GeV/fm^3	max s : 6.98511 fm^-3
+[ 467 mins. ] 	[ tau : 8.02 fm ] 	[ 381/1480 ]	max T : 182.182 MeV	max e : 1.09659 GeV/fm^3	max s : 6.93658 fm^-3
+[ 468 mins. ] 	[ tau : 8.04 fm ] 	[ 382/1480 ]	max T : 181.998 MeV	max e : 1.08783 GeV/fm^3	max s : 6.88842 fm^-3
+[ 469 mins. ] 	[ tau : 8.06 fm ] 	[ 383/1480 ]	max T : 181.815 MeV	max e : 1.07914 GeV/fm^3	max s : 6.84067 fm^-3
+[ 471 mins. ] 	[ tau : 8.08 fm ] 	[ 384/1480 ]	max T : 181.63 MeV	max e : 1.07052 GeV/fm^3	max s : 6.79325 fm^-3
+[ 472 mins. ] 	[ tau : 8.10 fm ] 	[ 385/1480 ]	max T : 181.448 MeV	max e : 1.06198 GeV/fm^3	max s : 6.74625 fm^-3
+[ 473 mins. ] 	[ tau : 8.12 fm ] 	[ 386/1480 ]	max T : 181.265 MeV	max e : 1.05352 GeV/fm^3	max s : 6.69956 fm^-3
+[ 474 mins. ] 	[ tau : 8.14 fm ] 	[ 387/1480 ]	max T : 181.082 MeV	max e : 1.04514 GeV/fm^3	max s : 6.65328 fm^-3
+[ 475 mins. ] 	[ tau : 8.16 fm ] 	[ 388/1480 ]	max T : 180.9 MeV	max e : 1.03682 GeV/fm^3	max s : 6.60735 fm^-3
+[ 477 mins. ] 	[ tau : 8.18 fm ] 	[ 389/1480 ]	
+saving for time=8.2 evolution step=390, 40 step saved
+
+max T : 180.718 MeV	max e : 1.02858 GeV/fm^3	max s : 6.56176 fm^-3
+[ 478 mins. ] 	[ tau : 8.20 fm ] 	[ 390/1480 ]	max T : 180.537 MeV	max e : 1.02041 GeV/fm^3	max s : 6.51658 fm^-3
+[ 479 mins. ] 	[ tau : 8.22 fm ] 	[ 391/1480 ]	max T : 180.355 MeV	max e : 1.01232 GeV/fm^3	max s : 6.47168 fm^-3
+[ 480 mins. ] 	[ tau : 8.24 fm ] 	[ 392/1480 ]	max T : 180.175 MeV	max e : 1.00429 GeV/fm^3	max s : 6.42718 fm^-3
+[ 482 mins. ] 	[ tau : 8.26 fm ] 	[ 393/1480 ]	max T : 179.995 MeV	max e : 0.996341 GeV/fm^3	max s : 6.38304 fm^-3
+[ 483 mins. ] 	[ tau : 8.28 fm ] 	[ 394/1480 ]	max T : 179.815 MeV	max e : 0.988457 GeV/fm^3	max s : 6.33921 fm^-3
+[ 484 mins. ] 	[ tau : 8.30 fm ] 	[ 395/1480 ]	max T : 179.635 MeV	max e : 0.980643 GeV/fm^3	max s : 6.29573 fm^-3
+[ 485 mins. ] 	[ tau : 8.32 fm ] 	[ 396/1480 ]	max T : 179.456 MeV	max e : 0.972897 GeV/fm^3	max s : 6.25259 fm^-3
+[ 486 mins. ] 	[ tau : 8.34 fm ] 	[ 397/1480 ]	max T : 179.276 MeV	max e : 0.965219 GeV/fm^3	max s : 6.20979 fm^-3
+[ 488 mins. ] 	[ tau : 8.36 fm ] 	[ 398/1480 ]	max T : 179.098 MeV	max e : 0.957609 GeV/fm^3	max s : 6.16732 fm^-3
+[ 489 mins. ] 	[ tau : 8.38 fm ] 	[ 399/1480 ]	
+saving for time=8.4 evolution step=400, 41 step saved
+
+max T : 178.919 MeV	max e : 0.950065 GeV/fm^3	max s : 6.12517 fm^-3
+[ 490 mins. ] 	[ tau : 8.40 fm ] 	[ 400/1480 ]	max T : 178.741 MeV	max e : 0.942587 GeV/fm^3	max s : 6.08336 fm^-3
+[ 491 mins. ] 	[ tau : 8.42 fm ] 	[ 401/1480 ]	max T : 178.563 MeV	max e : 0.935175 GeV/fm^3	max s : 6.04187 fm^-3
+[ 493 mins. ] 	[ tau : 8.44 fm ] 	[ 402/1480 ]	max T : 178.385 MeV	max e : 0.927828 GeV/fm^3	max s : 6.0007 fm^-3
+[ 494 mins. ] 	[ tau : 8.46 fm ] 	[ 403/1480 ]	max T : 178.208 MeV	max e : 0.920545 GeV/fm^3	max s : 5.95986 fm^-3
+[ 495 mins. ] 	[ tau : 8.48 fm ] 	[ 404/1480 ]	max T : 178.031 MeV	max e : 0.913326 GeV/fm^3	max s : 5.91933 fm^-3
+[ 496 mins. ] 	[ tau : 8.50 fm ] 	[ 405/1480 ]	max T : 177.855 MeV	max e : 0.90617 GeV/fm^3	max s : 5.87911 fm^-3
+[ 498 mins. ] 	[ tau : 8.52 fm ] 	[ 406/1480 ]	max T : 177.679 MeV	max e : 0.899077 GeV/fm^3	max s : 5.83921 fm^-3
+[ 499 mins. ] 	[ tau : 8.54 fm ] 	[ 407/1480 ]	max T : 177.503 MeV	max e : 0.892045 GeV/fm^3	max s : 5.79962 fm^-3
+[ 500 mins. ] 	[ tau : 8.56 fm ] 	[ 408/1480 ]	max T : 177.327 MeV	max e : 0.885075 GeV/fm^3	max s : 5.76033 fm^-3
+[ 501 mins. ] 	[ tau : 8.58 fm ] 	[ 409/1480 ]	
+saving for time=8.6 evolution step=410, 42 step saved
+
+max T : 177.152 MeV	max e : 0.878166 GeV/fm^3	max s : 5.72135 fm^-3
+[ 503 mins. ] 	[ tau : 8.60 fm ] 	[ 410/1480 ]	max T : 176.977 MeV	max e : 0.871317 GeV/fm^3	max s : 5.68267 fm^-3
+[ 504 mins. ] 	[ tau : 8.62 fm ] 	[ 411/1480 ]	max T : 176.802 MeV	max e : 0.864527 GeV/fm^3	max s : 5.64428 fm^-3
+[ 505 mins. ] 	[ tau : 8.64 fm ] 	[ 412/1480 ]	max T : 176.628 MeV	max e : 0.857797 GeV/fm^3	max s : 5.6062 fm^-3
+[ 506 mins. ] 	[ tau : 8.66 fm ] 	[ 413/1480 ]	max T : 176.454 MeV	max e : 0.851126 GeV/fm^3	max s : 5.56841 fm^-3
+[ 507 mins. ] 	[ tau : 8.68 fm ] 	[ 414/1480 ]	max T : 176.28 MeV	max e : 0.844512 GeV/fm^3	max s : 5.53091 fm^-3
+[ 509 mins. ] 	[ tau : 8.70 fm ] 	[ 415/1480 ]	max T : 176.107 MeV	max e : 0.837956 GeV/fm^3	max s : 5.4937 fm^-3
+[ 510 mins. ] 	[ tau : 8.72 fm ] 	[ 416/1480 ]	max T : 175.934 MeV	max e : 0.831457 GeV/fm^3	max s : 5.45678 fm^-3
+[ 511 mins. ] 	[ tau : 8.74 fm ] 	[ 417/1480 ]	max T : 175.761 MeV	max e : 0.825014 GeV/fm^3	max s : 5.42014 fm^-3
+[ 512 mins. ] 	[ tau : 8.76 fm ] 	[ 418/1480 ]	max T : 175.589 MeV	max e : 0.818627 GeV/fm^3	max s : 5.38378 fm^-3
+[ 514 mins. ] 	[ tau : 8.78 fm ] 	[ 419/1480 ]	
+saving for time=8.8 evolution step=420, 43 step saved
+
+max T : 175.417 MeV	max e : 0.812296 GeV/fm^3	max s : 5.34771 fm^-3
+[ 515 mins. ] 	[ tau : 8.80 fm ] 	[ 420/1480 ]	max T : 175.245 MeV	max e : 0.80602 GeV/fm^3	max s : 5.31191 fm^-3
+[ 516 mins. ] 	[ tau : 8.82 fm ] 	[ 421/1480 ]	max T : 175.073 MeV	max e : 0.799798 GeV/fm^3	max s : 5.27639 fm^-3
+[ 517 mins. ] 	[ tau : 8.84 fm ] 	[ 422/1480 ]	max T : 174.902 MeV	max e : 0.79363 GeV/fm^3	max s : 5.24114 fm^-3
+[ 518 mins. ] 	[ tau : 8.86 fm ] 	[ 423/1480 ]	max T : 174.731 MeV	max e : 0.787515 GeV/fm^3	max s : 5.20616 fm^-3
+[ 520 mins. ] 	[ tau : 8.88 fm ] 	[ 424/1480 ]	max T : 174.561 MeV	max e : 0.781453 GeV/fm^3	max s : 5.17145 fm^-3
+[ 521 mins. ] 	[ tau : 8.90 fm ] 	[ 425/1480 ]	max T : 174.391 MeV	max e : 0.775444 GeV/fm^3	max s : 5.13701 fm^-3
+[ 522 mins. ] 	[ tau : 8.92 fm ] 	[ 426/1480 ]	max T : 174.221 MeV	max e : 0.769486 GeV/fm^3	max s : 5.10283 fm^-3
+[ 523 mins. ] 	[ tau : 8.94 fm ] 	[ 427/1480 ]	max T : 174.051 MeV	max e : 0.76358 GeV/fm^3	max s : 5.06892 fm^-3
+[ 525 mins. ] 	[ tau : 8.96 fm ] 	[ 428/1480 ]	max T : 173.882 MeV	max e : 0.757725 GeV/fm^3	max s : 5.03526 fm^-3
+[ 526 mins. ] 	[ tau : 8.98 fm ] 	[ 429/1480 ]	
+saving for time=9 evolution step=430, 44 step saved
+
+max T : 173.713 MeV	max e : 0.75192 GeV/fm^3	max s : 5.00186 fm^-3
+[ 527 mins. ] 	[ tau : 9.00 fm ] 	[ 430/1480 ]	max T : 173.544 MeV	max e : 0.746166 GeV/fm^3	max s : 4.96872 fm^-3
+[ 528 mins. ] 	[ tau : 9.02 fm ] 	[ 431/1480 ]	max T : 173.376 MeV	max e : 0.74046 GeV/fm^3	max s : 4.93583 fm^-3
+[ 530 mins. ] 	[ tau : 9.04 fm ] 	[ 432/1480 ]	max T : 173.208 MeV	max e : 0.734804 GeV/fm^3	max s : 4.90319 fm^-3
+[ 531 mins. ] 	[ tau : 9.06 fm ] 	[ 433/1480 ]	max T : 173.04 MeV	max e : 0.729197 GeV/fm^3	max s : 4.8708 fm^-3
+[ 532 mins. ] 	[ tau : 9.08 fm ] 	[ 434/1480 ]	max T : 172.872 MeV	max e : 0.723638 GeV/fm^3	max s : 4.83866 fm^-3
+[ 533 mins. ] 	[ tau : 9.10 fm ] 	[ 435/1480 ]	max T : 172.705 MeV	max e : 0.718126 GeV/fm^3	max s : 4.80676 fm^-3
+[ 534 mins. ] 	[ tau : 9.12 fm ] 	[ 436/1480 ]	max T : 172.538 MeV	max e : 0.712662 GeV/fm^3	max s : 4.7751 fm^-3
+[ 536 mins. ] 	[ tau : 9.14 fm ] 	[ 437/1480 ]	max T : 172.372 MeV	max e : 0.707245 GeV/fm^3	max s : 4.74369 fm^-3
+[ 537 mins. ] 	[ tau : 9.16 fm ] 	[ 438/1480 ]	max T : 172.206 MeV	max e : 0.701874 GeV/fm^3	max s : 4.71252 fm^-3
+[ 538 mins. ] 	[ tau : 9.18 fm ] 	[ 439/1480 ]	
+saving for time=9.2 evolution step=440, 45 step saved
+
+max T : 172.04 MeV	max e : 0.696549 GeV/fm^3	max s : 4.68158 fm^-3
+[ 539 mins. ] 	[ tau : 9.20 fm ] 	[ 440/1480 ]	max T : 171.874 MeV	max e : 0.69127 GeV/fm^3	max s : 4.65088 fm^-3
+[ 540 mins. ] 	[ tau : 9.22 fm ] 	[ 441/1480 ]	max T : 171.709 MeV	max e : 0.686036 GeV/fm^3	max s : 4.62041 fm^-3
+[ 542 mins. ] 	[ tau : 9.24 fm ] 	[ 442/1480 ]	max T : 171.544 MeV	max e : 0.680846 GeV/fm^3	max s : 4.59018 fm^-3
+[ 543 mins. ] 	[ tau : 9.26 fm ] 	[ 443/1480 ]	max T : 171.379 MeV	max e : 0.675701 GeV/fm^3	max s : 4.56017 fm^-3
+[ 544 mins. ] 	[ tau : 9.28 fm ] 	[ 444/1480 ]	max T : 171.214 MeV	max e : 0.6706 GeV/fm^3	max s : 4.53039 fm^-3
+[ 545 mins. ] 	[ tau : 9.30 fm ] 	[ 445/1480 ]	max T : 171.05 MeV	max e : 0.665542 GeV/fm^3	max s : 4.50083 fm^-3
+[ 546 mins. ] 	[ tau : 9.32 fm ] 	[ 446/1480 ]	max T : 170.886 MeV	max e : 0.660528 GeV/fm^3	max s : 4.4715 fm^-3
+[ 548 mins. ] 	[ tau : 9.34 fm ] 	[ 447/1480 ]	max T : 170.723 MeV	max e : 0.655556 GeV/fm^3	max s : 4.4424 fm^-3
+[ 549 mins. ] 	[ tau : 9.36 fm ] 	[ 448/1480 ]	max T : 170.56 MeV	max e : 0.650627 GeV/fm^3	max s : 4.41351 fm^-3
+[ 550 mins. ] 	[ tau : 9.38 fm ] 	[ 449/1480 ]	
+saving for time=9.4 evolution step=450, 46 step saved
+
+max T : 170.397 MeV	max e : 0.645739 GeV/fm^3	max s : 4.38484 fm^-3
+[ 551 mins. ] 	[ tau : 9.40 fm ] 	[ 450/1480 ]	max T : 170.234 MeV	max e : 0.640893 GeV/fm^3	max s : 4.35639 fm^-3
+[ 552 mins. ] 	[ tau : 9.42 fm ] 	[ 451/1480 ]	max T : 170.072 MeV	max e : 0.636088 GeV/fm^3	max s : 4.32815 fm^-3
+[ 554 mins. ] 	[ tau : 9.44 fm ] 	[ 452/1480 ]	max T : 169.909 MeV	max e : 0.631324 GeV/fm^3	max s : 4.30012 fm^-3
+[ 555 mins. ] 	[ tau : 9.46 fm ] 	[ 453/1480 ]	max T : 169.748 MeV	max e : 0.6266 GeV/fm^3	max s : 4.27231 fm^-3
+[ 556 mins. ] 	[ tau : 9.48 fm ] 	[ 454/1480 ]	max T : 169.586 MeV	max e : 0.621916 GeV/fm^3	max s : 4.2447 fm^-3
+[ 557 mins. ] 	[ tau : 9.50 fm ] 	[ 455/1480 ]	max T : 169.425 MeV	max e : 0.617272 GeV/fm^3	max s : 4.2173 fm^-3
+[ 558 mins. ] 	[ tau : 9.52 fm ] 	[ 456/1480 ]	max T : 169.264 MeV	max e : 0.612668 GeV/fm^3	max s : 4.19011 fm^-3
+[ 560 mins. ] 	[ tau : 9.54 fm ] 	[ 457/1480 ]	max T : 169.103 MeV	max e : 0.608102 GeV/fm^3	max s : 4.16312 fm^-3
+[ 561 mins. ] 	[ tau : 9.56 fm ] 	[ 458/1480 ]	max T : 168.943 MeV	max e : 0.603574 GeV/fm^3	max s : 4.13634 fm^-3
+[ 562 mins. ] 	[ tau : 9.58 fm ] 	[ 459/1480 ]	
+saving for time=9.6 evolution step=460, 47 step saved
+
+max T : 168.783 MeV	max e : 0.599085 GeV/fm^3	max s : 4.10976 fm^-3
+[ 563 mins. ] 	[ tau : 9.60 fm ] 	[ 460/1480 ]	max T : 168.623 MeV	max e : 0.594634 GeV/fm^3	max s : 4.08337 fm^-3
+[ 564 mins. ] 	[ tau : 9.62 fm ] 	[ 461/1480 ]	max T : 168.464 MeV	max e : 0.590221 GeV/fm^3	max s : 4.05718 fm^-3
+[ 566 mins. ] 	[ tau : 9.64 fm ] 	[ 462/1480 ]	max T : 168.304 MeV	max e : 0.585844 GeV/fm^3	max s : 4.03119 fm^-3
+[ 567 mins. ] 	[ tau : 9.66 fm ] 	[ 463/1480 ]	max T : 168.145 MeV	max e : 0.581504 GeV/fm^3	max s : 4.0054 fm^-3
+[ 568 mins. ] 	[ tau : 9.68 fm ] 	[ 464/1480 ]	max T : 167.987 MeV	max e : 0.577201 GeV/fm^3	max s : 3.97979 fm^-3
+[ 569 mins. ] 	[ tau : 9.70 fm ] 	[ 465/1480 ]	max T : 167.828 MeV	max e : 0.572934 GeV/fm^3	max s : 3.95438 fm^-3
+[ 570 mins. ] 	[ tau : 9.72 fm ] 	[ 466/1480 ]	max T : 167.67 MeV	max e : 0.568703 GeV/fm^3	max s : 3.92916 fm^-3
+[ 572 mins. ] 	[ tau : 9.74 fm ] 	[ 467/1480 ]	max T : 167.512 MeV	max e : 0.564508 GeV/fm^3	max s : 3.90412 fm^-3
+[ 573 mins. ] 	[ tau : 9.76 fm ] 	[ 468/1480 ]	max T : 167.355 MeV	max e : 0.560347 GeV/fm^3	max s : 3.87927 fm^-3
+[ 574 mins. ] 	[ tau : 9.78 fm ] 	[ 469/1480 ]	
+saving for time=9.8 evolution step=470, 48 step saved
+
+max T : 167.198 MeV	max e : 0.556221 GeV/fm^3	max s : 3.85461 fm^-3
+[ 575 mins. ] 	[ tau : 9.80 fm ] 	[ 470/1480 ]	max T : 167.041 MeV	max e : 0.55213 GeV/fm^3	max s : 3.83013 fm^-3
+[ 576 mins. ] 	[ tau : 9.82 fm ] 	[ 471/1480 ]	max T : 166.884 MeV	max e : 0.548073 GeV/fm^3	max s : 3.80583 fm^-3
+[ 577 mins. ] 	[ tau : 9.84 fm ] 	[ 472/1480 ]	max T : 166.728 MeV	max e : 0.54405 GeV/fm^3	max s : 3.78171 fm^-3
+[ 579 mins. ] 	[ tau : 9.86 fm ] 	[ 473/1480 ]	max T : 166.571 MeV	max e : 0.540061 GeV/fm^3	max s : 3.75777 fm^-3
+[ 580 mins. ] 	[ tau : 9.88 fm ] 	[ 474/1480 ]	max T : 166.416 MeV	max e : 0.536105 GeV/fm^3	max s : 3.73401 fm^-3
+[ 581 mins. ] 	[ tau : 9.90 fm ] 	[ 475/1480 ]	max T : 166.26 MeV	max e : 0.532182 GeV/fm^3	max s : 3.71043 fm^-3
+[ 582 mins. ] 	[ tau : 9.92 fm ] 	[ 476/1480 ]	max T : 166.105 MeV	max e : 0.528292 GeV/fm^3	max s : 3.68702 fm^-3
+[ 583 mins. ] 	[ tau : 9.94 fm ] 	[ 477/1480 ]	max T : 165.95 MeV	max e : 0.524434 GeV/fm^3	max s : 3.66378 fm^-3
+[ 585 mins. ] 	[ tau : 9.96 fm ] 	[ 478/1480 ]	max T : 165.795 MeV	max e : 0.520608 GeV/fm^3	max s : 3.64071 fm^-3
+[ 586 mins. ] 	[ tau : 9.98 fm ] 	[ 479/1480 ]	
+saving for time=10 evolution step=480, 49 step saved
+
+max T : 165.64 MeV	max e : 0.516813 GeV/fm^3	max s : 3.61782 fm^-3
+[ 587 mins. ] 	[ tau : 10.00 fm ] 	[ 480/1480 ]	max T : 165.486 MeV	max e : 0.513051 GeV/fm^3	max s : 3.59509 fm^-3
+[ 588 mins. ] 	[ tau : 10.02 fm ] 	[ 481/1480 ]	max T : 165.332 MeV	max e : 0.509319 GeV/fm^3	max s : 3.57253 fm^-3
+[ 589 mins. ] 	[ tau : 10.04 fm ] 	[ 482/1480 ]	max T : 165.178 MeV	max e : 0.505619 GeV/fm^3	max s : 3.55014 fm^-3
+[ 591 mins. ] 	[ tau : 10.06 fm ] 	[ 483/1480 ]	max T : 165.025 MeV	max e : 0.501949 GeV/fm^3	max s : 3.52791 fm^-3
+[ 592 mins. ] 	[ tau : 10.08 fm ] 	[ 484/1480 ]	max T : 164.872 MeV	max e : 0.49831 GeV/fm^3	max s : 3.50585 fm^-3
+[ 593 mins. ] 	[ tau : 10.10 fm ] 	[ 485/1480 ]	max T : 164.719 MeV	max e : 0.4947 GeV/fm^3	max s : 3.48395 fm^-3
+[ 594 mins. ] 	[ tau : 10.12 fm ] 	[ 486/1480 ]	max T : 164.566 MeV	max e : 0.491121 GeV/fm^3	max s : 3.46221 fm^-3
+[ 595 mins. ] 	[ tau : 10.14 fm ] 	[ 487/1480 ]	max T : 164.414 MeV	max e : 0.487571 GeV/fm^3	max s : 3.44062 fm^-3
+[ 597 mins. ] 	[ tau : 10.16 fm ] 	[ 488/1480 ]	max T : 164.262 MeV	max e : 0.48405 GeV/fm^3	max s : 3.4192 fm^-3
+[ 598 mins. ] 	[ tau : 10.18 fm ] 	[ 489/1480 ]	
+saving for time=10.2 evolution step=490, 50 step saved
+
+max T : 164.11 MeV	max e : 0.480558 GeV/fm^3	max s : 3.39793 fm^-3
+[ 599 mins. ] 	[ tau : 10.20 fm ] 	[ 490/1480 ]	max T : 163.959 MeV	max e : 0.477095 GeV/fm^3	max s : 3.37682 fm^-3
+[ 600 mins. ] 	[ tau : 10.22 fm ] 	[ 491/1480 ]	max T : 163.807 MeV	max e : 0.473661 GeV/fm^3	max s : 3.35587 fm^-3
+[ 601 mins. ] 	[ tau : 10.24 fm ] 	[ 492/1480 ]	max T : 163.656 MeV	max e : 0.470255 GeV/fm^3	max s : 3.33506 fm^-3
+[ 603 mins. ] 	[ tau : 10.26 fm ] 	[ 493/1480 ]	max T : 163.505 MeV	max e : 0.466877 GeV/fm^3	max s : 3.31441 fm^-3
+[ 604 mins. ] 	[ tau : 10.28 fm ] 	[ 494/1480 ]	max T : 163.355 MeV	max e : 0.463526 GeV/fm^3	max s : 3.29391 fm^-3
+[ 605 mins. ] 	[ tau : 10.30 fm ] 	[ 495/1480 ]	max T : 163.205 MeV	max e : 0.460203 GeV/fm^3	max s : 3.27356 fm^-3
+[ 606 mins. ] 	[ tau : 10.32 fm ] 	[ 496/1480 ]	max T : 163.055 MeV	max e : 0.456907 GeV/fm^3	max s : 3.25336 fm^-3
+[ 607 mins. ] 	[ tau : 10.34 fm ] 	[ 497/1480 ]	max T : 162.905 MeV	max e : 0.453639 GeV/fm^3	max s : 3.2333 fm^-3
+[ 608 mins. ] 	[ tau : 10.36 fm ] 	[ 498/1480 ]	max T : 162.755 MeV	max e : 0.450396 GeV/fm^3	max s : 3.21339 fm^-3
+[ 610 mins. ] 	[ tau : 10.38 fm ] 	[ 499/1480 ]	
+saving for time=10.4 evolution step=500, 51 step saved
+
+max T : 162.606 MeV	max e : 0.447181 GeV/fm^3	max s : 3.19362 fm^-3
+[ 611 mins. ] 	[ tau : 10.40 fm ] 	[ 500/1480 ]	max T : 162.457 MeV	max e : 0.443992 GeV/fm^3	max s : 3.174 fm^-3
+[ 612 mins. ] 	[ tau : 10.42 fm ] 	[ 501/1480 ]	max T : 162.309 MeV	max e : 0.440828 GeV/fm^3	max s : 3.15452 fm^-3
+[ 613 mins. ] 	[ tau : 10.44 fm ] 	[ 502/1480 ]	max T : 162.16 MeV	max e : 0.437691 GeV/fm^3	max s : 3.13518 fm^-3
+[ 614 mins. ] 	[ tau : 10.46 fm ] 	[ 503/1480 ]	max T : 162.012 MeV	max e : 0.434579 GeV/fm^3	max s : 3.11598 fm^-3
+[ 616 mins. ] 	[ tau : 10.48 fm ] 	[ 504/1480 ]	max T : 161.864 MeV	max e : 0.431492 GeV/fm^3	max s : 3.09692 fm^-3
+[ 617 mins. ] 	[ tau : 10.50 fm ] 	[ 505/1480 ]	max T : 161.716 MeV	max e : 0.428431 GeV/fm^3	max s : 3.078 fm^-3
+[ 618 mins. ] 	[ tau : 10.52 fm ] 	[ 506/1480 ]	max T : 161.569 MeV	max e : 0.425394 GeV/fm^3	max s : 3.05921 fm^-3
+[ 619 mins. ] 	[ tau : 10.54 fm ] 	[ 507/1480 ]	max T : 161.422 MeV	max e : 0.422382 GeV/fm^3	max s : 3.04056 fm^-3
+[ 620 mins. ] 	[ tau : 10.56 fm ] 	[ 508/1480 ]	max T : 161.275 MeV	max e : 0.419395 GeV/fm^3	max s : 3.02205 fm^-3
+[ 622 mins. ] 	[ tau : 10.58 fm ] 	[ 509/1480 ]	
+saving for time=10.6 evolution step=510, 52 step saved
+
+max T : 161.128 MeV	max e : 0.416431 GeV/fm^3	max s : 3.00366 fm^-3
+[ 623 mins. ] 	[ tau : 10.60 fm ] 	[ 510/1480 ]	max T : 160.982 MeV	max e : 0.413492 GeV/fm^3	max s : 2.98541 fm^-3
+[ 624 mins. ] 	[ tau : 10.62 fm ] 	[ 511/1480 ]	max T : 160.835 MeV	max e : 0.410576 GeV/fm^3	max s : 2.96729 fm^-3
+[ 625 mins. ] 	[ tau : 10.64 fm ] 	[ 512/1480 ]	max T : 160.689 MeV	max e : 0.407684 GeV/fm^3	max s : 2.9493 fm^-3
+[ 626 mins. ] 	[ tau : 10.66 fm ] 	[ 513/1480 ]	max T : 160.544 MeV	max e : 0.404816 GeV/fm^3	max s : 2.93144 fm^-3
+[ 628 mins. ] 	[ tau : 10.68 fm ] 	[ 514/1480 ]	max T : 160.398 MeV	max e : 0.40197 GeV/fm^3	max s : 2.91371 fm^-3
+[ 629 mins. ] 	[ tau : 10.70 fm ] 	[ 515/1480 ]	max T : 160.253 MeV	max e : 0.399148 GeV/fm^3	max s : 2.89611 fm^-3
+[ 630 mins. ] 	[ tau : 10.72 fm ] 	[ 516/1480 ]	max T : 160.108 MeV	max e : 0.396348 GeV/fm^3	max s : 2.87863 fm^-3
+[ 631 mins. ] 	[ tau : 10.74 fm ] 	[ 517/1480 ]	max T : 159.963 MeV	max e : 0.39357 GeV/fm^3	max s : 2.86127 fm^-3
+[ 632 mins. ] 	[ tau : 10.76 fm ] 	[ 518/1480 ]	max T : 159.819 MeV	max e : 0.390815 GeV/fm^3	max s : 2.84404 fm^-3
+[ 634 mins. ] 	[ tau : 10.78 fm ] 	[ 519/1480 ]	
+saving for time=10.8 evolution step=520, 53 step saved
+
+max T : 159.675 MeV	max e : 0.388083 GeV/fm^3	max s : 2.82693 fm^-3
+[ 635 mins. ] 	[ tau : 10.80 fm ] 	[ 520/1480 ]	max T : 159.531 MeV	max e : 0.385372 GeV/fm^3	max s : 2.80995 fm^-3
+[ 636 mins. ] 	[ tau : 10.82 fm ] 	[ 521/1480 ]	max T : 159.387 MeV	max e : 0.382682 GeV/fm^3	max s : 2.79308 fm^-3
+[ 637 mins. ] 	[ tau : 10.84 fm ] 	[ 522/1480 ]	max T : 159.243 MeV	max e : 0.380015 GeV/fm^3	max s : 2.77634 fm^-3
+[ 638 mins. ] 	[ tau : 10.86 fm ] 	[ 523/1480 ]	max T : 159.1 MeV	max e : 0.377369 GeV/fm^3	max s : 2.75971 fm^-3
+[ 639 mins. ] 	[ tau : 10.88 fm ] 	[ 524/1480 ]	max T : 158.957 MeV	max e : 0.374743 GeV/fm^3	max s : 2.74321 fm^-3
+[ 641 mins. ] 	[ tau : 10.90 fm ] 	[ 525/1480 ]	max T : 158.814 MeV	max e : 0.372139 GeV/fm^3	max s : 2.72682 fm^-3
+[ 642 mins. ] 	[ tau : 10.92 fm ] 	[ 526/1480 ]	max T : 158.672 MeV	max e : 0.369556 GeV/fm^3	max s : 2.71054 fm^-3
+[ 643 mins. ] 	[ tau : 10.94 fm ] 	[ 527/1480 ]	max T : 158.53 MeV	max e : 0.366993 GeV/fm^3	max s : 2.69438 fm^-3
+[ 644 mins. ] 	[ tau : 10.96 fm ] 	[ 528/1480 ]	max T : 158.387 MeV	max e : 0.364451 GeV/fm^3	max s : 2.67834 fm^-3
+[ 645 mins. ] 	[ tau : 10.98 fm ] 	[ 529/1480 ]	
+saving for time=11 evolution step=530, 54 step saved
+
+max T : 158.246 MeV	max e : 0.361929 GeV/fm^3	max s : 2.66241 fm^-3
+[ 647 mins. ] 	[ tau : 11.00 fm ] 	[ 530/1480 ]	max T : 158.104 MeV	max e : 0.359426 GeV/fm^3	max s : 2.64659 fm^-3
+[ 648 mins. ] 	[ tau : 11.02 fm ] 	[ 531/1480 ]	max T : 157.963 MeV	max e : 0.356944 GeV/fm^3	max s : 2.63088 fm^-3
+[ 649 mins. ] 	[ tau : 11.04 fm ] 	[ 532/1480 ]	max T : 157.821 MeV	max e : 0.354482 GeV/fm^3	max s : 2.61529 fm^-3
+[ 650 mins. ] 	[ tau : 11.06 fm ] 	[ 533/1480 ]	max T : 157.681 MeV	max e : 0.352039 GeV/fm^3	max s : 2.5998 fm^-3
+[ 651 mins. ] 	[ tau : 11.08 fm ] 	[ 534/1480 ]	max T : 157.54 MeV	max e : 0.349615 GeV/fm^3	max s : 2.58442 fm^-3
+[ 653 mins. ] 	[ tau : 11.10 fm ] 	[ 535/1480 ]	max T : 157.4 MeV	max e : 0.347211 GeV/fm^3	max s : 2.56915 fm^-3
+[ 654 mins. ] 	[ tau : 11.12 fm ] 	[ 536/1480 ]	max T : 157.259 MeV	max e : 0.344825 GeV/fm^3	max s : 2.55399 fm^-3
+[ 655 mins. ] 	[ tau : 11.14 fm ] 	[ 537/1480 ]	max T : 157.119 MeV	max e : 0.342459 GeV/fm^3	max s : 2.53894 fm^-3
+[ 656 mins. ] 	[ tau : 11.16 fm ] 	[ 538/1480 ]	max T : 156.98 MeV	max e : 0.340111 GeV/fm^3	max s : 2.52399 fm^-3
+[ 657 mins. ] 	[ tau : 11.18 fm ] 	[ 539/1480 ]	
+saving for time=11.2 evolution step=540, 55 step saved
+
+max T : 156.84 MeV	max e : 0.337782 GeV/fm^3	max s : 2.50914 fm^-3
+[ 659 mins. ] 	[ tau : 11.20 fm ] 	[ 540/1480 ]	max T : 156.701 MeV	max e : 0.335471 GeV/fm^3	max s : 2.4944 fm^-3
+[ 660 mins. ] 	[ tau : 11.22 fm ] 	[ 541/1480 ]	max T : 156.562 MeV	max e : 0.333178 GeV/fm^3	max s : 2.47976 fm^-3
+[ 661 mins. ] 	[ tau : 11.24 fm ] 	[ 542/1480 ]	max T : 156.423 MeV	max e : 0.330903 GeV/fm^3	max s : 2.46523 fm^-3
+[ 662 mins. ] 	[ tau : 11.26 fm ] 	[ 543/1480 ]	max T : 156.284 MeV	max e : 0.328646 GeV/fm^3	max s : 2.45079 fm^-3
+[ 663 mins. ] 	[ tau : 11.28 fm ] 	[ 544/1480 ]	max T : 156.146 MeV	max e : 0.326407 GeV/fm^3	max s : 2.43646 fm^-3
+[ 664 mins. ] 	[ tau : 11.30 fm ] 	[ 545/1480 ]	max T : 156.008 MeV	max e : 0.324186 GeV/fm^3	max s : 2.42223 fm^-3
+[ 666 mins. ] 	[ tau : 11.32 fm ] 	[ 546/1480 ]	max T : 155.87 MeV	max e : 0.321981 GeV/fm^3	max s : 2.40809 fm^-3
+[ 667 mins. ] 	[ tau : 11.34 fm ] 	[ 547/1480 ]	max T : 155.732 MeV	max e : 0.319795 GeV/fm^3	max s : 2.39405 fm^-3
+[ 668 mins. ] 	[ tau : 11.36 fm ] 	[ 548/1480 ]	max T : 155.595 MeV	max e : 0.317625 GeV/fm^3	max s : 2.38012 fm^-3
+[ 669 mins. ] 	[ tau : 11.38 fm ] 	[ 549/1480 ]	
+saving for time=11.4 evolution step=550, 56 step saved
+
+max T : 155.457 MeV	max e : 0.315472 GeV/fm^3	max s : 2.36627 fm^-3
+[ 670 mins. ] 	[ tau : 11.40 fm ] 	[ 550/1480 ]	max T : 155.32 MeV	max e : 0.313336 GeV/fm^3	max s : 2.35253 fm^-3
+[ 672 mins. ] 	[ tau : 11.42 fm ] 	[ 551/1480 ]	max T : 155.184 MeV	max e : 0.311217 GeV/fm^3	max s : 2.33888 fm^-3
+[ 673 mins. ] 	[ tau : 11.44 fm ] 	[ 552/1480 ]	max T : 155.047 MeV	max e : 0.309114 GeV/fm^3	max s : 2.32532 fm^-3
+[ 674 mins. ] 	[ tau : 11.46 fm ] 	[ 553/1480 ]	max T : 154.911 MeV	max e : 0.307027 GeV/fm^3	max s : 2.31186 fm^-3
+[ 675 mins. ] 	[ tau : 11.48 fm ] 	[ 554/1480 ]	max T : 154.774 MeV	max e : 0.304957 GeV/fm^3	max s : 2.29849 fm^-3
+[ 676 mins. ] 	[ tau : 11.50 fm ] 	[ 555/1480 ]	max T : 154.638 MeV	max e : 0.302903 GeV/fm^3	max s : 2.28521 fm^-3
+[ 678 mins. ] 	[ tau : 11.52 fm ] 	[ 556/1480 ]	max T : 154.503 MeV	max e : 0.300865 GeV/fm^3	max s : 2.27202 fm^-3
+[ 679 mins. ] 	[ tau : 11.54 fm ] 	[ 557/1480 ]	max T : 154.367 MeV	max e : 0.298842 GeV/fm^3	max s : 2.25893 fm^-3
+[ 680 mins. ] 	[ tau : 11.56 fm ] 	[ 558/1480 ]	max T : 154.232 MeV	max e : 0.296836 GeV/fm^3	max s : 2.24592 fm^-3
+[ 681 mins. ] 	[ tau : 11.58 fm ] 	[ 559/1480 ]	
+saving for time=11.6 evolution step=560, 57 step saved
+
+max T : 154.097 MeV	max e : 0.294844 GeV/fm^3	max s : 2.23301 fm^-3
+[ 682 mins. ] 	[ tau : 11.60 fm ] 	[ 560/1480 ]	max T : 153.962 MeV	max e : 0.292869 GeV/fm^3	max s : 2.22018 fm^-3
+[ 683 mins. ] 	[ tau : 11.62 fm ] 	[ 561/1480 ]	max T : 153.827 MeV	max e : 0.290908 GeV/fm^3	max s : 2.20744 fm^-3
+[ 685 mins. ] 	[ tau : 11.64 fm ] 	[ 562/1480 ]	max T : 153.693 MeV	max e : 0.288963 GeV/fm^3	max s : 2.19479 fm^-3
+[ 686 mins. ] 	[ tau : 11.66 fm ] 	[ 563/1480 ]	max T : 153.559 MeV	max e : 0.287032 GeV/fm^3	max s : 2.18222 fm^-3
+[ 687 mins. ] 	[ tau : 11.68 fm ] 	[ 564/1480 ]	max T : 153.425 MeV	max e : 0.285117 GeV/fm^3	max s : 2.16974 fm^-3
+[ 688 mins. ] 	[ tau : 11.70 fm ] 	[ 565/1480 ]	max T : 153.291 MeV	max e : 0.283216 GeV/fm^3	max s : 2.15735 fm^-3
+[ 689 mins. ] 	[ tau : 11.72 fm ] 	[ 566/1480 ]	max T : 153.157 MeV	max e : 0.28133 GeV/fm^3	max s : 2.14504 fm^-3
+[ 691 mins. ] 	[ tau : 11.74 fm ] 	[ 567/1480 ]	max T : 153.024 MeV	max e : 0.279458 GeV/fm^3	max s : 2.13281 fm^-3
+[ 692 mins. ] 	[ tau : 11.76 fm ] 	[ 568/1480 ]	max T : 152.891 MeV	max e : 0.277601 GeV/fm^3	max s : 2.12067 fm^-3
+[ 693 mins. ] 	[ tau : 11.78 fm ] 	[ 569/1480 ]	
+saving for time=11.8 evolution step=570, 58 step saved
+
+max T : 152.758 MeV	max e : 0.275758 GeV/fm^3	max s : 2.10861 fm^-3
+[ 694 mins. ] 	[ tau : 11.80 fm ] 	[ 570/1480 ]	max T : 152.625 MeV	max e : 0.273929 GeV/fm^3	max s : 2.09663 fm^-3
+[ 695 mins. ] 	[ tau : 11.82 fm ] 	[ 571/1480 ]	max T : 152.493 MeV	max e : 0.272115 GeV/fm^3	max s : 2.08474 fm^-3
+[ 696 mins. ] 	[ tau : 11.84 fm ] 	[ 572/1480 ]	max T : 152.36 MeV	max e : 0.270314 GeV/fm^3	max s : 2.07292 fm^-3
+[ 698 mins. ] 	[ tau : 11.86 fm ] 	[ 573/1480 ]	max T : 152.228 MeV	max e : 0.268526 GeV/fm^3	max s : 2.06119 fm^-3
+[ 699 mins. ] 	[ tau : 11.88 fm ] 	[ 574/1480 ]	max T : 152.096 MeV	max e : 0.266753 GeV/fm^3	max s : 2.04953 fm^-3
+[ 700 mins. ] 	[ tau : 11.90 fm ] 	[ 575/1480 ]	max T : 151.965 MeV	max e : 0.264993 GeV/fm^3	max s : 2.03796 fm^-3
+[ 701 mins. ] 	[ tau : 11.92 fm ] 	[ 576/1480 ]	max T : 151.833 MeV	max e : 0.263246 GeV/fm^3	max s : 2.02646 fm^-3
+[ 702 mins. ] 	[ tau : 11.94 fm ] 	[ 577/1480 ]	max T : 151.702 MeV	max e : 0.261513 GeV/fm^3	max s : 2.01504 fm^-3
+[ 703 mins. ] 	[ tau : 11.96 fm ] 	[ 578/1480 ]	max T : 151.571 MeV	max e : 0.259793 GeV/fm^3	max s : 2.00369 fm^-3
+[ 705 mins. ] 	[ tau : 11.98 fm ] 	[ 579/1480 ]	
+saving for time=12 evolution step=580, 59 step saved
+
+max T : 151.44 MeV	max e : 0.258086 GeV/fm^3	max s : 1.99242 fm^-3
+[ 706 mins. ] 	[ tau : 12.00 fm ] 	[ 580/1480 ]	max T : 151.309 MeV	max e : 0.256391 GeV/fm^3	max s : 1.98123 fm^-3
+[ 707 mins. ] 	[ tau : 12.02 fm ] 	[ 581/1480 ]	max T : 151.179 MeV	max e : 0.25471 GeV/fm^3	max s : 1.97012 fm^-3
+[ 708 mins. ] 	[ tau : 12.04 fm ] 	[ 582/1480 ]	max T : 151.048 MeV	max e : 0.253042 GeV/fm^3	max s : 1.95908 fm^-3
+[ 709 mins. ] 	[ tau : 12.06 fm ] 	[ 583/1480 ]	max T : 150.918 MeV	max e : 0.251386 GeV/fm^3	max s : 1.94811 fm^-3
+[ 710 mins. ] 	[ tau : 12.08 fm ] 	[ 584/1480 ]	max T : 150.788 MeV	max e : 0.249742 GeV/fm^3	max s : 1.93721 fm^-3
+[ 712 mins. ] 	[ tau : 12.10 fm ] 	[ 585/1480 ]	max T : 150.659 MeV	max e : 0.248111 GeV/fm^3	max s : 1.92639 fm^-3
+[ 713 mins. ] 	[ tau : 12.12 fm ] 	[ 586/1480 ]	max T : 150.529 MeV	max e : 0.246493 GeV/fm^3	max s : 1.91564 fm^-3
+[ 714 mins. ] 	[ tau : 12.14 fm ] 	[ 587/1480 ]	max T : 150.4 MeV	max e : 0.244886 GeV/fm^3	max s : 1.90497 fm^-3
+[ 715 mins. ] 	[ tau : 12.16 fm ] 	[ 588/1480 ]	max T : 150.271 MeV	max e : 0.243292 GeV/fm^3	max s : 1.89436 fm^-3
+[ 716 mins. ] 	[ tau : 12.18 fm ] 	[ 589/1480 ]	
+saving for time=12.2 evolution step=590, 60 step saved
+
+max T : 150.142 MeV	max e : 0.24171 GeV/fm^3	max s : 1.88383 fm^-3
+[ 717 mins. ] 	[ tau : 12.20 fm ] 	[ 590/1480 ]	max T : 150.013 MeV	max e : 0.240139 GeV/fm^3	max s : 1.87336 fm^-3
+[ 718 mins. ] 	[ tau : 12.22 fm ] 	[ 591/1480 ]	max T : 149.885 MeV	max e : 0.238581 GeV/fm^3	max s : 1.86297 fm^-3
+[ 720 mins. ] 	[ tau : 12.24 fm ] 	[ 592/1480 ]	max T : 149.756 MeV	max e : 0.237034 GeV/fm^3	max s : 1.85264 fm^-3
+[ 721 mins. ] 	[ tau : 12.26 fm ] 	[ 593/1480 ]	max T : 149.628 MeV	max e : 0.235498 GeV/fm^3	max s : 1.84239 fm^-3
+[ 722 mins. ] 	[ tau : 12.28 fm ] 	[ 594/1480 ]	max T : 149.5 MeV	max e : 0.233974 GeV/fm^3	max s : 1.8322 fm^-3
+[ 723 mins. ] 	[ tau : 12.30 fm ] 	[ 595/1480 ]	max T : 149.373 MeV	max e : 0.232462 GeV/fm^3	max s : 1.82208 fm^-3
+[ 724 mins. ] 	[ tau : 12.32 fm ] 	[ 596/1480 ]	max T : 149.245 MeV	max e : 0.230961 GeV/fm^3	max s : 1.81202 fm^-3
+[ 725 mins. ] 	[ tau : 12.34 fm ] 	[ 597/1480 ]	max T : 149.118 MeV	max e : 0.229471 GeV/fm^3	max s : 1.80204 fm^-3
+[ 727 mins. ] 	[ tau : 12.36 fm ] 	[ 598/1480 ]	max T : 148.99 MeV	max e : 0.227992 GeV/fm^3	max s : 1.79211 fm^-3
+[ 728 mins. ] 	[ tau : 12.38 fm ] 	[ 599/1480 ]	
+saving for time=12.4 evolution step=600, 61 step saved
+
+max T : 148.864 MeV	max e : 0.226524 GeV/fm^3	max s : 1.78226 fm^-3
+[ 729 mins. ] 	[ tau : 12.40 fm ] 	[ 600/1480 ]	max T : 148.737 MeV	max e : 0.225067 GeV/fm^3	max s : 1.77247 fm^-3
+[ 730 mins. ] 	[ tau : 12.42 fm ] 	[ 601/1480 ]	max T : 148.61 MeV	max e : 0.223621 GeV/fm^3	max s : 1.76274 fm^-3
+[ 731 mins. ] 	[ tau : 12.44 fm ] 	[ 602/1480 ]	max T : 148.484 MeV	max e : 0.222186 GeV/fm^3	max s : 1.75308 fm^-3
+[ 732 mins. ] 	[ tau : 12.46 fm ] 	[ 603/1480 ]	max T : 148.358 MeV	max e : 0.220762 GeV/fm^3	max s : 1.74348 fm^-3
+[ 734 mins. ] 	[ tau : 12.48 fm ] 	[ 604/1480 ]	max T : 148.232 MeV	max e : 0.219348 GeV/fm^3	max s : 1.73395 fm^-3
+[ 735 mins. ] 	[ tau : 12.50 fm ] 	[ 605/1480 ]	max T : 148.106 MeV	max e : 0.217944 GeV/fm^3	max s : 1.72447 fm^-3
+[ 736 mins. ] 	[ tau : 12.52 fm ] 	[ 606/1480 ]	max T : 147.98 MeV	max e : 0.216551 GeV/fm^3	max s : 1.71506 fm^-3
+[ 737 mins. ] 	[ tau : 12.54 fm ] 	[ 607/1480 ]	max T : 147.855 MeV	max e : 0.215168 GeV/fm^3	max s : 1.70572 fm^-3
+[ 738 mins. ] 	[ tau : 12.56 fm ] 	[ 608/1480 ]	max T : 147.729 MeV	max e : 0.213795 GeV/fm^3	max s : 1.69643 fm^-3
+[ 739 mins. ] 	[ tau : 12.58 fm ] 	[ 609/1480 ]	
+saving for time=12.6 evolution step=610, 62 step saved
+
+max T : 147.604 MeV	max e : 0.212433 GeV/fm^3	max s : 1.6872 fm^-3
+[ 740 mins. ] 	[ tau : 12.60 fm ] 	[ 610/1480 ]	max T : 147.48 MeV	max e : 0.21108 GeV/fm^3	max s : 1.67804 fm^-3
+[ 742 mins. ] 	[ tau : 12.62 fm ] 	[ 611/1480 ]	max T : 147.355 MeV	max e : 0.209738 GeV/fm^3	max s : 1.66893 fm^-3
+[ 743 mins. ] 	[ tau : 12.64 fm ] 	[ 612/1480 ]	max T : 147.23 MeV	max e : 0.208405 GeV/fm^3	max s : 1.65988 fm^-3
+[ 744 mins. ] 	[ tau : 12.66 fm ] 	[ 613/1480 ]	max T : 147.106 MeV	max e : 0.207083 GeV/fm^3	max s : 1.65089 fm^-3
+[ 745 mins. ] 	[ tau : 12.68 fm ] 	[ 614/1480 ]	max T : 146.982 MeV	max e : 0.20577 GeV/fm^3	max s : 1.64196 fm^-3
+[ 746 mins. ] 	[ tau : 12.70 fm ] 	[ 615/1480 ]	max T : 146.858 MeV	max e : 0.204466 GeV/fm^3	max s : 1.63309 fm^-3
+[ 747 mins. ] 	[ tau : 12.72 fm ] 	[ 616/1480 ]	max T : 146.734 MeV	max e : 0.203172 GeV/fm^3	max s : 1.62428 fm^-3
+[ 749 mins. ] 	[ tau : 12.74 fm ] 	[ 617/1480 ]	max T : 146.61 MeV	max e : 0.201888 GeV/fm^3	max s : 1.61552 fm^-3
+[ 750 mins. ] 	[ tau : 12.76 fm ] 	[ 618/1480 ]	max T : 146.487 MeV	max e : 0.200613 GeV/fm^3	max s : 1.60682 fm^-3
+[ 751 mins. ] 	[ tau : 12.78 fm ] 	[ 619/1480 ]	
+saving for time=12.8 evolution step=620, 63 step saved
+
+max T : 146.364 MeV	max e : 0.199347 GeV/fm^3	max s : 1.59818 fm^-3
+[ 752 mins. ] 	[ tau : 12.80 fm ] 	[ 620/1480 ]	max T : 146.241 MeV	max e : 0.198091 GeV/fm^3	max s : 1.58959 fm^-3
+[ 753 mins. ] 	[ tau : 12.82 fm ] 	[ 621/1480 ]	max T : 146.118 MeV	max e : 0.196844 GeV/fm^3	max s : 1.58106 fm^-3
+[ 754 mins. ] 	[ tau : 12.84 fm ] 	[ 622/1480 ]	max T : 145.995 MeV	max e : 0.195606 GeV/fm^3	max s : 1.57258 fm^-3
+[ 755 mins. ] 	[ tau : 12.86 fm ] 	[ 623/1480 ]	max T : 145.872 MeV	max e : 0.194377 GeV/fm^3	max s : 1.56416 fm^-3
+[ 757 mins. ] 	[ tau : 12.88 fm ] 	[ 624/1480 ]	max T : 145.75 MeV	max e : 0.193156 GeV/fm^3	max s : 1.55579 fm^-3
+[ 758 mins. ] 	[ tau : 12.90 fm ] 	[ 625/1480 ]	max T : 145.628 MeV	max e : 0.191945 GeV/fm^3	max s : 1.54748 fm^-3
+[ 759 mins. ] 	[ tau : 12.92 fm ] 	[ 626/1480 ]	max T : 145.506 MeV	max e : 0.190743 GeV/fm^3	max s : 1.53922 fm^-3
+[ 760 mins. ] 	[ tau : 12.94 fm ] 	[ 627/1480 ]	max T : 145.384 MeV	max e : 0.189549 GeV/fm^3	max s : 1.53101 fm^-3
+[ 761 mins. ] 	[ tau : 12.96 fm ] 	[ 628/1480 ]	max T : 145.262 MeV	max e : 0.188364 GeV/fm^3	max s : 1.52285 fm^-3
+[ 762 mins. ] 	[ tau : 12.98 fm ] 	[ 629/1480 ]	
+saving for time=13 evolution step=630, 64 step saved
+
+max T : 145.141 MeV	max e : 0.187187 GeV/fm^3	max s : 1.51475 fm^-3
+[ 763 mins. ] 	[ tau : 13.00 fm ] 	[ 630/1480 ]	max T : 145.02 MeV	max e : 0.186019 GeV/fm^3	max s : 1.5067 fm^-3
+[ 765 mins. ] 	[ tau : 13.02 fm ] 	[ 631/1480 ]	max T : 144.899 MeV	max e : 0.18486 GeV/fm^3	max s : 1.4987 fm^-3
+[ 766 mins. ] 	[ tau : 13.04 fm ] 	[ 632/1480 ]	max T : 144.778 MeV	max e : 0.183709 GeV/fm^3	max s : 1.49075 fm^-3
+[ 767 mins. ] 	[ tau : 13.06 fm ] 	[ 633/1480 ]	max T : 144.657 MeV	max e : 0.182566 GeV/fm^3	max s : 1.48286 fm^-3
+[ 768 mins. ] 	[ tau : 13.08 fm ] 	[ 634/1480 ]	max T : 144.536 MeV	max e : 0.181431 GeV/fm^3	max s : 1.47501 fm^-3
+[ 769 mins. ] 	[ tau : 13.10 fm ] 	[ 635/1480 ]	max T : 144.416 MeV	max e : 0.180305 GeV/fm^3	max s : 1.46721 fm^-3
+[ 770 mins. ] 	[ tau : 13.12 fm ] 	[ 636/1480 ]	max T : 144.296 MeV	max e : 0.179186 GeV/fm^3	max s : 1.45947 fm^-3
+[ 771 mins. ] 	[ tau : 13.14 fm ] 	[ 637/1480 ]	max T : 144.175 MeV	max e : 0.178076 GeV/fm^3	max s : 1.45177 fm^-3
+[ 773 mins. ] 	[ tau : 13.16 fm ] 	[ 638/1480 ]	max T : 144.056 MeV	max e : 0.176974 GeV/fm^3	max s : 1.44412 fm^-3
+[ 774 mins. ] 	[ tau : 13.18 fm ] 	[ 639/1480 ]	
+saving for time=13.2 evolution step=640, 65 step saved
+
+max T : 143.936 MeV	max e : 0.175879 GeV/fm^3	max s : 1.43652 fm^-3
+[ 775 mins. ] 	[ tau : 13.20 fm ] 	[ 640/1480 ]	max T : 143.816 MeV	max e : 0.174793 GeV/fm^3	max s : 1.42897 fm^-3
+[ 776 mins. ] 	[ tau : 13.22 fm ] 	[ 641/1480 ]	max T : 143.697 MeV	max e : 0.173714 GeV/fm^3	max s : 1.42146 fm^-3
+[ 777 mins. ] 	[ tau : 13.24 fm ] 	[ 642/1480 ]	max T : 143.577 MeV	max e : 0.172643 GeV/fm^3	max s : 1.41401 fm^-3
+[ 778 mins. ] 	[ tau : 13.26 fm ] 	[ 643/1480 ]	max T : 143.458 MeV	max e : 0.17158 GeV/fm^3	max s : 1.4066 fm^-3
+[ 779 mins. ] 	[ tau : 13.28 fm ] 	[ 644/1480 ]	max T : 143.339 MeV	max e : 0.170524 GeV/fm^3	max s : 1.39923 fm^-3
+[ 781 mins. ] 	[ tau : 13.30 fm ] 	[ 645/1480 ]	max T : 143.221 MeV	max e : 0.169475 GeV/fm^3	max s : 1.39192 fm^-3
+[ 782 mins. ] 	[ tau : 13.32 fm ] 	[ 646/1480 ]	max T : 143.102 MeV	max e : 0.168435 GeV/fm^3	max s : 1.38465 fm^-3
+[ 783 mins. ] 	[ tau : 13.34 fm ] 	[ 647/1480 ]	max T : 142.984 MeV	max e : 0.167401 GeV/fm^3	max s : 1.37742 fm^-3
+[ 784 mins. ] 	[ tau : 13.36 fm ] 	[ 648/1480 ]	max T : 142.865 MeV	max e : 0.166375 GeV/fm^3	max s : 1.37024 fm^-3
+[ 785 mins. ] 	[ tau : 13.38 fm ] 	[ 649/1480 ]	
+saving for time=13.4 evolution step=650, 66 step saved
+
+max T : 142.747 MeV	max e : 0.165356 GeV/fm^3	max s : 1.36311 fm^-3
+[ 786 mins. ] 	[ tau : 13.40 fm ] 	[ 650/1480 ]	max T : 142.629 MeV	max e : 0.164345 GeV/fm^3	max s : 1.35602 fm^-3
+[ 787 mins. ] 	[ tau : 13.42 fm ] 	[ 651/1480 ]	max T : 142.512 MeV	max e : 0.163341 GeV/fm^3	max s : 1.34898 fm^-3
+[ 788 mins. ] 	[ tau : 13.44 fm ] 	[ 652/1480 ]	max T : 142.394 MeV	max e : 0.162343 GeV/fm^3	max s : 1.34198 fm^-3
+[ 789 mins. ] 	[ tau : 13.46 fm ] 	[ 653/1480 ]	max T : 142.277 MeV	max e : 0.161353 GeV/fm^3	max s : 1.33502 fm^-3
+[ 790 mins. ] 	[ tau : 13.48 fm ] 	[ 654/1480 ]	max T : 142.159 MeV	max e : 0.16037 GeV/fm^3	max s : 1.32811 fm^-3
+[ 792 mins. ] 	[ tau : 13.50 fm ] 	[ 655/1480 ]	max T : 142.042 MeV	max e : 0.159394 GeV/fm^3	max s : 1.32124 fm^-3
+[ 793 mins. ] 	[ tau : 13.52 fm ] 	[ 656/1480 ]	max T : 141.925 MeV	max e : 0.158425 GeV/fm^3	max s : 1.31441 fm^-3
+[ 794 mins. ] 	[ tau : 13.54 fm ] 	[ 657/1480 ]	max T : 141.808 MeV	max e : 0.157462 GeV/fm^3	max s : 1.30763 fm^-3
+[ 795 mins. ] 	[ tau : 13.56 fm ] 	[ 658/1480 ]	max T : 141.692 MeV	max e : 0.156506 GeV/fm^3	max s : 1.30088 fm^-3
+[ 796 mins. ] 	[ tau : 13.58 fm ] 	[ 659/1480 ]	
+saving for time=13.6 evolution step=660, 67 step saved
+
+max T : 141.575 MeV	max e : 0.155558 GeV/fm^3	max s : 1.29418 fm^-3
+[ 797 mins. ] 	[ tau : 13.60 fm ] 	[ 660/1480 ]	max T : 141.459 MeV	max e : 0.154615 GeV/fm^3	max s : 1.28753 fm^-3
+[ 798 mins. ] 	[ tau : 13.62 fm ] 	[ 661/1480 ]	max T : 141.343 MeV	max e : 0.15368 GeV/fm^3	max s : 1.28091 fm^-3
+[ 799 mins. ] 	[ tau : 13.64 fm ] 	[ 662/1480 ]	max T : 141.227 MeV	max e : 0.152751 GeV/fm^3	max s : 1.27433 fm^-3
+[ 800 mins. ] 	[ tau : 13.66 fm ] 	[ 663/1480 ]	max T : 141.111 MeV	max e : 0.151828 GeV/fm^3	max s : 1.2678 fm^-3
+[ 801 mins. ] 	[ tau : 13.68 fm ] 	[ 664/1480 ]	max T : 140.996 MeV	max e : 0.150912 GeV/fm^3	max s : 1.2613 fm^-3
+[ 803 mins. ] 	[ tau : 13.70 fm ] 	[ 665/1480 ]	max T : 140.88 MeV	max e : 0.150002 GeV/fm^3	max s : 1.25485 fm^-3
+[ 804 mins. ] 	[ tau : 13.72 fm ] 	[ 666/1480 ]	max T : 140.765 MeV	max e : 0.149099 GeV/fm^3	max s : 1.24843 fm^-3
+[ 805 mins. ] 	[ tau : 13.74 fm ] 	[ 667/1480 ]	max T : 140.649 MeV	max e : 0.148202 GeV/fm^3	max s : 1.24206 fm^-3
+[ 806 mins. ] 	[ tau : 13.76 fm ] 	[ 668/1480 ]	max T : 140.534 MeV	max e : 0.147311 GeV/fm^3	max s : 1.23572 fm^-3
+[ 807 mins. ] 	[ tau : 13.78 fm ] 	[ 669/1480 ]	
+saving for time=13.8 evolution step=670, 68 step saved
+
+max T : 140.419 MeV	max e : 0.146427 GeV/fm^3	max s : 1.22942 fm^-3
+[ 808 mins. ] 	[ tau : 13.80 fm ] 	[ 670/1480 ]	max T : 140.305 MeV	max e : 0.145548 GeV/fm^3	max s : 1.22317 fm^-3
+[ 809 mins. ] 	[ tau : 13.82 fm ] 	[ 671/1480 ]	max T : 140.19 MeV	max e : 0.144676 GeV/fm^3	max s : 1.21695 fm^-3
+[ 810 mins. ] 	[ tau : 13.84 fm ] 	[ 672/1480 ]	max T : 140.075 MeV	max e : 0.14381 GeV/fm^3	max s : 1.21077 fm^-3
+[ 811 mins. ] 	[ tau : 13.86 fm ] 	[ 673/1480 ]	max T : 139.962 MeV	max e : 0.14295 GeV/fm^3	max s : 1.20463 fm^-3
+[ 812 mins. ] 	[ tau : 13.88 fm ] 	[ 674/1480 ]	max T : 139.847 MeV	max e : 0.142095 GeV/fm^3	max s : 1.19852 fm^-3
+[ 813 mins. ] 	[ tau : 13.90 fm ] 	[ 675/1480 ]	max T : 139.733 MeV	max e : 0.141247 GeV/fm^3	max s : 1.19245 fm^-3
+[ 814 mins. ] 	[ tau : 13.92 fm ] 	[ 676/1480 ]	max T : 139.619 MeV	max e : 0.140405 GeV/fm^3	max s : 1.18642 fm^-3
+[ 816 mins. ] 	[ tau : 13.94 fm ] 	[ 677/1480 ]	max T : 139.506 MeV	max e : 0.139568 GeV/fm^3	max s : 1.18042 fm^-3
+[ 817 mins. ] 	[ tau : 13.96 fm ] 	[ 678/1480 ]	max T : 139.392 MeV	max e : 0.138737 GeV/fm^3	max s : 1.17447 fm^-3
+[ 818 mins. ] 	[ tau : 13.98 fm ] 	[ 679/1480 ]	
+saving for time=14 evolution step=680, 69 step saved
+
+max T : 139.279 MeV	max e : 0.137912 GeV/fm^3	max s : 1.16854 fm^-3
+[ 819 mins. ] 	[ tau : 14.00 fm ] 	[ 680/1480 ]	max T : 139.166 MeV	max e : 0.137093 GeV/fm^3	max s : 1.16266 fm^-3
+[ 820 mins. ] 	[ tau : 14.02 fm ] 	[ 681/1480 ]	max T : 139.052 MeV	max e : 0.136279 GeV/fm^3	max s : 1.15681 fm^-3
+[ 821 mins. ] 	[ tau : 14.04 fm ] 	[ 682/1480 ]	max T : 138.94 MeV	max e : 0.135471 GeV/fm^3	max s : 1.151 fm^-3
+[complete] all cells freezed...
+
+
+ freezeout temperature : 0.15 GeV
+
+
+calculating freeze-out hypersurface at temperature = 150 MeV
+calculating freeze-out hypersurface at energy density = 0.239978 GeV/fm^3
+calculating freeze-out hypersurface at eta/s = 0.095
+calculating freeze-out hypersurface at cs2 = 0.153989
+ calculating freeze-out hypersurface at pressure = 0.0408655GeV/fm^3
+hydro_output/Tf150e001.xml
+
+
+ freezeout temperature : 0.145 GeV
+
+
+calculating freeze-out hypersurface at temperature = 145 MeV
+calculating freeze-out hypersurface at energy density = 0.185828 GeV/fm^3
+calculating freeze-out hypersurface at eta/s = 0.095
+calculating freeze-out hypersurface at cs2 = 0.15694
+ calculating freeze-out hypersurface at pressure = 0.0324524GeV/fm^3
+hydro_output/Tf145e001.xml
+
+
+ freezeout temperature : 0.14 GeV
+
+
+calculating freeze-out hypersurface at temperature = 140 MeV
+calculating freeze-out hypersurface at energy density = 0.143238 GeV/fm^3
+calculating freeze-out hypersurface at eta/s = 0.095
+calculating freeze-out hypersurface at cs2 = 0.160387
+ calculating freeze-out hypersurface at pressure = 0.0256981GeV/fm^3
+hydro_output/Tf140e001.xml
+
+
+ freezeout temperature : 0.155 GeV
+
+
+calculating freeze-out hypersurface at temperature = 155 MeV
+calculating freeze-out hypersurface at energy density = 0.308394 GeV/fm^3
+calculating freeze-out hypersurface at eta/s = 0.095
+calculating freeze-out hypersurface at cs2 = 0.15155
+ calculating freeze-out hypersurface at pressure = 0.051311GeV/fm^3
+hydro_output/Tf155e001.xml
+
+
+ freezeout temperature : 0.16 GeV
+
+
+calculating freeze-out hypersurface at temperature = 160 MeV
+calculating freeze-out hypersurface at energy density = 0.394271 GeV/fm^3
+calculating freeze-out hypersurface at eta/s = 0.095
+calculating freeze-out hypersurface at cs2 = 0.149557
+ calculating freeze-out hypersurface at pressure = 0.0642332GeV/fm^3
+hydro_output/Tf160e001.xml
