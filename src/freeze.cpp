@@ -40,10 +40,33 @@ inline double maximum(double a, double b){
 
 void evolve::ini(grid* grid,double t0,double maxtime,double dtauin){
  
-  maxx=grid->get_xmax(); maxy=grid->get_ymax(); maxeta=grid->get_etamax();
+  maxx=grid->get_xmax(); maxy=grid->get_ymax();
+ 
+  if(grid->get_neta() == 1 )
+   {
+     maxeta = 2.0;
+    }
+    else
+   {
+     maxeta=grid->get_etamax();
+   }
+
+
   nnx=(grid->get_nx()+1)/2; 
   nny=(grid->get_ny()+1)/2; 
+
+  if(grid->get_neta() == 1 )
+   {
+
+    nneta = 21 ;
+   }
+
+  else
+  {
   nneta=(grid->get_neta()+1)/2;
+  }
+
+
   tmin=t0;lambda=maxx/maxeta;
   dtau=dtauin;
   maxstep=(maxtime-t0)/dtau+1;
@@ -212,16 +235,46 @@ void evolve::put(int dumpstep,grid* h,double tau,EoS* EOS){
   //   h->getCMFvariables(c,tau, e, nb, nq, ns, vx, vy, vz);
     //    cout<<k<<" "<<eta<<" "<<vz<<endl;
   //  }
+
+  cell* c ; 
   int ix,iy,iz;
   double maxe=0;
   for (int i=0;i<nnx;i++){int ii=2*i;
     for(int j=0;j<nny;j++){int jj=2*j;
       for(int k=0;k<nneta;k++){int kk=2*k;
-	cell *c = h->get_cell(ii,jj,kk);
+
+
+      if(h->get_neta() == 1 )
+        {
+             c = h->get_cell(ii,jj,0);
+         }
+        else
+        {
+	     c = h->get_cell(ii,jj,kk);
+        }
+
+
 	double o;
-	double eta=h->get_eta(kk);	
+        double eta ; 
+
+      if(h->get_neta() == 1 )
+       {
+        eta = -maxeta + kk * (2*maxeta/(nneta-1)) ;
+       }
+       else
+       {
+         eta=h->get_eta(kk);
+       }
+
+	
 	double e, p, nb, nq, ns, t, mub, muq, mus, vx, vy, vz;
 	h->getCMFvariablesUmunu(c,tau, e, nb, nq, ns, vx, vy, vz);
+
+        if(h->get_neta() == 1)
+          {
+           vz = eta ; 
+          }
+
 	if (maxe<e){maxe=e;ix=ii;iy=jj;iz=kk;}
   	energymap[dumpstep]->put(e,i,j,k);
 	uxmap[dumpstep]->put(vx,i,j,k);
