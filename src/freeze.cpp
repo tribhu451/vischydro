@@ -58,7 +58,7 @@ void evolve::ini(grid* grid,double t0,double maxtime,double dtauin){
   if(grid->get_neta() == 1 )
    {
 
-    nneta = 21 ;
+    nneta = 11 ;
    }
 
   else
@@ -259,7 +259,7 @@ void evolve::put(int dumpstep,grid* h,double tau,EoS* EOS){
 
       if(h->get_neta() == 1 )
        {
-        eta = -maxeta + kk * (2*maxeta/(nneta-1)) ;
+        eta = -maxeta + kk * (maxeta/(nneta-1)) ;
        }
        else
        {
