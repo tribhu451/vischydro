@@ -41,8 +41,8 @@ class mc_glau
   double t_beta2;
   double t_beta4;
   
-  double npp=2.37;// two-component energy deposition
-  double X_hard=0.13;
+  double npp=2.25;// two-component energy deposition
+  double X_hard=0.14;
 
   
   double DELTA; //gussian smearing sigma

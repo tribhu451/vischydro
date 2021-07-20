@@ -15,25 +15,33 @@ mc_glau::~mc_glau()
 void mc_glau::set_ic(grid* f, EoS* eos)
 {
 
+  cout << "\n" << endl;
+  cout<<"      *************************     "<<endl;
   cout<<"      Monte Carlo Glauber Model     "<<endl;
   cout<<"      *************************     "<<endl;
-  cout<<"[Info] "<<IDB->projectile<<"+"<<IDB->target<<" at "<<IDB->SNN<<"GeV("<<sigma<<"fm)"<<endl;
+  cout << "\n" << endl;
+  
+  cout<<"[Info] "<<IDB->projectile<<"+"<<IDB->target<<" at "<<IDB->SNN<<"GeV( sigma_nn : "<<sigma<<"fm)"<<endl;
   cout<<"[Info] deformation parameter of projectile | Beta-2 : "<<p_beta2<<" and Beta-4 : "<<p_beta4<<endl;
   cout<<"[Info] deformation parameter of target | Beta-2 : "<<t_beta2<<" and Beta-4 : "<<t_beta4<<endl;
-  if(X_hard != 1.0){cout<<"[Info] two component energy deposition with X_hard = "<<X_hard<<endl;}
-  cout<<"[Info] Gaussian smearing with std deviation : "<<DELTA<<endl;
-  cout<<"[Info] Multiplicity scaling factor eps0 : "<<eps0<<endl;
-
-
+  if(X_hard != 1.0)
+    {
+      cout<<"[Info] two component energy deposition with X_hard = "<<X_hard<<endl;
+    }
+  cout << "[Info] Gaussian smearing with std deviation : " << DELTA << endl;
+  cout << "[Info] Multiplicity scaling factor eps0 : " << eps0 << endl;
   
-  TRandom* t1=new TRandom();
+  
+  // random number for b and theta
+  TRandom3* t1=new TRandom3();
   t1->SetSeed(0);
   long kss=t1->GetSeed();
   gRandom->SetSeed(kss);
   TF1* f1= new TF1("f1","x",0.0,25.0);
   TF1* f2= new TF1("f2","sin(x)",0.0,TMath::Pi());
  
- 
+
+  // initialization
   double XA[A];double YA[A];double ZA[A];
   double XB[B];double YB[B];double ZB[B];
   double npart_x[500],npart_y[500];
@@ -43,26 +51,33 @@ void mc_glau::set_ic(grid* f, EoS* eos)
   for(int j=0;j<500;j++){npart_x[j]=0.0;npart_y[j]=0.0;}
   for(int j=0;j<2000;j++){ncoll_x[j]=0.0;ncoll_y[j]=0.0;}
 
-
+  // orientation angle
   double p_ori_theta = f2->GetRandom(0.0,TMath::Pi());  
   double t_ori_theta = f2->GetRandom(0.0,TMath::Pi());  
   double p_ori_phi = (2.0*TMath::Pi())*(t1->Rndm());
   double t_ori_phi = (2.0*TMath::Pi())*(t1->Rndm());
+
+  // print orientation
   cout<<"[Info] (projectile orientation) p_theta: "<<p_ori_theta<<" p_phi: "<<p_ori_phi<<endl;
   cout<<"[Info] (target orientation) t_theta: "<<t_ori_theta<<" t_phi: "<<t_ori_phi<<endl;
+  
   //generate nucleus
   generate_nucleus(XA,YA,ZA,A,p_radius,p_dlt,p_beta2,p_beta4,p_ori_theta,p_ori_phi);
   generate_nucleus(XB,YB,ZB,B,t_radius,t_dlt,t_beta2,t_beta4,t_ori_theta,t_ori_phi);
 
+  // generate impact parameter
   double b=f1->GetRandom(bmin,bmax);                      
   cout<<"[Info] b = "<<b<<" (fm)"<<endl;
+
+  // generate the shifting angle of one nucleus
   double zhi=(2.0*TMath::Pi())*(t1->Rndm());
+  
   //shifting of nucleus 
   shift_nucleus( XA, YA,  ZA, A, +b/2.0, zhi, XA, YA, ZA );
   shift_nucleus( XB, YB,  ZB, B, -b/2.0, zhi, XB, YB, ZB);
 
+ // calculate npat ncoll
   int NPart,NColl; 
-  // calculate npat ncoll
   calculate_npart_ncoll(XA,YA,XB,YB,NPart,NColl,npart_x,npart_y,ncoll_x, ncoll_y);                    
   cout<<"[Info] No. of participants : "<<NPart<<endl;
   cout<<"[Info] No. of binary collisions : "<<NColl<<endl;
@@ -71,63 +86,87 @@ void mc_glau::set_ic(grid* f, EoS* eos)
   std::ofstream File0;
   File0.open("hydro_output/mc_glauber_ic_dist.dat");
 
-  // output will be a input to music
+  // output can be a input to music
   File0<<"#"<<"\t"<<"optical_glauber"<<"\t"<<"1"<<"\t"<<"neta="<<"\t"<<IDB->neta<<"\t"<<"nx="<<"\t"<<IDB->nx<<"\t"<<"ny="<<"\t"<<IDB->ny
        <<"\t"<<"deta="<<"\t"<<IDB->deta<<"\t"<<"dx="<<"\t"<<IDB->dx<<"\t"<<"dy="<<"\t"<<IDB->dy<<endl;
-
-
-
-  double total_deposited = 0.0;  // total deposited energy
+  
+  
+  
+  double total_deposited_entropy = 0.0;  // total deposited entropy
+  double total_deposited_energy = 0.0;  // total deposited energy
+  
   cell* c;
-
-   for(int i=0; i<IDB->nx; i++)
+  
+  for(int i=0; i<IDB->nx; i++)
+    {
       for(int j=0; j<IDB->ny; j++)
-          for(int k=0; k<IDB->neta; k++)
-           {
-
-          c = f->get_cell(i,j,k);
-         
+	{
+      
 	  double x_ = IDB->xmin + i*IDB->dx;
 	  double y_ = IDB->ymin + j*IDB->dy;
-          double eta = IDB->etamin + k*IDB->deta;
+	  
+	  double entr=0;
+	  for(int ks=0; ks<NPart; ks++)
+	    {
+	      double temp1=TMath::Power(x_-npart_x[ks],2)+TMath::Power(y_-npart_y[ks],2);
+	      double value1=0.5*npp*(1-X_hard);
+	      entr=entr+((value1/(TMath::Sqrt(2*TMath::Pi()*DELTA*DELTA)))*(TMath::Exp((-1.0/(2.0*DELTA*DELTA))*(temp1))));
+	    }
+	  
+	  for(int ks=0; ks<NColl; ks++)
+	    {
+	      double temp1=TMath::Power(x_-ncoll_x[ks],2)+TMath::Power(y_-ncoll_y[ks],2);
+	      double value1=npp*X_hard;
+	      entr=entr+((value1/(TMath::Sqrt(2*TMath::Pi()*DELTA*DELTA)))*(TMath::Exp((-1.0/(2.0*DELTA*DELTA))*(temp1))));
+	    }
+	  
+	  if(entr < 1e-5 ) { entr = 0.0; }
+	  
+	  
+	  for(int k=0; k<IDB->neta; k++)
+	    {
+	      
+	      c = f->get_cell(i,j,k);
+	      
+	      
+	      double eta = IDB->etamin + k*IDB->deta;
+	      if ( IDB->neta == 1 ) eta = 0.0 ; // for 2+1D hydro
+	      
 
-          double eps=0;
-          for(int ks=0; ks<NPart; ks++)
-              {
-                double temp1=TMath::Power(x_-npart_x[ks],2)+TMath::Power(y_-npart_y[ks],2);
-                double value1=0.5*npp*(1-X_hard);
-                eps=eps+((value1/(TMath::Sqrt(2*TMath::Pi()*DELTA*DELTA)))*(TMath::Exp((-1.0/(2.0*DELTA*DELTA))*(temp1))));
-              }
-
-         for(int ks=0; ks<NColl; ks++)
-              {
-                double temp1=TMath::Power(x_-ncoll_x[ks],2)+TMath::Power(y_-ncoll_y[ks],2);
-                double value1=npp*X_hard;
-                eps=eps+((value1/(TMath::Sqrt(2*TMath::Pi()*DELTA*DELTA)))*(TMath::Exp((-1.0/(2.0*DELTA*DELTA))*(temp1))));
-              }
-
-           if(eps < 0.00001 ) {eps =0;}
-           eps = eps*exp(((-(( abs(eta) - 1.5)*( abs(eta)-1.5))/(2*1.3*1.3)))*theta(abs(eta)-1.5));  //https://arxiv.org/pdf/0902.4121.pdf  (eqn_2.12)
-
-          double nb= 0; double nq = 0; double ns =0; double vx=0; double vy=0; double vz= 0;
-          double utau = 1.0/sqrt(1.0-vx*vx-vy*vy-vz*vz);
-          double ux = utau*vx;
-          double uy = utau*vy;
-          double uz = utau*vz; 
-
-          total_deposited = total_deposited + eps ;
-
-          if(abs(eta)<0.0001){  // output will be a input to music
-          //cout<<eta<<endl;
-          File0<<eta<<"\t"<<x_<<"\t"<<y_<<"\t"<<eps0*eps<<"\t"<<utau<<"\t"<<ux<<"\t"<<uy<<"\t"<<uz<<"\t"<<"0"<<"\t"<<"0"<<"\t"<<"0"<<endl; // writing the dist in a file
-          }
-
-
-	   c->set_prim_var(eos,IDB->tau0,eps0*eps, nb, nq,  ns,  vx,  vy,  vz);
-
-          }
-
-     cout<<"[Info] total amount of deposited energy is = "<<total_deposited<<endl;
+	      // rapidity distribution 
+	      //https://arxiv.org/pdf/0902.4121.pdf  (eqn_2.12)	   
+	      double H_eta = exp(  - pow( fabs(eta) - IDB->eta_platue / 2.0, 2 )  /  
+				   ( 2 * pow(IDB->eta_fall,2) ) *  theta(fabs(eta)-IDB->eta_platue/2) );
+	      
+	      
+ 	      double nb= 0; double nq = 0; double ns =0; 
+	      
+	      double eps = eos->entr_2_eps(eps0*entr*H_eta,nb,nq,ns);  // entropy converted to energy density
+	      
+	      double vx=0; double vy=0; double vz= 0;
+	      double utau = 1.0 / sqrt( 1.0 - vx*vx - vy*vy - vz*vz );
+	      double ux = utau*vx;
+	      double uy = utau*vy;
+	      double uz = utau*vz; 
+	      
+	      total_deposited_entropy +=  eps0*entr*H_eta ;
+	      total_deposited_energy  += eps ;
+	      
+	      if(fabs(eta)<0.0001)
+		{  // output will be a input to music
+		  //cout<<eta<<endl;
+		  File0<<eta<<"\t"<<x_<<"\t"<<y_<<"\t"<<eps0*eps<<"\t"<<utau<<"\t"<<ux
+		       <<"\t"<<uy<<"\t"<<uz<<"\t"<<"0"<<"\t"<<"0"<<"\t"<<"0"<<endl; // writing the dist in a file
+		}
+	      
+	      
+	      c->set_prim_var( eos, IDB->tau0, eps, nb, nq,  ns,  vx,  vy,  vz );
+	      
+	    }
+	}
+    }
+     cout<<"[Info] total amount of deposited entropy is = "<<total_deposited_entropy<<endl;
+     cout<<"[Info] total amount of deposited energy is = "<<total_deposited_energy<<endl;
      cout<<"\n";
 }
 
