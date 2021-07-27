@@ -19,7 +19,7 @@ void read_ic::set_ic(grid* f, EoS* eos)
   cout<<"[Info] reading external file ...\n"<<endl;
   
 
-  double eps, dummy1, dummy;
+  double entropy, dummy1, dummy;
   double xf, yf ; // x and y from file.
   double ux, uy, utau;
 
@@ -37,7 +37,7 @@ void read_ic::set_ic(grid* f, EoS* eos)
       ic_file.getline(buff,200);
       iss = new istringstream(buff);
       *iss >> dummy1 >> xf >> yf 
-                     >> eps >> utau >> ux >> uy
+                     >> entropy >> utau >> ux >> uy
                      >> dummy  >> dummy  >> dummy  >> dummy;
       delete iss;
       
@@ -53,15 +53,26 @@ void read_ic::set_ic(grid* f, EoS* eos)
 		    { //if y
                       for(int k=0; k<IDB->neta; k++)
                          {
-                           double eta = IDB->etamin + k*IDB->deta;
-		           double vx = 0.0;
-                           double vy = 0.0;
+
+                           double eta;
+                           if (IDB->neta == 1) { eta = 0.0 ;                      } 
+                           else                { eta = IDB->etamin + k*IDB->deta; }
+
+		           double vx = ux/utau;
+                           double vy = uy/utau;
+
 		           c = f->get_cell(i,j,k); 
-                           double eps1 = eps*exp(((-(( abs(eta) - IDB->eta_platue)*
-                                           ( abs(eta)-IDB->eta_platue))/(2*pow( IDB->eta_fall,2.0))))*
-                                                  theta(abs(eta)-IDB->eta_platue));        
-		           double vz= 0.0; double nb= 0; double ns=0; double nq=0;
-                           c->set_prim_var(eos, IDB->tau0, eps1, nb, nq, ns, vx, vy, vz); 
+
+	                   double H_eta = exp(  - pow( fabs(eta) - IDB->eta_platue / 2.0, 2 )  /  
+				   ( 2 * pow(IDB->eta_fall,2) ) *  theta(fabs(eta)-IDB->eta_platue/2) );
+	                   // rapidity distribution 
+	                   //https://arxiv.org/pdf/0902.4121.pdf  (eqn_2.12)
+
+                           double nb= 0; double ns=0; double nq=0;
+                           double eps = eos->entr_2_eps(entropy*H_eta,nb,nq,ns);     
+		           double vz= 0.0; 
+                           c->set_prim_var(eos, IDB->tau0, eps, nb, nq, ns, vx, vy, vz);
+ 
                          } // eta bracket    		      
 		    } // if y
 		  else
