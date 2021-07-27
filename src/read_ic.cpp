@@ -15,8 +15,8 @@ read_ic::~read_ic(){}
 
 void read_ic::set_ic(grid* f, EoS* eos)
 {
-  cout<<"*** [IC] ***"<<endl;
-  cout<<"[Info] reading external file ...\n"<<endl;
+  cout<<"\t\t*** [IC] ***"<<endl;
+  cout<<"[Info] reading external file."<<endl;
   
 
   double entropy, dummy1, dummy;
@@ -28,7 +28,9 @@ void read_ic::set_ic(grid* f, EoS* eos)
   fstream ic_file;
   ic_file.open(IDB->init_file_name.c_str());
   if (!ic_file) 
-    {cout<<"couldn't find ic file."<<endl; exit(1);}
+    {cout<<"[Error] couldn't find ic file."<<endl; exit(1);}
+  else
+    {cout<<"[Info] Input initial condition file is : " << IDB->init_file_name.c_str() << endl  ; }
  
   ic_file.getline(buff,200);
  
@@ -89,7 +91,7 @@ void read_ic::set_ic(grid* f, EoS* eos)
 	} // i loop
     }//while end
  ic_file.close();
-  cout<<"\n";
+  cout<<"[Info] Input file reading completed successfully !!! \n\n";
 }
 
 

@@ -13,11 +13,11 @@ eos 1
 
 #initial condition mode
 #[Info] ic_mode == -2/-1/0/1/2 (read gubser form file/gubser/ optical Glauber/ MC Glauber/ read from file) 
-ic_mode 0
+ic_mode 2
 
 
 # if ic_mode 2 choosen
-init_file_name example_inputs/optical_glauber_ic_dist.dat 
+init_file_name hydro_output/optical_glauber_ic_dist.dat 
 
 
 #collision energy
@@ -53,7 +53,7 @@ etamax  +10
 etamin  -10
 nx  201
 ny  201
-neta 101
+neta 1
 
 
 #if 3+1D choosen (if neta != 1)
@@ -80,17 +80,15 @@ etas  0.095
 #save in hydro file
 save_every_N_steps 5000
 
+
+# Below inputs are not required for vischydro_for_therminator
 # avg. hypersurface over :
-skip_fo_tau 4
-skip_fo_x 4
-skip_fo_y 4
-skip_fo_eta 2
+#skip_fo_tau 4
+#skip_fo_x 4
+#skip_fo_y 4
+#skip_fo_eta 2
 
 
 # :: END :: #
 
 
-bmin  2.24
-bmax  2.26
-tau0  0.4
-Tfreeze  0.150

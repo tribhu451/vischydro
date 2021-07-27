@@ -174,10 +174,11 @@ void opt_glau::set_ic(grid* f, EoS* eos)
 	  for(int k=0; k<IDB->neta; k++)
 	    {
               c = f->get_cell(i,j,k);         
-	    	    
-	      double eta = IDB->etamin + k*IDB->deta;
-
-	      	      
+	    	   
+              double eta;
+              if (IDB->neta == 1) { eta = 0.0 ;                      } 
+              else                { eta = IDB->etamin + k*IDB->deta; }
+       
 	      double H_eta = exp(  - pow( fabs(eta) - IDB->eta_platue / 2.0, 2 )  /  
 				   ( 2 * pow(IDB->eta_fall,2) ) *  theta(fabs(eta)-IDB->eta_platue/2) );
 	      // rapidity distribution 

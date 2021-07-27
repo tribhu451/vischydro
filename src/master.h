@@ -1,5 +1,8 @@
 #pragma once
 #include <iostream>
+#include <bits/stdc++.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 #include <iomanip>
 #include <chrono>
 #include <cmath>

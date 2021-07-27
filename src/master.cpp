@@ -2,6 +2,11 @@
 
 master::master(idb* _IDB)
 {
+  // Creating the "hydro_output" directory if it doesn't exist
+  if (mkdir("hydro_output", 0777) == -1)
+    cerr << "[Info] " << strerror(errno) << endl;
+  else
+    cout << "[Info] hydro_output directory is created" << endl;
 
   IDB = _IDB;
 
