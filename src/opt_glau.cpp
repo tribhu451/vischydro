@@ -134,8 +134,8 @@ void opt_glau::set_ic(grid* f, EoS* eos)
 
   cout<<"      Optical Glauber Model    "<<endl;
   cout<<"      *********************    "<<endl; 
-  cout<<"\t"<<IDB->species<<"+"<<IDB->species<<" at "<<IDB->SNN<<"GeV("<<sigma<<"fm)"<<endl;
-  cout<<"\tdeformation parameter (Beta-2) : "<<beta2<<" and (Beta-4) : "<<beta4<<endl;
+  cout<<IDB->species<<"+"<<IDB->species<<" at "<<IDB->SNN<<"GeV("<<sigma<<"fm)"<<endl;
+  cout<<"deformation parameter (Beta-2) : "<<beta2<<" and (Beta-4) : "<<beta4<<endl;
   
   TRandom* t1=new TRandom();
   t1->SetSeed(0);
@@ -160,7 +160,8 @@ void opt_glau::set_ic(grid* f, EoS* eos)
   File0<<"#"<<"\t"<<"optical_glauber"<<"\t"<<"1"<<"\t"<<"neta="<<"\t"<<IDB->neta<<"\t"<<"nx="<<"\t"<<IDB->nx<<"\t"<<"ny="<<"\t"<<IDB->ny
        <<"\t"<<"deta="<<"\t"<<IDB->deta<<"\t"<<"dx="<<"\t"<<IDB->dx<<"\t"<<"dy="<<"\t"<<IDB->dy<<endl;
   
-  double total_deposited = 0.0;  // total deposited energy
+  double total_deposited_entropy = 0.0;  // total deposited energy
+  double total_deposited_energy  = 0.0;  // total deposited energy
   
   cell* c;
   for(int i=0; i<IDB->nx; i++)
@@ -197,12 +198,15 @@ void opt_glau::set_ic(grid* f, EoS* eos)
 	      
 	      if(abs(eta)<0.0001){  // output will be a input to music
 		//cout<<eta<<endl;
-		File0<<eta<<"\t"<<x_<<"\t"<<y_<<"\t"<<eps<<"\t"<<utau<<"\t"<<ux<<"\t"<<uy<<"\t"<<uz<<"\t"<<"0"<<"\t"<<"0"<<"\t"<<"0"<<endl; // writing the dist in a file
+		File0 << eta << "\t" << x_ << "\t" << y_ << "\t" << eos->entropy(eps,nb,nq,ns) 
+                      << "\t" << utau << "\t" << ux << "\t" << uy << "\t" << uz
+                      << "\t" << "0" << "\t" << "0" << "\t" << "0" << endl; // writing the dist in a file
 	      }
 	      
 	      
               
-	      total_deposited = total_deposited + eps0*nchxy*H_eta ;
+	      total_deposited_entropy += eps0*nchxy*H_eta ;
+	      total_deposited_energy  += eps  ;
 	      //if(abs(x_)<f->get_dx() && abs(y_)<f->get_dy()){cout<<"energy at (0,0,0) : "<<eps0*eps<<endl;}
 	      
 	      
@@ -211,7 +215,8 @@ void opt_glau::set_ic(grid* f, EoS* eos)
 	}
     }
   
-  cout<<"total amount of deposited entropy is = "<<total_deposited<<endl;
+  cout<<"total deposited entropy : "<< total_deposited_entropy << endl;
+  cout<<"total deposited energy  : "<< total_deposited_energy << endl;
   cout<<"\n";
   
 }
