@@ -87,7 +87,7 @@ void mc_glau::set_ic(grid* f, EoS* eos)
   File0.open("hydro_output/mc_glauber_ic_dist.dat");
 
   // output can be a input to music
-  File0<<"#"<<"\t"<<"optical_glauber"<<"\t"<<"1"<<"\t"<<"neta="<<"\t"<<IDB->neta<<"\t"<<"nx="<<"\t"<<IDB->nx<<"\t"<<"ny="<<"\t"<<IDB->ny
+  File0<<"#"<<"\t"<<"mc_glauber"<<"\t"<<"1"<<"\t"<<"neta="<<"\t"<<IDB->neta<<"\t"<<"nx="<<"\t"<<IDB->nx<<"\t"<<"ny="<<"\t"<<IDB->ny
        <<"\t"<<"deta="<<"\t"<<IDB->deta<<"\t"<<"dx="<<"\t"<<IDB->dx<<"\t"<<"dy="<<"\t"<<IDB->dy<<endl;
   
   
@@ -155,7 +155,7 @@ void mc_glau::set_ic(grid* f, EoS* eos)
 	      if(fabs(eta)<0.0001)
 		{  // output will be a input to music
 		  //cout<<eta<<endl;
-		  File0<<eta<<"\t"<<x_<<"\t"<<y_<<"\t"<<eps0*eps<<"\t"<<utau<<"\t"<<ux
+		  File0<<eta<<"\t"<<x_<<"\t"<<y_<<"\t"<<entr<<"\t"<<utau<<"\t"<<ux
 		       <<"\t"<<uy<<"\t"<<uz<<"\t"<<"0"<<"\t"<<"0"<<"\t"<<"0"<<endl; // writing the dist in a file
 		}
 	      
