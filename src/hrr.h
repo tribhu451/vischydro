@@ -32,6 +32,10 @@ void hrr_music(double pi[4][4], double Pi,
 void hrr_music2(double pi[4][4], double Pi, 
       double quant[6],double pi_update[4][4], double &Pi_update, bool &rescaled);
 
+void hrr_make_ideal(double pi[4][4], double Pi, 
+      double quant[6],double pi_update[4][4], double &Pi_update, bool &rescaled);
+
+
 
 //void check_it(double pi[4][4],double u[5]);
 

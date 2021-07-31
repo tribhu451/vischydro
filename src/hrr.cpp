@@ -242,6 +242,71 @@ double ideal = eps*eps + 3.0*prs*prs  ;
 }
 
 
+void hrr::hrr_make_ideal(double pi[4][4], double Pi,
+     double quant[6],double pi_update[4][4], double &Pi_update, bool &rescaled)
+{
+double eps_warning = 0.015; //~100MeV
+
+
+double tau = quant[0];
+double eps = quant[1];
+double prs = quant[2];
+//double vx  = quant[3];
+//double vy  = quant[4];
+//double vz  = quant[5];
+
+double gmunu[4] = {1.,-1.,-1.,-1./(tau*tau)};
+
+
+double pimunu2 = 0.0; // pi^{\mu \nu} * \pi_{\mu \nu}
+for(int i=0; i<4; i++) 
+ for(int j=0; j<4; j++)
+  pimunu2 += pi[i][j] * ( (1.0/gmunu[i]) * (1.0/gmunu[j]) * pi[i][j] ) ;
+ 
+double ideal = eps*eps + 3.0*prs*prs  ;
+
+
+ pimunu2 = TMath::Abs(pimunu2)+1e-15;
+ ideal = TMath::Abs(ideal)+1e-15;
+
+
+
+ if(pimunu2 > ideal ){
+
+   if(eps > eps_warning)std::cout<<"[Warning] hrr pi required at eps = "<<eps<<std::endl;
+
+   for (int i = 0; i < 4; i++)
+     for (int j = 0; j < 4; j++){
+       pi_update[i][j] = 0.0 * pi[i][j];
+       }
+
+       rescaled = true;
+  } 
+  else
+    {
+   for (int i = 0; i < 4; i++)
+     for (int j = 0; j < 4; j++)
+       pi_update[i][j] = pi[i][j];
+
+    }
+
+
+ if(Pi*Pi > ideal)
+   {
+    if(eps > eps_warning)std::cout<<"[Warning] hrr PI required at eps = "<<eps<<std::endl;
+    Pi_update = 0 * Pi;
+
+     rescaled = true;
+  } 
+ else
+   {
+    Pi_update = Pi ;
+
+   }
+
+
+}
+
 
 
 

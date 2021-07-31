@@ -1058,10 +1058,14 @@ void hydro::ISformal()
           hr->hrr_music2(pi,  Pi, quant, pi,  Pi, rescaled);
           if(rescaled == true ) {c->set_visc_correct_flag(1); }
 
+          /*
+          hr->hrr_make_ideal(piH,  PiH, quant, piH,  PiH, rescaled);
+          if(rescaled == true ) {c->set_visc_correct_flag(1); }
+          hr->hrr_make_ideal(pi,  Pi, quant, pi,  Pi, rescaled);
+          if(rescaled == true ) {c->set_visc_correct_flag(1); }
+          */
 
 
-       
-   
 	  /////////////////////////////////////////
 	  // updating to the new values          //
 	  /////////////////////////////////////////
