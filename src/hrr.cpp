@@ -159,7 +159,7 @@ void hrr::hrr_music2(double pi[4][4], double Pi,
      double quant[6],double pi_update[4][4], double &Pi_update, bool &rescaled)
 {
 double eps_warning = 0.015; //~100MeV
-double xi = 0.01;
+double xi = 0.001;
 
 double tau = quant[0];
 double eps = quant[1];
@@ -197,7 +197,7 @@ double ideal = eps*eps + 3.0*prs*prs  ;
      exit(1);
     }
 
- if(rho_pi > 0.15){
+ if(rho_pi > 0.1){
 
    if(eps > eps_warning)std::cout<<"[Warning] hrr pi required at eps = "<<eps<<std::endl;
 
@@ -217,7 +217,7 @@ double ideal = eps*eps + 3.0*prs*prs  ;
     }
 
 
- if(rho_Pi > 0.15)
+ if(rho_Pi > 0.1)
    {
     if(eps > eps_warning)std::cout<<"[Warning] hrr PI required at eps = "<<eps<<std::endl;
     Pi_update = 0.1/rho_Pi * Pi;

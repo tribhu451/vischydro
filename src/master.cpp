@@ -119,8 +119,8 @@ void master::run_hydro()
       auto stop = high_resolution_clock::now();
       auto sdxduration = duration_cast<seconds>(stop - start);
       cout <<"[ "<< sdxduration.count()/60 << " mins. ] ";
-      printf( "\t[ tau : %2.2f fm ] ",h->get_tau());
-      cout << "\t" << "[ "<<istep<<"/"<<nstep<<" ]" <<"\t";
+      printf( "\t\033[93m[ tau : %2.2f fm ] \033[0m",h->get_tau());
+      cout << "\t" << "[ "<<istep<<"/"<<nstep<<" ]" << endl;
      
 
       h->evolve();
@@ -132,8 +132,8 @@ void master::run_hydro()
       if ((gg*map->stepsave)==(istep+1))
 	{
 	  map->put(gg,g,h->get_tau(),eos);
-	  cout<<"\nsaving for time="<<h->get_tau()<<" evolution step="<<istep+1<<
-	    ", "<<gg+1<<" step saved\n"<<endl;
+	  cout<<"\033[32m [Info] Saving for time="<<h->get_tau()<<"\tEvolution step="<<istep+1<<
+	    ", "<<gg+1<<"step saved. \033[0m "<<endl;
 	}
 
 
@@ -207,7 +207,7 @@ int master::check_to_stop(grid* f, EoS* eos, double tau , double tfreeze)
 	 if (temperature > tfreeze){flag += 1; } else {continue;}
       }
 
-       cout << "max T : "<< max_temp*1000 << " MeV\tmax e : "<< max_eps << " GeV/fm^3\tmax s : " << eos->entropy(max_eps,0,0,0)<<" fm^-3" <<endl;
+       cout << "Max e : "<< max_eps << " GeV/fm^3 \t Max s : " << eos->entropy(max_eps,0,0,0)<<" fm^-3 \t Max T : "<< max_temp*1000 << "MeV"<<endl;
   
   return flag;
 }
