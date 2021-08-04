@@ -477,24 +477,6 @@ double EoS1::temp_2_eps( double T,double _nb, double _nq, double _ns)
 }
 
 
-double EoS1::temp_2_prs( double T,double _nb, double _nq, double _ns)  
-{
-
-        double yi=1E-15;
-        yi = gsl_spline_eval (spline_teos_p, T, acc);
-        return yi;
- 
-}
-
-double EoS1::temp_2_entr( double T,double _nb, double _nq, double _ns)  
-{
-
-        double yi=1E-15;
-        yi = gsl_spline_eval (spline_teos_s, T, acc);
-        return yi;
- 
-}
-
 
 //! This function returns local energy density [1/fm^4] from
 //! a given entropy density [1/fm^3] and rhob [1/fm^3]

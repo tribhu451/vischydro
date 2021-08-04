@@ -28,17 +28,14 @@ public:
 EoS1();
 ~EoS1();
 void check_eos();
-double pressure( double eg,double _nb, double _nq, double _ns);
-double entropy( double eg,double _nb, double _nq, double _ns);
-double temperature( double eg,double _nb, double _nq, double _ns);
-double cs(double eg,double _nb, double _nq, double _ns){return TMath::Sqrt(cs2(eg, _nb,  _nq,  _ns));};
-double cs2(double eg,double _nb, double _nq, double _ns);
-double cs2_(){return 1./3.;};
-double cs_(){return sqrt(1./3.) ;};
+double pressure( double e,double _nb, double _nq, double _ns);
+double entropy( double e,double _nb, double _nq, double _ns);
+double temperature( double e,double _nb, double _nq, double _ns);
+double cs(double e,double _nb, double _nq, double _ns)
+         {return TMath::Sqrt(cs2(e, _nb,  _nq,  _ns));};
+double cs2(double e,double _nb, double _nq, double _ns);
 double temp_2_eps( double T,double _nb, double _nq, double _ns)  ;
-double temp_2_prs( double T,double _nb, double _nq, double _ns)  ;
-double temp_2_entr( double T,double _nb, double _nq, double _ns)  ;
-double entr_2_eps(double eg,double _nb, double _nq, double _ns)  ;
+double entr_2_eps(double e,double _nb, double _nq, double _ns)  ;
 
 private:
   void is_file_exist(fstream& file);
