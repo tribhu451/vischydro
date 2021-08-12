@@ -218,13 +218,14 @@ void surf::get_surface2p1d(double tau)
 	    
 	    // u^{\mu}	     
 	    double utau_fo = 1.0 / sqrt ( 1.0 - _vx * _vx - _vy * _vy - _vz * _vz) ;
-	    if (utau_fo > 1.)
-	      {
-		_vx *= sqrt(0.999 / utau_fo);
-		_vy *= sqrt(0.999 / utau_fo);
-		_vz *= sqrt(0.999 / utau_fo);
-		utau_fo = 0.999;
-	      }   
+
+	    // if ( sqrt( _vx * _vx + _vy * _vy + _vz * _vz ) > 1.)
+	    //   {
+	    // 	_vx *= sqrt(0.999 / utau_fo);
+	    // 	_vy *= sqrt(0.999 / utau_fo);
+	    // 	_vz *= sqrt(0.999 / utau_fo);
+	    // 	utau_fo = 0.999;
+	    //   }   
 
 	    
 
@@ -540,13 +541,14 @@ void surf::get_surface3p1d(double tau)
 
 	    // u^{\mu}	     
 	    double utau_fo = 1.0 / sqrt ( 1.0 - _vx * _vx - _vy * _vy - _vz * _vz) ;
-	    if (utau_fo > 1.)
-	      {
-		_vx *= sqrt(0.999 / utau_fo);
-		_vy *= sqrt(0.999 / utau_fo);
-		_vz *= sqrt(0.999 / utau_fo);
-		utau_fo = 0.999;
-	      }   
+
+	    // if ( sqrt( _vx * _vx + _vy * _vy + _vz * _vz ) > 1.)
+	    //   {
+	    // 	_vx *= sqrt(0.999 / utau_fo);
+	    // 	_vy *= sqrt(0.999 / utau_fo);
+	    // 	_vz *= sqrt(0.999 / utau_fo);
+	    // 	utau_fo = 0.999;
+	    //   }   
 
 	    
 	    
