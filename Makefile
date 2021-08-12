@@ -19,7 +19,7 @@ vpath %.cpp src
 objdir     = obj
 
 SRC        = main.cpp master.cpp grid.cpp cell.cpp cnvrt.cpp opt_glau.cpp fluid_info.cpp read_ic.cpp hydro.cpp \
-             trancoeff.cpp hrr.cpp eos1.cpp eos0.cpp mc_glau.cpp surface.cpp cornelius.cpp freeze.cpp Vector3D.cpp \
+             trancoeff.cpp hrr.cpp eos1.cpp eos0.cpp eos2.cpp mc_glau.cpp surface.cpp cornelius.cpp freeze.cpp Vector3D.cpp \
               sVector3D.cpp 
         #eos0.cpp  eos1.cpp cnvrt.cpp cell.cpp fluid.cpp hydro.cpp opt_glau.cpp mc_glau.cpp trancoeff.cpp \
 	#fluid_info.cpp read_ic_from_file.cpp freeze.cpp Vector3D.cpp read_gubser_from_file.cpp\

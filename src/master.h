@@ -16,6 +16,7 @@
 #include "read_ic.h"
 #include "hydro.h"
 #include "eos0.h"
+#include "eos2.h"
 #include "eos1.h"
 #include "surface.h"
 #include "freeze.h"
