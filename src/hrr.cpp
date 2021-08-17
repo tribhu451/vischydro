@@ -158,8 +158,8 @@ double ideal = eps*eps + 3.0*prs*prs  ;
 void hrr::hrr_music2(double pi[4][4], double Pi,
      double quant[6],double pi_update[4][4], double &Pi_update, bool &rescaled)
 {
-double eps_warning = 0.015; //~100MeV
-double xi = 0.001;
+double eps_warning = 0.09865; //~135MeV
+double xi = 0.009865;
 
 double tau = quant[0];
 double eps = quant[1];
