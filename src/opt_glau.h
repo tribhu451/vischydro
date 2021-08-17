@@ -41,7 +41,7 @@ class opt_glau
   double mPhiA = 0;
   double mThetaB =0;
   double mPhiB = 0;
-  double eps0 ;
+  double s0 ;
   double pi = 3.1415927;
   double b;
   double norm_const;
@@ -66,7 +66,7 @@ class opt_glau
     else if(IDB->species == "Pb") {A =208; B = 208; R = 6.66; a=0.45; beta2 = 0.0; beta4 =0.0;} //see arXiv: 1409.8375 [Table. 1]
     else {cout<<"species not recognized, it's : "<<IDB->species<<endl; exit(1);}
 
-    eps0 = IDB->opt_eps0;
+    s0 = IDB->entropy_scale_factor;
     bmin = IDB->bmin; bmax = IDB->bmax;
     if(IDB->SNN == 62.4){sigma = 3.155;} 
     else if(IDB->SNN == 200.0){sigma = 4.2;} 

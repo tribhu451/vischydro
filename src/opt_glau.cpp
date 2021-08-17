@@ -149,7 +149,7 @@ void opt_glau::set_ic(grid* f, EoS* eos)
   double Ncoll = ncoll();
   cout<<"No. of participants :\t"<<Npart<<endl;
   cout<<"No. of binary collisions :\t"<<Ncoll<<endl;
-  cout<<"Multiplicity scaling factor eps0 :\t"<<eps0<<endl;
+  cout<<"Entropy scaling factor s0 :\t"<<s0<<endl;
   cout<<"Hardness factor in two component glauber :\t"<<X_hard<<endl;
   cout<<"n_pp for two component glauber :\t"<<n_pp<<endl;
   
@@ -188,7 +188,7 @@ void opt_glau::set_ic(grid* f, EoS* eos)
 	      
 	      double nb= 0; double nq = 0; double ns =0; 
 	      
-	      double eps = eos->entr_2_eps(eps0*nchxy*H_eta,nb,nq,ns);  // entropy converted to energy density
+	      double eps = eos->entr_2_eps(s0*nchxy*H_eta,nb,nq,ns);  // entropy converted to energy density
 	      
 	      double vx=0; double vy=0; double vz= 0;
 	      double utau = 1.0/sqrt(1.0-vx*vx-vy*vy-vz*vz);
@@ -205,7 +205,7 @@ void opt_glau::set_ic(grid* f, EoS* eos)
 	      
 	      
               
-	      total_deposited_entropy += eps0*nchxy*H_eta ;
+	      total_deposited_entropy += s0*nchxy*H_eta ;
 	      total_deposited_energy  += eps  ;
 	      //if(abs(x_)<f->get_dx() && abs(y_)<f->get_dy()){cout<<"energy at (0,0,0) : "<<eps0*eps<<endl;}
 	      

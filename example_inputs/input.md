@@ -22,23 +22,26 @@ init_file_name hydro_output/optical_glauber_ic_dist.dat
 
 #collision energy
 #[Info] in GeV
-SNN 2760.0
+SNN 200.0
 
 #impact parameter
-bmin  4.0899
-bmax  4.0901
+bmin  2.3499
+bmax  2.3501
+
+
+#initial entropy scaling factor
+entropy_scale_factor 1.0
 
 
 #If [Optical Glauber] is choosen fill below :
 #[Info] currently in optical glauber model only same species collision is possible
-species Pb
-opt_eps0 25.8
+species Au
+
 
 
 #If [MC Glauber] is choosen fill below :
 projectile U
 target U
-mc_eps0 5.0
 DELTA 0.4
 
 
@@ -49,8 +52,8 @@ xmax  +10.0
 xmin  -10.0 
 ymax  +10.0
 ymin  -10.0
-etamax  +10
-etamin  -10
+etamax  +1e-10
+etamin  -1e-10
 nx  201
 ny  201
 neta 1
@@ -75,7 +78,7 @@ tauMax  30.0
 etas_flag 1
 zetas_flag 0
 t_etas_flag 0
-etas  0.095
+etas  0.08
 
 #save in hydro file
 save_every_N_steps 5000

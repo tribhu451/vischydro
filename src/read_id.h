@@ -57,6 +57,8 @@ void read_id_from_file(idb *input_parameter_list, string input_file_name)
       if(a_ == "Tfreeze" )  {input_parameter_list->Tfreeze = atof(a);}
       if(a_ == "tauMax" )  {input_parameter_list->tauMax = atof(a);}
       if(a_ == "ic_mode" )  {input_parameter_list->ic_mode = atof(a);}
+      if(a_ == "entropy_scale_factor" )  {input_parameter_list->entropy_scale_factor = atof(a);}
+
 
       if(a_ == "SNN" )  {input_parameter_list->SNN = atof(a);}
 
@@ -77,7 +79,6 @@ void read_id_from_file(idb *input_parameter_list, string input_file_name)
 
       if(input_parameter_list->ic_mode == 0) //Optical-Glauber inputs
         {
-          if(a_ == "opt_eps0" )  {input_parameter_list->opt_eps0 = atof(a);} 
           if(a_ == "species" )    {input_parameter_list->species = a;}      
         }     
       
@@ -86,7 +87,6 @@ void read_id_from_file(idb *input_parameter_list, string input_file_name)
           if(a_ == "projectile" )    {input_parameter_list->projectile = a;}
           if(a_ == "target" )    {input_parameter_list->target = a;}
           if(a_ == "DELTA" )  {input_parameter_list->DELTA = atof(a);}       
-          if(a_ == "mc_eps0" )  {input_parameter_list->mc_eps0 = atof(a);}       
         }     
       
           if(a_ == "init_file_name" )    {input_parameter_list->init_file_name = a;}      

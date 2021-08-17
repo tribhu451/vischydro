@@ -31,7 +31,7 @@ typedef struct IDB
   string target;  
 
   double DELTA;
-  double mc_eps0;
+  double entropy_scale_factor;
   double bmin,bmax;
 
   int eos ; 
@@ -39,7 +39,7 @@ typedef struct IDB
   double eta_platue;
   double eta_fall ;
   
-  double opt_eps0,impact_parameter;
+  double impact_parameter;
 
   int save_every_N_steps;
   string init_file_name;     // filename of the initial density profile

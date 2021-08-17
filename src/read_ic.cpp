@@ -71,7 +71,7 @@ void read_ic::set_ic(grid* f, EoS* eos)
 	                   //https://arxiv.org/pdf/0902.4121.pdf  (eqn_2.12)
 
                            double nb= 0; double ns=0; double nq=0;
-                           double eps = eos->entr_2_eps(IDB->mc_eps0*entropy*H_eta,nb,nq,ns);     
+                           double eps = eos->entr_2_eps( IDB->entropy_scale_factor * entropy * H_eta, nb, nq, ns );     
 		           double vz= 0.0; 
                            c->set_prim_var(eos, IDB->tau0, eps, nb, nq, ns, vx, vy, vz);
  

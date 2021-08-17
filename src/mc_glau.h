@@ -46,7 +46,7 @@ class mc_glau
 
   
   double DELTA; //gussian smearing sigma
-  double eps0 ; //energy density scaling factor
+  double s0 ; //entropy density scaling factor
   double bmin,bmax; //impact parameter range
 
   double theta(double _a);
@@ -78,7 +78,7 @@ void set_mc_glau_params()
     // impact parameter range
     bmin = IDB->bmin; bmax = IDB->bmax;
 
-    DELTA = IDB->DELTA; eps0 = IDB->mc_eps0; 
+    DELTA = IDB->DELTA; s0 = IDB->entropy_scale_factor; 
 
 }
 

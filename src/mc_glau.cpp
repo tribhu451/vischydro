@@ -29,7 +29,7 @@ void mc_glau::set_ic(grid* f, EoS* eos)
       cout<<"[Info] two component energy deposition with X_hard = "<<X_hard<<endl;
     }
   cout << "[Info] Gaussian smearing with std deviation : " << DELTA << endl;
-  cout << "[Info] Multiplicity scaling factor eps0 : " << eps0 << endl;
+  cout << "[Info] Entropy scaling factor s0 : " << s0 << endl;
   
   
   // random number for b and theta
@@ -141,7 +141,7 @@ void mc_glau::set_ic(grid* f, EoS* eos)
 	      
  	      double nb= 0; double nq = 0; double ns =0; 
 	      
-	      double eps = eos->entr_2_eps(eps0*entr*H_eta,nb,nq,ns);  // entropy converted to energy density
+	      double eps = eos->entr_2_eps(s0*entr*H_eta,nb,nq,ns);  // entropy converted to energy density
 	      
 	      double vx=0; double vy=0; double vz= 0;
 	      double utau = 1.0 / sqrt( 1.0 - vx*vx - vy*vy - vz*vz );
@@ -149,7 +149,7 @@ void mc_glau::set_ic(grid* f, EoS* eos)
 	      double uy = utau*vy;
 	      double uz = utau*vz; 
 	      
-	      total_deposited_entropy +=  eps0*entr*H_eta ;
+	      total_deposited_entropy +=  s0*entr*H_eta ;
 	      total_deposited_energy  += eps ;
 	      
 	      if(fabs(eta)<0.0001)
