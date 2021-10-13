@@ -55,6 +55,8 @@ void read_id_from_file(idb *input_parameter_list, string input_file_name)
       if(a_ == "dtau" )  {input_parameter_list->dtau = atof(a);}
       if(a_ == "tau0" )  {input_parameter_list->tau0 = atof(a);}
       if(a_ == "Tfreeze" )  {input_parameter_list->Tfreeze = atof(a);}
+      if(a_ == "eps_freeze_flag" )  {input_parameter_list->eps_freeze_flag = atof(a);}
+      if(a_ == "eps_freeze" )  {input_parameter_list->eps_freeze = atof(a);}
       if(a_ == "tauMax" )  {input_parameter_list->tauMax = atof(a);}
       if(a_ == "ic_mode" )  {input_parameter_list->ic_mode = atof(a);}
       if(a_ == "entropy_scale_factor" )  {input_parameter_list->entropy_scale_factor = atof(a);}

@@ -267,7 +267,7 @@ void evolve::put(int dumpstep,grid* h,double tau,EoS* EOS){
        }
 
 	
-	double e, p, nb, nq, ns, t, mub, muq, mus, vx, vy, vz;
+	double e, nb, nq, ns, vx, vy, vz;
 	h->getCMFvariablesUmunu(c,tau, e, nb, nq, ns, vx, vy, vz);
 
         if(h->get_neta() == 1)

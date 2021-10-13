@@ -47,7 +47,7 @@ trancoeff* trcoef;
 
 private:
 
-int check_to_stop(grid* , EoS* , double  , double );
+int check_to_stop(grid* , EoS* , double  );
 void save_for_fo(int );
 void find_hyper_surface(int , double);
 

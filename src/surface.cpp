@@ -7,11 +7,20 @@ surf::surf(EoS* _eos,idb* _IDB, grid* _f, cnvrt* _CN)
   f = _f ;
   CN = _CN ;
 
-  double Tfreeze = IDB->Tfreeze  ;
-  cout<<"[Info] Freezeout temperature = "<<Tfreeze<<" GeV"<<endl;
-  double eCrit=eos->temp_2_eps(Tfreeze,0,0,0);
-  cout<<"[Info] Freeze-out hypersurface at Ef = "<<eCrit<<" GeV/fm^3\n"<<endl;
-  
+  double eCrit;
+
+  if (IDB->eps_freeze_flag == 0 ){
+    cout << "[Info] Constant temperature hypersurface." << endl ; 
+    cout<<"[Info] Freezeout temperature = "<<IDB->Tfreeze<<" GeV"<<endl;
+    eCrit=eos->temp_2_eps(IDB->Tfreeze,0,0,0);
+    cout<<"[Info] Freeze-out hypersurface at Ef = "<<eCrit<<" GeV/fm^3\n"<<endl;
+  }
+ else{
+    cout << "[Info] Constant energy density hypersurface." << endl ;
+    cout << "[Info] Freezeout energy density = " << IDB->eps_freeze <<" GeV." << endl; 
+    eCrit = IDB->eps_freeze ;
+    cout << "[Info] Freeze-out hypersurface at Ef = " << eCrit << " GeV/fm^3\n" << endl;
+ }
   
   //----- Cornelius init
   
@@ -20,16 +29,16 @@ surf::surf(EoS* _eos,idb* _IDB, grid* _f, cnvrt* _CN)
       double arrayDx[3] = {IDB->skip_fo_tau*f->get_dtau(),IDB->skip_fo_x* f->get_dx(),IDB->skip_fo_y* f->get_dy()};
       cornelius = new Cornelius;
       cornelius->init(3, eCrit, arrayDx);   
-      freeze_file.open("./hydro_output/surface.dat",ios::trunc | ios::out );
-      freeze_file<<std::setprecision(6)<<std::scientific;
+      freeze_file.open("./hydro_output/surface.dat", ios::out );
+      freeze_file<<std::setprecision(10)<<std::scientific;
     }
   else
    {
      double arrayDx[4] = {IDB->skip_fo_tau*f->get_dtau(), IDB->skip_fo_x*f->get_dx(), IDB->skip_fo_y*f->get_dy(), IDB->skip_fo_eta*f->get_deta()};
      cornelius = new Cornelius;
      cornelius->init(4, eCrit, arrayDx);
-     freeze_file.open("./hydro_output/surface.dat",ios::trunc | ios::out );
-     freeze_file<<std::setprecision(6)<<std::scientific;
+     freeze_file.open("./hydro_output/surface.dat", ios::out );
+     freeze_file<<std::setprecision(10)<<std::scientific;
    }
   
 }
@@ -244,31 +253,33 @@ void surf::get_surface2p1d(double tau)
 	    
 	        
 	    
-	    freeze_file << tau_fo << "\t" << x_fo << "\t" << y_fo << "\t" << eta_fo << "\t" ;
+	    freeze_file << tau_fo << " " << x_fo <<  " " << y_fo << " " << eta_fo << " " ;
  
-	    freeze_file << norm_tau << "\t" << norm_x 
-			<< "\t" << norm_y << "\t" << norm_eta << "\t" ;  
+	    freeze_file << norm_tau << " " << norm_x 
+			<< " " << norm_y << " " << norm_eta << " " ;  
 
-	    freeze_file << utau_fo << "\t" << utau_fo*_vx << "\t" << utau_fo*_vy << "\t" << utau_fo*_vz << "\t" ; 
+	    freeze_file << utau_fo << " " << utau_fo*_vx << " " << utau_fo*_vy << " " << utau_fo*_vz << " " ; 
 
-	    freeze_file << e_fo*5.068 << "\t" << T_fo*5.068 << "\t" << mub_fo*5.068
-                        << "\t" << mus_fo*5.068 << "\t" << muq_fo*5.068 << "\t" << (e_fo + p_fo) / T_fo << "\t" ; 
+	    freeze_file << e_fo*5.067653 << " " << T_fo*5.067653  << " " << mub_fo*5.067653 
+                        << " " << mus_fo*5.067653  << " " << muq_fo*5.067653  << " " << (e_fo + p_fo) / T_fo << " " ; 
 
-            freeze_file <<        pi_fo[c->indexpi(0,0)] * 5.068 << "\t";
-            freeze_file <<        pi_fo[c->indexpi(0,1)] * 5.068 << "\t";
-            freeze_file <<        pi_fo[c->indexpi(0,2)] * 5.068 << "\t";
-            freeze_file << tau_fo*pi_fo[c->indexpi(0,3)] * 5.068 << "\t";
-            freeze_file <<        pi_fo[c->indexpi(1,1)] * 5.068 << "\t";
-            freeze_file <<        pi_fo[c->indexpi(1,2)] * 5.068 << "\t";
-            freeze_file << tau_fo*pi_fo[c->indexpi(1,3)] * 5.068 << "\t";
-            freeze_file <<        pi_fo[c->indexpi(2,2)] * 5.068 << "\t";
-            freeze_file << tau_fo*pi_fo[c->indexpi(2,3)] * 5.068 << "\t";
-            freeze_file << pow(tau_fo,2)*pi_fo[c->indexpi(3,3)] * 5.068 << "\t";
-
-	    freeze_file << Pi_fo*5.068 << endl ;                                           
+            freeze_file <<        pi_fo[c->indexpi(0,0)] * 5.067653  << " ";
+            freeze_file <<        pi_fo[c->indexpi(0,1)] * 5.067653  << " ";
+            freeze_file <<        pi_fo[c->indexpi(0,2)] * 5.067653  << " ";
+            freeze_file << tau_fo*pi_fo[c->indexpi(0,3)] * 5.067653  << " ";
+            freeze_file <<        pi_fo[c->indexpi(1,1)] * 5.067653  << " ";
+            freeze_file <<        pi_fo[c->indexpi(1,2)] * 5.067653  << " ";
+            freeze_file << tau_fo*pi_fo[c->indexpi(1,3)] * 5.067653  << " ";
+            freeze_file <<        pi_fo[c->indexpi(2,2)] * 5.067653  << " ";
+            freeze_file << tau_fo*pi_fo[c->indexpi(2,3)] * 5.067653  << " ";
+            if (IDB->zetas_flag == 0 ) { 
+                      freeze_file << pow(tau_fo,2)*pi_fo[c->indexpi(3,3)] * 5.067653  << endl ;
+            }
+            else{
+                      freeze_file << pow(tau_fo,2)*pi_fo[c->indexpi(3,3)] * 5.067653 << " ";
+	              freeze_file << Pi_fo*5.067653 << endl ; 
+            }                                          
  
-
-
 
 	  } // element loop
 	
@@ -494,7 +505,7 @@ void surf::get_surface3p1d(double tau)
 	    double norm_tau = cornelius->get_normal_elem(isegm, 0);
 	    double norm_x = cornelius->get_normal_elem(isegm, 1);
 	    double norm_y = cornelius->get_normal_elem(isegm, 2);
-	    double norm_eta = cornelius->get_normal_elem(isegm, 2); 
+	    double norm_eta = cornelius->get_normal_elem(isegm, 3); 
 
 	    // Linear interpolation below
 	    double wt[2] = { 1. - cornelius->get_centroid_elem(isegm, 0) / IDB->skip_fo_tau*f->get_dtau(),
@@ -567,28 +578,32 @@ void surf::get_surface3p1d(double tau)
 		}
 	    
 	    
-	    freeze_file << tau_fo << "\t" << x_fo << "\t" << y_fo << "\t" << eta_fo << "\t" ;
+	    freeze_file << tau_fo << " " << x_fo << " " << y_fo << " " << eta_fo << " " ;
  
-	    freeze_file << norm_tau << "\t" << norm_x 
-			<< "\t" << norm_y << "\t" << norm_eta << "\t" ;  
+	    freeze_file << norm_tau << " " << norm_x 
+			<< " " << norm_y << " " << norm_eta << " " ;  
 
-	    freeze_file << utau_fo << "\t" << utau_fo*_vx << "\t" << utau_fo*_vy << "\t" << utau_fo*_vz << "\t" ; 
+	    freeze_file << utau_fo << " " << utau_fo*_vx << " " << utau_fo*_vy << " " << utau_fo*_vz << " " ; 
 
-	    freeze_file << e_fo*5.068 << "\t" << T_fo*5.068 << "\t" << mub_fo*5.068
-                        << "\t" << mus_fo*5.068 << "\t" << muq_fo*5.068 << "\t" << (e_fo + p_fo) / T_fo << "\t" ; 
+	    freeze_file << e_fo*5.067653 << " " << T_fo*5.067653 << " " << mub_fo*5.067653
+                        << " " << mus_fo*5.067653 << " " << muq_fo*5.067653 << " " << (e_fo + p_fo) / T_fo << " " ; 
 
-            freeze_file <<        pi_fo[c->indexpi(0,0)] * 5.068 << "\t";
-            freeze_file <<        pi_fo[c->indexpi(0,1)] * 5.068 << "\t";
-            freeze_file <<        pi_fo[c->indexpi(0,2)] * 5.068 << "\t";
-            freeze_file << tau_fo*pi_fo[c->indexpi(0,3)] * 5.068 << "\t";
-            freeze_file <<        pi_fo[c->indexpi(1,1)] * 5.068 << "\t";
-            freeze_file <<        pi_fo[c->indexpi(1,2)] * 5.068 << "\t";
-            freeze_file << tau_fo*pi_fo[c->indexpi(1,3)] * 5.068 << "\t";
-            freeze_file <<        pi_fo[c->indexpi(2,2)] * 5.068 << "\t";
-            freeze_file << tau_fo*pi_fo[c->indexpi(2,3)] * 5.068 << "\t";
-            freeze_file << pow(tau_fo,2)*pi_fo[c->indexpi(3,3)] * 5.068 << "\t";
-
-	    freeze_file << Pi_fo*5.068 << endl ;                                           
+            freeze_file <<        pi_fo[c->indexpi(0,0)] * 5.067653 << " ";
+            freeze_file <<        pi_fo[c->indexpi(0,1)] * 5.067653 << " ";
+            freeze_file <<        pi_fo[c->indexpi(0,2)] * 5.067653 << " ";
+            freeze_file << tau_fo*pi_fo[c->indexpi(0,3)] * 5.067653 << " ";
+            freeze_file <<        pi_fo[c->indexpi(1,1)] * 5.067653 << " ";
+            freeze_file <<        pi_fo[c->indexpi(1,2)] * 5.067653 << " ";
+            freeze_file << tau_fo*pi_fo[c->indexpi(1,3)] * 5.067653 << " ";
+            freeze_file <<        pi_fo[c->indexpi(2,2)] * 5.067653 << " ";
+            freeze_file << tau_fo*pi_fo[c->indexpi(2,3)] * 5.067653 << " ";
+            if (IDB->zetas_flag == 0 ) { 
+                      freeze_file << pow(tau_fo,2)*pi_fo[c->indexpi(3,3)] * 5.067653  << endl ;
+            }
+            else{
+                      freeze_file << pow(tau_fo,2)*pi_fo[c->indexpi(3,3)] * 5.067653 << " ";
+	              freeze_file << Pi_fo*5.067653 << endl ; 
+            }                                     
                    	    
 	  } // element loop
 	

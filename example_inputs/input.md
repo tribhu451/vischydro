@@ -13,7 +13,7 @@ eos 1
 
 #initial condition mode
 #[Info] ic_mode == -2/-1/0/1/2 (read gubser form file/gubser/ optical Glauber/ MC Glauber/ read from file) 
-ic_mode 2
+ic_mode 0
 
 
 # if ic_mode 2 choosen
@@ -30,7 +30,7 @@ bmax  2.3501
 
 
 #initial entropy scaling factor
-entropy_scale_factor 1.0
+entropy_scale_factor 16.8
 
 
 #If [Optical Glauber] is choosen fill below :
@@ -68,6 +68,8 @@ eta_fall 2.0
 #dtau, hydro starting time, freezeout condition, max run time of hydro :
 dtau 0.02
 tau0 0.4
+eps_freeze_flag 1
+eps_freeze 0.24
 Tfreeze  0.150
 tauMax  30.0
 

@@ -75,21 +75,28 @@ void master::init()
 void master::run_hydro()
 {
 
+  int stop_flag ; 
+ 
+    // freezeout hypersurface initialization for therminator ...
+    evolve* map =new evolve();
 
-  // freezeout hypersurface initialization for therminator ...
-  evolve* map =new evolve();
-  map->ini(g,IDB->tau0,IDB->tauMax,IDB->dtau);
+  if( IDB->eps_freeze_flag == 0 ){
+    map->ini(g,IDB->tau0,IDB->tauMax,IDB->dtau);
+    map->put(0,g,IDB->tau0,eos);
+  }
+
 
   sf = new surf(eos, IDB , g , CN );
   h = new hydro(eos, g , IDB , IDB->tau0 , IDB->dtau, CN, trcoef);
 
-  map->put(0,g,IDB->tau0,eos);
 
   int nstep = (IDB->tauMax - IDB->tau0)/IDB->dtau;
   auto start = high_resolution_clock::now();  
   for(int istep=0; istep<nstep ; istep++)
     { // step loop
 
+
+      // save the fluis info on grid
       if( istep*1.0/IDB->save_every_N_steps == int (istep/IDB->save_every_N_steps) )
         {
           out->midslice_xy_dist(h->get_tau());
@@ -97,28 +104,43 @@ void master::run_hydro()
           out->anisotropy_in_xy_plane(h->get_tau());
         }
 
+
+      // Befor the 1st step save for freezeout.
+      if( istep == 0 ) { 
+        save_for_fo(istep);
+        stop_flag = check_to_stop( g, eos, h->get_tau() ) ;
+      }
+
+      // evolution step.
       auto stop = high_resolution_clock::now();
       auto sdxduration = duration_cast<seconds>(stop - start);
       cout <<"[ "<< sdxduration.count()/60 << " mins. ] ";
       printf( "\t\033[93m[ tau : %2.2f fm ] \033[0m",h->get_tau());
-      cout << "\t" << "[ "<<istep<<"/"<<nstep<<" ]" << endl;
+      cout << "\t" << "[ "<<istep<<"/"<<nstep<<" ] completed." << endl;
      
 
+
+      // entire hydro evolution here
       h->evolve();
-      //find_hyper_surface(istep, h->get_tau()); // [Caution!!!]order matters
-      //save_for_fo(istep); // first find hypersurface then save for fo
+
+      // find the hypersurface after the evolution and save for freezeout.
+      find_hyper_surface(istep+1, h->get_tau()); 
+      save_for_fo(istep+1); 
 
 
-      int gg=(istep+1)/map->stepsave;
-      if ((gg*map->stepsave)==(istep+1))
-	{
-	  map->put(gg,g,h->get_tau(),eos);
-	  cout<<"\033[32m [Info] Saving for time="<<h->get_tau()<<"\tEvolution step="<<istep+1<<
-	    ", "<<gg+1<<"step saved. \033[0m "<<endl;
-	}
+      if( IDB->eps_freeze_flag == 0 ){
+        int gg=(istep+1)/map->stepsave;
+         if ((gg*map->stepsave)==(istep+1))
+	  {
+	    map->put(gg,g,h->get_tau(),eos);
+	    cout<<"\033[32m [Info] Saving for time="<<h->get_tau()<<"\tEvolution step="<<istep+1<<
+	      ", "<<gg+1<<"step saved. \033[0m "<<endl;
+	  }
+      }
 
 
-      int stop_flag = check_to_stop(g,eos,h->get_tau(),IDB->Tfreeze - 0.01 - 0.001 ) ;
+     // check wheather all cells are below eps freeze or not ?
+      stop_flag = check_to_stop( g, eos, h->get_tau() ) ;
           if (stop_flag > 0) 
             { continue; }
 	  else 
@@ -128,45 +150,27 @@ void master::run_hydro()
     }// step loop
 
 
- // Getting the freezeout hypersurface in .xml file .
-  double Tfreeze = IDB->Tfreeze  ;
-  cout<<"\n\n freezeout temperature : "<<Tfreeze<<" GeV"<<endl;
-  map->gethypersurface(g,eos,Tfreeze);
-  map->hypersurface("hydro_output/",1);
+  if( IDB->eps_freeze_flag == 0 ){
+    // Getting the freezeout hypersurface in .xml file .
+    cout << "$ $ $ HYPERSURFACE FOR THERMINATOR $ $ $" << endl ; 
+    double Tfreeze = IDB->Tfreeze  ;
+    cout<<"\n\n freezeout temperature : "<<Tfreeze<<" GeV"<<endl;
+    map->gethypersurface(g,eos,Tfreeze);
+    map->hypersurface("hydro_output/",1);
+  }
   
-  Tfreeze = IDB->Tfreeze - 0.005  ;
-  cout<<"\n\n freezeout temperature : "<<Tfreeze<<" GeV"<<endl;
-  map->gethypersurface(g,eos,Tfreeze);
-  map->hypersurface("hydro_output/",1);
-
-  Tfreeze = IDB->Tfreeze - 0.010  ;
-  cout<<"\n\n freezeout temperature : "<<Tfreeze<<" GeV"<<endl;
-  map->gethypersurface(g,eos,Tfreeze);
-  map->hypersurface("hydro_output/",1);
-
-  Tfreeze = IDB->Tfreeze + 0.005  ;
-  cout<<"\n\n freezeout temperature : "<<Tfreeze<<" GeV"<<endl;
-  map->gethypersurface(g,eos,Tfreeze);
-  map->hypersurface("hydro_output/",1);
-
-  Tfreeze = IDB->Tfreeze + 0.010  ;
-  cout<<"\n\n freezeout temperature : "<<Tfreeze<<" GeV"<<endl;
-  map->gethypersurface(g,eos,Tfreeze);
-  map->hypersurface("hydro_output/",1);
-
-
-
 
 }
 
 
 
-int master::check_to_stop(grid* f, EoS* eos, double tau , double tfreeze)
+int master::check_to_stop(grid* f, EoS* eos, double tau )
 {
   double e,p,nb,nq,ns,vx,vy,vz;
   int flag = 0;
   double max_temp = 0;
   double max_eps = 0;
+  double max_nb = 0;
 
   for(int ix = 0; ix < IDB->nx ; ix++)
     for(int iy = 0; iy <IDB->ny; iy++)
@@ -185,10 +189,14 @@ int master::check_to_stop(grid* f, EoS* eos, double tau , double tfreeze)
 
          if (temperature > max_temp ) { max_temp = temperature ; }
          if (e > max_eps) { max_eps = e ; }
-	 if (temperature > tfreeze){flag += 1; } else {continue;}
+         if (nb > max_nb) { max_nb = nb ; }
+
+         if(IDB->eps_freeze_flag == 0 && temperature > IDB->Tfreeze - 0.001 ) { flag += 1; }
+         if(IDB->eps_freeze_flag == 1 && e > IDB->eps_freeze - 0.001 ) { flag += 1; }
+         
       }
 
-       cout << "Max e : "<< max_eps << " GeV/fm^3 \t Max s : " << eos->entropy(max_eps,0,0,0)<<" fm^-3 \t Max T : "<< max_temp*1000 << "MeV"<<endl;
+       printf( "Max e : %2.3f GeV/fm^3   Max T : %3.3f MeV.  ", max_eps, max_temp*1000.0);
   
   return flag;
 }
@@ -198,8 +206,8 @@ int master::check_to_stop(grid* f, EoS* eos, double tau , double tfreeze)
 void master::save_for_fo(int istep)
 {
 // save for freezeout in every [skip_fo_tau] steps
-if( fabs( istep / IDB->skip_fo_tau - 
-        int ( istep / IDB->skip_fo_tau ) ) < 0.0001 )
+if( fabs( (istep*1.0) / IDB->skip_fo_tau - 
+        int ( (istep*1.0) / IDB->skip_fo_tau ) ) < 0.0001  )
 {
   cell *c;
    for(int ix = 0; ix<g->get_nx(); ix++)
@@ -222,8 +230,8 @@ return ;
 void master::find_hyper_surface(int istep, double tau)
 {
 // finding the freezeout hypersurface in every [skip_fo_tau] steps
-if( fabs ( istep / IDB->skip_fo_tau - 
-        int ( istep / IDB->skip_fo_tau ) ) < 0.0001 && istep >= 1)
+if( fabs ( (istep*1.0) / IDB->skip_fo_tau - 
+        int ( (istep*1.0) / IDB->skip_fo_tau ) ) < 0.0001 && istep >= 1)
 {
   if(g->get_neta() == 1 )
     { 

@@ -21,6 +21,8 @@ typedef struct IDB
   double deta;
   double dtau;
   double tau0;
+  int eps_freeze_flag;
+  double eps_freeze ; 
   double Tfreeze;
   double tauMax;
   double ic_mode;
