@@ -88,10 +88,10 @@ save_every_N_steps 5000
 
 # Below inputs are not required for vischydro_for_therminator
 # avg. hypersurface over :
-#skip_fo_tau 4
-#skip_fo_x 4
-#skip_fo_y 4
-#skip_fo_eta 2
+skip_fo_tau 2
+skip_fo_x 2
+skip_fo_y 2
+skip_fo_eta 1
 
 
 # :: END :: #
