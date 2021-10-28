@@ -53,11 +53,19 @@ class opt_glau
 
   double Get_Norm_Constant();
   double npartxy(double x,double y);
+  double npartxy_min(double x,double y);
   double ncollxy(double x,double y);
   double theta(double _a);
   
   double npart_tab(double* x,double* p);
   double ncoll_tab(double* x,double* p);
+
+
+  void boost_invariant_ic(grid* , EoS* );
+  void rapidity_shifted_ic(grid* , EoS* );
+  void rapidity_tilted_ic(grid* , EoS* );
+  
+
   
   void set_opt_glau_params()
   { 
@@ -75,5 +83,25 @@ class opt_glau
     else{cout<<"SNN(energy) not recognised"<<endl; exit(1);}
   }
   
+
+
+  double f_F(double eta, double etam)
+    {
+      if(eta < -etam ){ return 0 ;}
+      else if( -etam < eta && eta < etam ) { return (eta+etam) / (2*etam) ; }
+      else {return 1.0;}
+    }
+
+
   
 };
+
+
+
+
+
+
+
+
+
+
