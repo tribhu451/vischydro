@@ -32,6 +32,15 @@ opt_glau::opt_glau(idb *_IDB){
 
 opt_glau::~opt_glau(){}
 
+double opt_glau::theta(double _a)
+{
+  if(_a < 0){
+   return 0;
+  }
+  else{
+   return 1;
+  }
+}
 
 double opt_glau::Modf_WoodSaxon(const double* x){
   double theta=0;
@@ -141,6 +150,66 @@ double opt_glau::ncollxy(double x,double y){
   return  A*B*sigma*TA*TB;
 }
 
+double opt_glau::npart_tab(double* x,double* p)
+{
+  TF1* f1;
+  f1=new TF1 ("TA",this,&opt_glau::Norm_Function,-3*R,3*R,4);
+  f1->SetParameter(0,x[0]+(b/2.0)); 
+  f1->SetParameter(1,x[1]); 
+  f1->SetParameter(2,mThetaA); 
+  f1->SetParameter(3,mPhiA); 
+  double TA = f1->Integral(-3*R,3*R,1.0E-9);
+  
+  f1->SetParameter(0,x[0]-(b/2.0)); 
+  f1->SetParameter(2,mThetaB); 
+  f1->SetParameter(3,mPhiB); 
+  double TB = f1->Integral(-3*R,3*R,1.0E-9);
+  double va= ((A*TA*(1-(TMath::Power(1-TB*sigma,B)))) + (B*TB*(1-(TMath::Power(1-TA*sigma,A)))));
+  delete f1;
+  return  va;
+}
+
+
+double opt_glau::npart()
+{
+  TF2 *f3;
+  f3=new TF2("T_AB",this,&opt_glau::npart_tab,-3*R,3*R,-3*R,3*R,0);
+  double TAAB=f3->Integral(-3*R,3*R,-3*R,3*R,1.0E-05);
+  delete f3;
+  return TAAB;
+}
+
+
+double opt_glau::ncoll_tab(double* x,double* p){
+
+
+        TF1* f1;
+        f1=new TF1 ("TA",this,&opt_glau::Norm_Function,-3*R,3*R,4);
+        f1->SetParameter(0,x[0]+(b/2.0)); 
+        f1->SetParameter(1,x[1]); 
+        f1->SetParameter(2,mThetaA); 
+        f1->SetParameter(3,mPhiA); 
+        double TA = f1->Integral(-3*R,3*R,1.0E-09);
+        f1->SetParameter(0,x[0]-(b/2.0)); 
+        f1->SetParameter(2,mThetaB); 
+        f1->SetParameter(3,mPhiB); 
+        double TB = f1->Integral(-3*R,3*R,1.0E-09);
+        delete f1;
+        return  A*B*sigma*TA*TB;
+
+}
+
+
+
+double opt_glau::ncoll(){
+
+        TF2* f2;
+        f2= new TF2("TAB",this,&opt_glau::ncoll_tab,-3*R,3*R,-3*R,3*R,0);
+        double T_AB = f2->Integral(-3*R,3*R,-3*R,3*R,1.0E-05);
+        delete f2;
+        return T_AB;
+}
+
 
 
 void opt_glau::set_ic(grid* f, EoS* eos){
@@ -166,9 +235,9 @@ void opt_glau::set_ic(grid* f, EoS* eos){
   cout<<"Hardness factor in two component glauber :\t"<<X_hard<<endl;
   cout<<"n_pp for two component glauber :\t"<<n_pp<<endl;
   
-  boost_invariant_ic(f,eos);
+  //boost_invariant_ic(f,eos);
   //rapidity_shifted_ic(f,eos);
-  //rapidity_tilted_ic(f,eos);
+  rapidity_tilted_ic(f,eos,1);
   
 }
 
@@ -318,40 +387,49 @@ void opt_glau::rapidity_shifted_ic(grid* f, EoS* eos){
 }
 
 
-void opt_glau::rapidity_tilted_ic(grid* f, EoS* eos){
+void opt_glau::rapidity_tilted_ic(grid* f, EoS* eos,int baryon_density_flag){
 
-  std::cout <<"[Info] A rapidity shifted IC condition..." << std::endl ; 
+  std::cout <<"[Info] A rapidity tilted IC condition..." << std::endl ; 
   std::ofstream File0;
   File0.open("hydro_output/optical_glauber_ic_dist.dat");
   
   // output will be a input to music
   File0<<"#"<<"\t"<<"optical_glauber"<<"\t"<<"1"<<"\t"<<"neta="<<"\t"<<IDB->neta<<"\t"<<"nx="<<"\t"<<IDB->nx<<"\t"<<"ny="<<"\t"<<IDB->ny
        <<"\t"<<"deta="<<"\t"<<IDB->deta<<"\t"<<"dx="<<"\t"<<IDB->dx<<"\t"<<"dy="<<"\t"<<IDB->dy<<endl;
-  
+
+  const int ix = ( IDB->nx * 1.0 );
+  const int iy = ( IDB->ny * 1.0 );
+
   double total_deposited_entropy = 0.0;  // total deposited energy
-  double eta, x_, y_, nn_coll, NA, NB, fA, fB ;
+  double total_nb = 0.0 ; 
+  double eta, x_, y_, fA, fB ;
+  double NA[ix][iy] ; double NB[ix][iy]; double nn_coll[ix][iy];   
   double nchxy = 0 ; 
   cell* c;
 
+
   for(int k=0; k<IDB->neta; k++){
     eta = IDB->etamin + k*IDB->deta;
+    cout << "iz : " << k << "  eta : " <<  eta  << endl ; 
     for(int i=0; i<IDB->nx; i++){
       for(int j=0; j<IDB->ny; j++){
+
 
 	x_ = IDB->xmin + i*IDB->dx;
 	y_ = IDB->ymin + j*IDB->dy;
 	
 	
-        if( k==0 ){ // calculate once at mid rapidity 
-             NA =  0.5 * ( npartxy(x_, y_) + npartxy_min(x_, y_) ) ;
-             NB =  0.5 * ( npartxy(x_, y_) - npartxy_min(x_, y_) ) ;
-             nn_coll =  ncollxy(x_, y_) ;
+        if( k==0 ){ // calculate once 
+             NA[i][j] =  0.5 * ( npartxy(x_, y_) + npartxy_min(x_, y_) ) ;
+             NB[i][j] =  0.5 * ( npartxy(x_, y_) - npartxy_min(x_, y_) ) ;
+             nn_coll[i][j] =  ncollxy(x_, y_) ;
+        }
+
 
              fA = f_F(-eta,2.2);
              fB = f_F(eta,2.2);
-             nchxy = n_pp * ( ( NB*fB + NA*fA ) * (1-X_hard)  +  X_hard * nn_coll );
+             nchxy = n_pp * ( ( NB[i][j]*fB + NA[i][j]*fA ) * (1-X_hard)  +  X_hard * nn_coll[i][j] );
 
-        }
             double H_eta = exp(  - pow( fabs(eta) - IDB->eta_platue / 2.0, 2 )  /  
                ( 2 * pow(IDB->eta_fall,2) ) *  theta(fabs(eta)-IDB->eta_platue/2) );
 
@@ -363,18 +441,32 @@ void opt_glau::rapidity_tilted_ic(grid* f, EoS* eos){
         // entropy converted to energy density
 	double eps = eos->entr_2_eps(s0*nchxy*H_eta,nb,nq,ns);  
 
-	
 	double vx=0; double vy=0; double vz= 0;
 	double utau = 1.0/sqrt(1.0-vx*vx-vy*vy-vz*vz);
 	double ux = utau*vx;
 	double uy = utau*vy;
-	double uz = utau*vz; 
+	double uz = utau*vz;
+        
+
+        if(baryon_density_flag != 0 ){
+            set_eta_0_nb(3.5);
+            set_sigma_eta_nb_plus(0.4);
+            set_sigma_eta_nb_minus(1.0);
+            nb += baryon_density_eta_envelop_profile_0(eta) * NB[i][j] ; 
+            set_eta_0_nb(-3.5);
+            set_sigma_eta_nb_plus(1.0);
+            set_sigma_eta_nb_minus(0.4);
+            nb += baryon_density_eta_envelop_profile_0(eta) * NA[i][j] ; 
+        }
+ 
+
 	
 	 // output will be a input to music
 	 File0 << eta << "\t" << x_ << "\t" << y_ << "\t" << eos->entropy(eps,nb,nq,ns) 
 	       << "\t" << utau << "\t" << ux << "\t" << uy << "\t" << uz
-	       << "\t" << "0" << "\t" << "0" << "\t" << "0" << endl; 
+	       << "\t" << nb << "\t" << "0" << "\t" << "0" << endl; 
 	
+        total_nb += nb ; 
 	total_deposited_entropy += s0*nchxy*H_eta ;
 	
 	c->set_prim_var(eos,IDB->tau0,eps, nb, nq,  ns,  vx,  vy,  vz);
@@ -382,82 +474,54 @@ void opt_glau::rapidity_tilted_ic(grid* f, EoS* eos){
     }
   }
   
-  cout<<"total deposited entropy : " << total_deposited_entropy << endl;
+  cout<<"total deposited entropy : " << total_deposited_entropy* IDB->dx * IDB->dy * IDB->deta << endl;
+  cout<<"total deposited nb : " << total_nb * IDB->dx * IDB->dy * IDB->deta << endl;
 
   
 }
 
 
+double opt_glau::baryon_density_eta_envelop_profile_0(double eta){ 
+                                                      // as taken in arxiv:1804.10557
 
-
-
-
-
-double opt_glau::theta(double _a)
-{
-  if(_a > 0){return 1;}else{return 0;}
-}
-
-
-double opt_glau::npart_tab(double* x,double* p)
-{
-  TF1* f1;
-  f1=new TF1 ("TA",this,&opt_glau::Norm_Function,-3*R,3*R,4);
-  f1->SetParameter(0,x[0]+(b/2.0)); 
-  f1->SetParameter(1,x[1]); 
-  f1->SetParameter(2,mThetaA); 
-  f1->SetParameter(3,mPhiA); 
-  double TA = f1->Integral(-3*R,3*R,1.0E-9);
+  if( fabs(eta - IDB->etamin) < 0.0001 ) NORM_BARYON_ENVELOP = integrate_baryon_density_eta_envelop_profile_0_over_eta() ;  
+  double eta_0_nb = get_eta_0_nb() ;
+  double THETA_ARG = eta - eta_0_nb ; 
+  if ( fabs(THETA_ARG) < 1E-6 ) THETA_ARG = 1E-6 ; 
+  double sigma_eta_nb_plus = get_sigma_eta_nb_plus() ; 
+  double sigma_eta_nb_minus = get_sigma_eta_nb_minus() ; 
+  //cout << " > > > > > > > > >  Integral value : " << integrate_baryon_density_eta_envelop_profile_0_over_eta() << endl ; 
+  return ( 1.0 / NORM_BARYON_ENVELOP )
+                    * ( theta( THETA_ARG  ) 
+                    * exp( - pow( THETA_ARG , 2 ) / ( 2 * pow( sigma_eta_nb_plus, 2) ) )
+                    + theta( -THETA_ARG )
+                    * exp( - pow( THETA_ARG, 2 ) / ( 2 * pow( sigma_eta_nb_minus, 2) ) ) ) ; 
   
-  f1->SetParameter(0,x[0]-(b/2.0)); 
-  f1->SetParameter(2,mThetaB); 
-  f1->SetParameter(3,mPhiB); 
-  double TB = f1->Integral(-3*R,3*R,1.0E-9);
-  double va= ((A*TA*(1-(TMath::Power(1-TB*sigma,B)))) + (B*TB*(1-(TMath::Power(1-TA*sigma,A)))));
-  delete f1;
-  return  va;
+}
+
+double opt_glau::baryon_density_eta_envelop_profile_0_function(double* x, double* p){ 
+                                                      // as taken in arxiv:1804.10557
+  double eta_0_nb = get_eta_0_nb() ;
+  double sigma_eta_nb_plus = get_sigma_eta_nb_plus() ; 
+  double sigma_eta_nb_minus = get_sigma_eta_nb_minus() ; 
+  return p[0]*( theta( x[0] - eta_0_nb ) * exp( - pow( eta_0_nb - x[0], 2 ) / ( 2 * pow( sigma_eta_nb_plus, 2) ) )
+                   + theta( eta_0_nb - x[0] ) * exp( - pow( eta_0_nb - x[0], 2 ) / ( 2 * pow( sigma_eta_nb_minus, 2) ) ) ) ; 
 }
 
 
-double opt_glau::npart()
-{
-  TF2 *f3;
-  f3=new TF2("T_AB",this,&opt_glau::npart_tab,-3*R,3*R,-3*R,3*R,0);
-  double TAAB=f3->Integral(-3*R,3*R,-3*R,3*R,1.0E-05);
-  delete f3;
-  return TAAB;
-}
-
-
-double opt_glau::ncoll_tab(double* x,double* p){
-
-
+double opt_glau::integrate_baryon_density_eta_envelop_profile_0_over_eta(){
         TF1* f1;
-        f1=new TF1 ("TA",this,&opt_glau::Norm_Function,-3*R,3*R,4);
-        f1->SetParameter(0,x[0]+(b/2.0)); 
-        f1->SetParameter(1,x[1]); 
-        f1->SetParameter(2,mThetaA); 
-        f1->SetParameter(3,mPhiA); 
-        double TA = f1->Integral(-3*R,3*R,1.0E-09);
-        f1->SetParameter(0,x[0]-(b/2.0)); 
-        f1->SetParameter(2,mThetaB); 
-        f1->SetParameter(3,mPhiB); 
-        double TB = f1->Integral(-3*R,3*R,1.0E-09);
-        delete f1;
-        return  A*B*sigma*TA*TB;
-
+        f1=new TF1 ("TA",this,&opt_glau::baryon_density_eta_envelop_profile_0_function,-10,10,1);
+        f1->SetParameter(0, 1.0); 
+        double TA = f1->Integral(-10,10,1.0E-09);
+        delete f1 ; 
+        return TA;
 }
 
 
 
-double opt_glau::ncoll(){
 
-        TF2* f2;
-        f2= new TF2("TAB",this,&opt_glau::ncoll_tab,-3*R,3*R,-3*R,3*R,0);
-        double T_AB = f2->Integral(-3*R,3*R,-3*R,3*R,1.0E-05);
-        delete f2;
-        return T_AB;
-}
+
 
 
 

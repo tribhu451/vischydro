@@ -63,8 +63,26 @@ class opt_glau
 
   void boost_invariant_ic(grid* , EoS* );
   void rapidity_shifted_ic(grid* , EoS* );
-  void rapidity_tilted_ic(grid* , EoS* );
+  void rapidity_tilted_ic(grid* , EoS* , int);
   
+
+  double NORM_BARYON_ENVELOP ; 
+  double baryon_density_eta_envelop_profile_0(double eta);
+  double baryon_density_eta_envelop_profile_0_function(double* x, double* p);
+  double integrate_baryon_density_eta_envelop_profile_0_over_eta();
+
+  double eta_0_baryon_density ; 
+  double sigma_eta_baryon_density_plus ; 
+  double sigma_eta_baryon_density_minus ; 
+
+  void set_eta_0_nb(double a) {eta_0_baryon_density = a ; }
+  void set_sigma_eta_nb_plus(double a) {sigma_eta_baryon_density_plus = a ; }
+  void set_sigma_eta_nb_minus(double a) {sigma_eta_baryon_density_minus = a ; }
+
+  double get_eta_0_nb() { return eta_0_baryon_density; }
+  double get_sigma_eta_nb_plus() { return sigma_eta_baryon_density_plus; }
+  double get_sigma_eta_nb_minus() { return sigma_eta_baryon_density_minus; }
+
 
   
   void set_opt_glau_params()
