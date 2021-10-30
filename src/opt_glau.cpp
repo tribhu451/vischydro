@@ -370,7 +370,7 @@ void opt_glau::rapidity_shifted_ic(grid* f, EoS* eos){
 	double uz = utau*vz; 
 	
 	 // output will be a input to music
-	 File0 << eta << "\t" << x_ << "\t" << y_ << "\t" << eos->entropy(eps,nb,nq,ns) 
+	 File0 << eta << "\t" << x_ << "\t" << y_ << "\t" << s0*nchxy*H_eta 
 	       << "\t" << utau << "\t" << ux << "\t" << uy << "\t" << uz
 	       << "\t" << "0" << "\t" << "0" << "\t" << "0" << endl; 
 	
@@ -462,7 +462,7 @@ void opt_glau::rapidity_tilted_ic(grid* f, EoS* eos,int baryon_density_flag){
 
 	
 	 // output will be a input to music
-	 File0 << eta << "\t" << x_ << "\t" << y_ << "\t" << eos->entropy(eps,nb,nq,ns) 
+	 File0 << eta << "\t" << x_ << "\t" << y_ << "\t" << s0*nchxy*H_eta 
 	       << "\t" << utau << "\t" << ux << "\t" << uy << "\t" << uz
 	       << "\t" << nb << "\t" << "0" << "\t" << "0" << endl; 
 	
