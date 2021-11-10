@@ -64,6 +64,7 @@ class opt_glau
   void boost_invariant_ic(grid* , EoS* );
   void rapidity_shifted_ic(grid* , EoS* );
   void rapidity_tilted_ic(grid* , EoS* , int);
+  void energy_momentum_conserving_ic_by_chun_shen(grid* , EoS*, double  );
   
 
   double NORM_BARYON_ENVELOP ; 
@@ -82,6 +83,7 @@ class opt_glau
   double get_eta_0_nb() { return eta_0_baryon_density; }
   double get_sigma_eta_nb_plus() { return sigma_eta_baryon_density_plus; }
   double get_sigma_eta_nb_minus() { return sigma_eta_baryon_density_minus; }
+
 
 
   
