@@ -616,8 +616,8 @@ void opt_glau::energy_momentum_conserving_ic_with_tilt(grid* f, EoS* eos, double
              TB[i][j]    =  0.5 * ( npartxy(x_, y_) - npartxy_min(x_, y_) ) ; // TB
 
              M[i][j]     =  mN * sqrt( TA[i][j] * TA[i][j] +  TB[i][j] * TB[i][j] + 2 * TA[i][j] * TB[i][j] * cosh( 2 * y_beam ) ) ; // M(x,y) -> invariant mass
-             MB[i][j]    =  ( M[i][j] * M[i][j] + TB[i][j] * TB[i][j] * mN * mN - TA[i][j] * TA[i][j] * mN * mN ) / 2 * M[i][j] ;
-             MA[i][j]    =  ( M[i][j] * M[i][j] - TB[i][j] * TB[i][j] * mN * mN + TA[i][j] * TA[i][j] * mN * mN ) / 2 * M[i][j] ;
+             MB[i][j]    =  ( M[i][j] * M[i][j] + TB[i][j] * TB[i][j] * mN * mN - TA[i][j] * TA[i][j] * mN * mN ) / ( 2 * M[i][j] ) ;
+             MA[i][j]    =  ( M[i][j] * M[i][j] - TB[i][j] * TB[i][j] * mN * mN + TA[i][j] * TA[i][j] * mN * mN ) / ( 2 * M[i][j] ) ;
 
              y_CM[i][j]  =  atanh( ( TB[i][j] - TA[i][j] ) / ( TB[i][j] + TA[i][j] ) * tanh( y_beam ) ); // center of mass rapidity 
 
