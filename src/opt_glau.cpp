@@ -238,7 +238,8 @@ void opt_glau::set_ic(grid* f, EoS* eos){
   // boost_invariant_ic(f,eos);
   // rapidity_shifted_ic(f,eos);
   // rapidity_tilted_ic(f,eos,1);
-  energy_momentum_conserving_ic_by_chun_shen( f, eos, 0 ) ; 
+  // energy_momentum_conserving_ic_by_chun_shen( f, eos, 0 ) ;
+     energy_momentum_conserving_ic_with_tilt( f,  eos, 2.2 ) ;  
   
 }
 
@@ -571,6 +572,108 @@ void opt_glau::energy_momentum_conserving_ic_by_chun_shen(grid* f, EoS* eos, dou
   out_file.close();
   
 }
+
+
+
+void opt_glau::energy_momentum_conserving_ic_with_tilt(grid* f, EoS* eos, double frac ){
+  std::cout << "[Info] An IC with Energy Momentum conservation condition and tilt ..." << std::endl ; 
+  std::ofstream out_file;
+  out_file.open("hydro_output/optical_glauber_ic_dist.dat");
+  
+  // output will be a input to music
+  out_file<<"#"<<"\t"<<"optical_glauber"<<"\t"<<"1"<<"\t"<<"neta="<<
+               "\t"<<IDB->neta<<"\t"<<"nx="<<"\t"<<IDB->nx<<"\t"<<"ny="<<"\t"<<IDB->ny
+                     <<"\t"<<"deta="<<"\t"<<IDB->deta<<"\t"<<"dx="<<"\t"<<IDB->dx<<"\t"<<"dy="<<
+                         "\t"<<IDB->dy<<endl;
+
+  const int ix  = ( IDB->nx * 1.0 );
+  const int iy  = ( IDB->ny * 1.0 );
+  double mN     = 0.938 ;                              // mass of nucleon in GeV
+  double y_beam = acosh( IDB->SNN / ( 2 * mN ) ) ; // beam rapidity. s_{NN} in GeV .  
+  double eta, x_, y_, C_eta ;
+  double TA[ix][iy] ; 
+  double TB[ix][iy];           // Thickness functions 
+  double M[ix][iy]  ;
+  double MA[ix][iy]  ;
+  double MB[ix][iy]  ;
+  double y_CM[ix][iy] ;
+  cell* c;
+
+
+  double total_deposited_entropy = 0.0 ;            // total deposited energy
+  double total_nb                = 0.0 ;
+
+  for(int k=0; k<IDB->neta; k++){
+    eta = IDB->etamin + k*IDB->deta;
+    std::cout << "iz : " << k 
+          << "  eta : " <<  eta  << std::endl ; 
+    for(int i=0; i<IDB->nx; i++){
+      for(int j=0; j<IDB->ny; j++){
+	x_ = IDB->xmin + i*IDB->dx ;
+	y_ = IDB->ymin + j*IDB->dy ;
+        if( k==0 ){ // calculate once 
+             TA[i][j]    =  0.5 * ( npartxy(x_, y_) + npartxy_min(x_, y_) ) ; // TA
+             TB[i][j]    =  0.5 * ( npartxy(x_, y_) - npartxy_min(x_, y_) ) ; // TB
+
+             M[i][j]     =  mN * sqrt( TA[i][j] * TA[i][j] +  TB[i][j] * TB[i][j] + 2 * TA[i][j] * TB[i][j] * cosh( 2 * y_beam ) ) ; // M(x,y) -> invariant mass
+             MB[i][j]    =  ( M[i][j] * M[i][j] + TB[i][j] * TB[i][j] * mN * mN - TA[i][j] * TA[i][j] * mN * mN ) / 2 * M[i][j] ;
+             MA[i][j]    =  ( M[i][j] * M[i][j] - TB[i][j] * TB[i][j] * mN * mN + TA[i][j] * TA[i][j] * mN * mN ) / 2 * M[i][j] ;
+
+             y_CM[i][j]  =  atanh( ( TB[i][j] - TA[i][j] ) / ( TB[i][j] + TA[i][j] ) * tanh( y_beam ) ); // center of mass rapidity 
+
+
+             C_eta       =  exp( IDB->eta_platue ) * TMath::Erfc( -IDB->eta_fall / sqrt(2.) ) 
+                               + exp( -IDB->eta_platue ) * TMath::Erfc( IDB->eta_fall / sqrt(2.) ) ; 
+         
+             MB[i][j]    /=  IDB->tau0 * 
+                              (  sinh(IDB->eta_platue) + sqrt( TMath::Pi() / 8 ) * IDB->eta_fall * exp( IDB->eta_fall * IDB->eta_fall / 2 ) * C_eta ) ;
+             MA[i][j]    /=  IDB->tau0 * 
+                              (  sinh(IDB->eta_platue) + sqrt( TMath::Pi() / 8 ) * IDB->eta_fall * exp( IDB->eta_fall * IDB->eta_fall / 2 ) * C_eta ) ; 
+ 
+        }
+
+
+
+        double fA = f_F(-eta,frac);
+        double fB = f_F(eta,frac);
+
+        double H_eta   =  exp(  - pow( fabs(eta - ( y_CM[i][j] ) ) - IDB->eta_platue  , 2 )  /
+			     ( 2 * pow(IDB->eta_fall,2) ) *  theta(fabs(eta - ( y_CM[i][j]  ) ) - IDB->eta_platue ) );
+	
+	c  =  f->get_cell(i,j,k);         		
+	double nb    =  0 ;
+        double nq    =  0 ;
+        double ns    =  0 ; 
+	double eps   =  MB[i][j] * fB * H_eta + MA[i][j] * fA * H_eta ;  
+	double vx    =  0 ; 
+        double vy    =  0 ;
+        double veta  =  0 ;
+	double utau  =  1.0 / sqrt( 1.0 - vx * vx - vy * vy - veta * veta ) ;
+	double ux    =  utau * vx ;
+	double uy    =  utau * vy ;
+	double ueta  =  utau * veta / IDB->tau0 ;
+        
+	 // output will be a input to music
+	 out_file << eta << "\t" << x_ << "\t" << y_ << "\t" << eps 
+	            << "\t" << utau << "\t" << ux << "\t" << uy << "\t" << ueta
+	                 << "\t" << nb << "\t" << "0" << "\t" << "0" << endl; 
+	
+        total_nb += nb ; 
+	total_deposited_entropy += M[i][j] * H_eta ;
+	
+	c->set_prim_var( eos, IDB->tau0, eps, nb, nq,  ns,  vx,  vy,  veta );
+      }
+    }
+  }
+  
+  cout<<"total deposited energy : " << total_deposited_entropy * IDB->dx * IDB->dy * IDB->deta << endl;
+  cout<<"total deposited nb : " << total_nb * IDB->dx * IDB->dy * IDB->deta << endl;
+  out_file.close();
+  
+}
+
+
+
 
 
 

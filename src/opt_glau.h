@@ -65,6 +65,7 @@ class opt_glau
   void rapidity_shifted_ic(grid* , EoS* );
   void rapidity_tilted_ic(grid* , EoS* , int);
   void energy_momentum_conserving_ic_by_chun_shen(grid* , EoS*, double  );
+  void energy_momentum_conserving_ic_with_tilt(grid* , EoS*, double  );
   
 
   double NORM_BARYON_ENVELOP ; 
