@@ -229,17 +229,22 @@ void opt_glau::set_ic(grid* f, EoS* eos){
   cout<<"Impact parameter :\t"<<b<<" (fm)"<<endl;
   double Npart = npart();
   double Ncoll = ncoll();
-  cout<<"No. of participants :\t"<<Npart<<endl;
-  cout<<"No. of binary collisions :\t"<<Ncoll<<endl;
-  cout<<"Entropy scaling factor s0 :\t"<<s0<<endl;
-  cout<<"Hardness factor in two component glauber :\t"<<X_hard<<endl;
-  cout<<"n_pp for two component glauber :\t"<<n_pp<<endl;
-  
+  cout << "No. of participants : " << Npart << endl;
+  cout << "No. of binary collisions : " << Ncoll << endl;
+  cout << "Entropy scaling factor s0 : " << s0 << endl;
+  cout << "Hardness factor in two component glauber : " << X_hard << endl;
+  cout << "n_pp for two component glauber : " << n_pp << endl;
+
+  if (IDB->neta != 1){
+    cout << "Eta plateau : " << IDB->eta_platue << endl ; 
+    cout << "Eta fall : " << IDB->eta_fall << endl ; 
+  }
+
   // boost_invariant_ic(f,eos);
   // rapidity_shifted_ic(f,eos);
-  // rapidity_tilted_ic(f,eos,1);
-  // energy_momentum_conserving_ic_by_chun_shen( f, eos, 0 ) ;
-     energy_momentum_conserving_ic_with_tilt( f,  eos, 2.2 ) ;  
+  // rapidity_tilted_ic(f,eos,2.2,1);
+  // energy_momentum_conserving_ic_by_chun_shen( f, eos, 0.2, 0 ) ;
+
   
 }
 
@@ -389,19 +394,23 @@ void opt_glau::rapidity_shifted_ic(grid* f, EoS* eos){
 }
 
 
-void opt_glau::rapidity_tilted_ic(grid* f, EoS* eos,int baryon_density_flag){
+void opt_glau::rapidity_tilted_ic(grid* f, EoS* eos, double etam, int baryon_density_flag){
 
   std::cout <<"[Info] A rapidity tilted IC condition..." << std::endl ; 
+
+  double baryon_depo_peak, baryon_depo_right_fall, baryon_depo_left_fall ;   
+  baryon_depo_peak        =  3.5 ; 
+  baryon_depo_right_fall  =  0.1 ; 
+  baryon_depo_left_fall   =  2.0 ;  
+
+  // output will be a input to music
   std::ofstream File0;
   File0.open("hydro_output/optical_glauber_ic_dist.dat");
-  
-  // output will be a input to music
   File0<<"#"<<"\t"<<"optical_glauber"<<"\t"<<"1"<<"\t"<<"neta="<<"\t"<<IDB->neta<<"\t"<<"nx="<<"\t"<<IDB->nx<<"\t"<<"ny="<<"\t"<<IDB->ny
        <<"\t"<<"deta="<<"\t"<<IDB->deta<<"\t"<<"dx="<<"\t"<<IDB->dx<<"\t"<<"dy="<<"\t"<<IDB->dy<<endl;
 
   const int ix = ( IDB->nx * 1.0 );
   const int iy = ( IDB->ny * 1.0 );
-
   double total_deposited_entropy = 0.0;  // total deposited energy
   double total_nb = 0.0 ; 
   double eta, x_, y_, fA, fB ;
@@ -409,93 +418,116 @@ void opt_glau::rapidity_tilted_ic(grid* f, EoS* eos,int baryon_density_flag){
   double nchxy = 0 ; 
   cell* c;
 
+  if ( baryon_density_flag != 0 ){
+     cout << "[Info] baryon deposition peak position : " << baryon_depo_peak       << endl ; 
+     cout << "[Info] baryon deposition right fall    : " << baryon_depo_right_fall << endl ; 
+     cout << "[Info] baryon deposition left fall     : " << baryon_depo_left_fall  << endl ; 
+  }
+ else
+   {
+      cout <<  "[Info] Baryon flag = 0 " << endl ;  
+   }
+
 
   for(int k=0; k<IDB->neta; k++){
     eta = IDB->etamin + k*IDB->deta;
     cout << "iz : " << k << "  eta : " <<  eta  << endl ; 
     for(int i=0; i<IDB->nx; i++){
       for(int j=0; j<IDB->ny; j++){
-
-
 	x_ = IDB->xmin + i*IDB->dx;
 	y_ = IDB->ymin + j*IDB->dy;
-	
-	
         if( k==0 ){ // calculate once 
              NA[i][j] =  0.5 * ( npartxy(x_, y_) + npartxy_min(x_, y_) ) ;
              NB[i][j] =  0.5 * ( npartxy(x_, y_) - npartxy_min(x_, y_) ) ;
              nn_coll[i][j] =  ncollxy(x_, y_) ;
         }
-
-
-             fA = f_F(-eta,2.2);
-             fB = f_F(eta,2.2);
+             fA = f_F(-eta,etam);
+             fB = f_F(eta,etam);
              nchxy = n_pp * ( ( NB[i][j]*fB + NA[i][j]*fA ) * (1-X_hard)  +  X_hard * nn_coll[i][j] );
-
-            double H_eta = exp(  - pow( fabs(eta) - IDB->eta_platue / 2.0, 2 )  /  
+             double H_eta = exp(  - pow( fabs(eta) - IDB->eta_platue / 2.0, 2 )  /  
                ( 2 * pow(IDB->eta_fall,2) ) *  theta(fabs(eta)-IDB->eta_platue/2) );
 
-	
 	c = f->get_cell(i,j,k);         
 		
-	double nb= 0; double nq = 0; double ns =0; 
+	double nb = 0 ;
+        double nq = 0 ;
+        double ns = 0 ; 
+        if(baryon_density_flag != 0 ){
+            set_eta_0_nb(baryon_depo_peak);
+            set_sigma_eta_nb_plus(baryon_depo_right_fall);
+            set_sigma_eta_nb_minus(baryon_depo_left_fall);
+            nb += baryon_density_eta_envelop_profile_0(eta) * NB[i][j] ; 
+            set_eta_0_nb(-baryon_depo_peak);
+            set_sigma_eta_nb_plus(baryon_depo_left_fall);
+            set_sigma_eta_nb_minus(baryon_depo_right_fall);
+            nb += baryon_density_eta_envelop_profile_0(eta) * NA[i][j] ; 
+        }
+
 
         // entropy converted to energy density
 	double eps = eos->entr_2_eps(s0*nchxy*H_eta,nb,nq,ns);  
-
-	double vx=0; double vy=0; double vz= 0;
-	double utau = 1.0/sqrt(1.0-vx*vx-vy*vy-vz*vz);
-	double ux = utau*vx;
-	double uy = utau*vy;
-	double uz = utau*vz;
+	double vx = 0 ; 
+        double vy = 0 ; 
+        double veta = 0;
+        // double veta  =  ( eps * sinh(y_L[i][j]) ) / ( eps * cosh(y_L[i][j]) + eos->pressure( eps, nb, nq, ns ) ) ;
+	double utau = 1.0 / sqrt( 1.0 - vx*vx - vy*vy - veta*veta );
+	double ux   = utau*vx;
+	double uy   = utau*vy;
+	double ueta = utau * veta / IDB->tau0;
         
-
-        if(baryon_density_flag != 0 ){
-            set_eta_0_nb(3.5);
-            set_sigma_eta_nb_plus(0.4);
-            set_sigma_eta_nb_minus(1.0);
-            nb += baryon_density_eta_envelop_profile_0(eta) * NB[i][j] ; 
-            set_eta_0_nb(-3.5);
-            set_sigma_eta_nb_plus(1.0);
-            set_sigma_eta_nb_minus(0.4);
-            nb += baryon_density_eta_envelop_profile_0(eta) * NA[i][j] ; 
-        }
- 
-
-	
 	 // output will be a input to music
 	 File0 << eta << "\t" << x_ << "\t" << y_ << "\t" << s0*nchxy*H_eta 
-	       << "\t" << utau << "\t" << ux << "\t" << uy << "\t" << uz
+	       << "\t" << utau << "\t" << ux << "\t" << uy << "\t" << ueta
 	       << "\t" << nb << "\t" << "0" << "\t" << "0" << endl; 
 	
         total_nb += nb ; 
 	total_deposited_entropy += s0*nchxy*H_eta ;
 	
-	c->set_prim_var(eos,IDB->tau0,eps, nb, nq,  ns,  vx,  vy,  vz);
+	c->set_prim_var(eos,IDB->tau0,eps, nb, nq,  ns,  vx,  vy,  veta );
       }
     }
   }
   
-  cout<<"total deposited entropy : " << total_deposited_entropy* IDB->dx * IDB->dy * IDB->deta << endl;
-  cout<<"total deposited nb : " << total_nb * IDB->dx * IDB->dy * IDB->deta << endl;
-
-  
+  cout<<"[Info] total deposited entropy : " << total_deposited_entropy * IDB->dx * IDB->dy * IDB->deta << endl;
+  cout<<"[Info] total deposited nb : " << total_nb * IDB->dx * IDB->dy * IDB->deta << endl;
+ 
 }
+
+
+
 
 
 // chun shen proposed IC by conserving energy and momentum
 // Ref : PHYSICAL REVIEW C 102, 014909 (2020)
 // ref : arXiv : 2106.08125 
-void opt_glau::energy_momentum_conserving_ic_by_chun_shen(grid* f, EoS* eos, double frac ){
-  std::cout << "[Info] An IC with Energy Momentum conservation condition..." << std::endl ; 
+void opt_glau::energy_momentum_conserving_ic_by_chun_shen(grid* f, EoS* eos, double frac, int baryon_density_flag ){
+
+  std::cout << "[Info] An IC with Energy Momentum conservation condition..." << std::endl ;
+
+  double baryon_depo_peak, baryon_depo_right_fall, baryon_depo_left_fall ;   
+  baryon_depo_peak        =  3.5 ; 
+  baryon_depo_right_fall  =  0.1 ; 
+  baryon_depo_left_fall   =  2.0 ;  
+
+  // output will be a input to music 
   std::ofstream out_file;
   out_file.open("hydro_output/optical_glauber_ic_dist.dat");
-  
-  // output will be a input to music
   out_file<<"#"<<"\t"<<"optical_glauber"<<"\t"<<"1"<<"\t"<<"neta="<<
                "\t"<<IDB->neta<<"\t"<<"nx="<<"\t"<<IDB->nx<<"\t"<<"ny="<<"\t"<<IDB->ny
                      <<"\t"<<"deta="<<"\t"<<IDB->deta<<"\t"<<"dx="<<"\t"<<IDB->dx<<"\t"<<"dy="<<
                          "\t"<<IDB->dy<<endl;
+
+  // Print informations
+  cout << "[Info] f parameter : " << frac << endl ; 
+  if ( baryon_density_flag != 0 ){
+     cout << "[Info] baryon deposition peak position : " << baryon_depo_peak       << endl ; 
+     cout << "[Info] baryon deposition right fall    : " << baryon_depo_right_fall << endl ; 
+     cout << "[Info] baryon deposition left fall     : " << baryon_depo_left_fall  << endl ; 
+  }
+ else
+   {
+      cout <<  "[Info] Baryon flag = 0 " << endl ;  
+   }
 
   const int ix  = ( IDB->nx * 1.0 );
   const int iy  = ( IDB->ny * 1.0 );
@@ -508,8 +540,6 @@ void opt_glau::energy_momentum_conserving_ic_by_chun_shen(grid* f, EoS* eos, dou
   double y_CM[ix][iy] ;
   double y_L[ix][iy] ;
   cell* c;
-
-
   double total_deposited_entropy = 0.0 ;            // total deposited energy
   double total_nb                = 0.0 ;
 
@@ -541,10 +571,23 @@ void opt_glau::energy_momentum_conserving_ic_by_chun_shen(grid* f, EoS* eos, dou
 			     ( 2 * pow(IDB->eta_fall,2) ) *  theta(fabs(eta - ( y_CM[i][j] - y_L[i][j] ) )-IDB->eta_platue ) );
 
 	
-	c  =  f->get_cell(i,j,k);         		
+	c  =  f->get_cell(i,j,k); 
+        		
 	double nb    =  0 ;
         double nq    =  0 ;
         double ns    =  0 ; 
+
+        if(baryon_density_flag != 0 ){
+            set_eta_0_nb(baryon_depo_peak);
+            set_sigma_eta_nb_plus(baryon_depo_right_fall);
+            set_sigma_eta_nb_minus(baryon_depo_left_fall);
+            nb += baryon_density_eta_envelop_profile_0(eta) * TB[i][j] ; 
+            set_eta_0_nb(-baryon_depo_peak);
+            set_sigma_eta_nb_plus(baryon_depo_left_fall);
+            set_sigma_eta_nb_minus(baryon_depo_right_fall);
+            nb += baryon_density_eta_envelop_profile_0(eta) * TA[i][j] ; 
+        }
+   
 	double eps   =  M[i][j] * H_eta ;  
 	double vx    =  0 ; 
         double vy    =  0 ;
@@ -553,7 +596,7 @@ void opt_glau::energy_momentum_conserving_ic_by_chun_shen(grid* f, EoS* eos, dou
 	double ux    =  utau * vx ;
 	double uy    =  utau * vy ;
 	double ueta  =  utau * veta / IDB->tau0 ;
-        
+
 	 // output will be a input to music
 	 out_file << eta << "\t" << x_ << "\t" << y_ << "\t" << eps 
 	            << "\t" << utau << "\t" << ux << "\t" << uy << "\t" << ueta
@@ -567,112 +610,11 @@ void opt_glau::energy_momentum_conserving_ic_by_chun_shen(grid* f, EoS* eos, dou
     }
   }
   
-  cout<<"total deposited energy : " << total_deposited_entropy * IDB->dx * IDB->dy * IDB->deta << endl;
-  cout<<"total deposited nb : " << total_nb * IDB->dx * IDB->dy * IDB->deta << endl;
+  cout<<"[Info] total deposited energy : " << total_deposited_entropy * IDB->dx * IDB->dy * IDB->deta << endl;
+  cout<<"[Info] total deposited nb : " << total_nb * IDB->dx * IDB->dy * IDB->deta << endl;
   out_file.close();
   
 }
-
-
-
-void opt_glau::energy_momentum_conserving_ic_with_tilt(grid* f, EoS* eos, double frac ){
-  std::cout << "[Info] An IC with Energy Momentum conservation condition and tilt ..." << std::endl ; 
-  std::ofstream out_file;
-  out_file.open("hydro_output/optical_glauber_ic_dist.dat");
-  
-  // output will be a input to music
-  out_file<<"#"<<"\t"<<"optical_glauber"<<"\t"<<"1"<<"\t"<<"neta="<<
-               "\t"<<IDB->neta<<"\t"<<"nx="<<"\t"<<IDB->nx<<"\t"<<"ny="<<"\t"<<IDB->ny
-                     <<"\t"<<"deta="<<"\t"<<IDB->deta<<"\t"<<"dx="<<"\t"<<IDB->dx<<"\t"<<"dy="<<
-                         "\t"<<IDB->dy<<endl;
-
-  const int ix  = ( IDB->nx * 1.0 );
-  const int iy  = ( IDB->ny * 1.0 );
-  double mN     = 0.938 ;                              // mass of nucleon in GeV
-  double y_beam = acosh( IDB->SNN / ( 2 * mN ) ) ; // beam rapidity. s_{NN} in GeV .  
-  double eta, x_, y_, C_eta ;
-  double TA[ix][iy] ; 
-  double TB[ix][iy];           // Thickness functions 
-  double M[ix][iy]  ;
-  double MA[ix][iy]  ;
-  double MB[ix][iy]  ;
-  double y_CM[ix][iy] ;
-  cell* c;
-
-
-  double total_deposited_entropy = 0.0 ;            // total deposited energy
-  double total_nb                = 0.0 ;
-
-  for(int k=0; k<IDB->neta; k++){
-    eta = IDB->etamin + k*IDB->deta;
-    std::cout << "iz : " << k 
-          << "  eta : " <<  eta  << std::endl ; 
-    for(int i=0; i<IDB->nx; i++){
-      for(int j=0; j<IDB->ny; j++){
-	x_ = IDB->xmin + i*IDB->dx ;
-	y_ = IDB->ymin + j*IDB->dy ;
-        if( k==0 ){ // calculate once 
-             TA[i][j]    =  0.5 * ( npartxy(x_, y_) + npartxy_min(x_, y_) ) ; // TA
-             TB[i][j]    =  0.5 * ( npartxy(x_, y_) - npartxy_min(x_, y_) ) ; // TB
-
-             M[i][j]     =  mN * sqrt( TA[i][j] * TA[i][j] +  TB[i][j] * TB[i][j] + 2 * TA[i][j] * TB[i][j] * cosh( 2 * y_beam ) ) ; // M(x,y) -> invariant mass
-             MB[i][j]    =  ( M[i][j] * M[i][j] + TB[i][j] * TB[i][j] * mN * mN - TA[i][j] * TA[i][j] * mN * mN ) / ( 2 * M[i][j] ) ;
-             MA[i][j]    =  ( M[i][j] * M[i][j] - TB[i][j] * TB[i][j] * mN * mN + TA[i][j] * TA[i][j] * mN * mN ) / ( 2 * M[i][j] ) ;
-
-             y_CM[i][j]  =  atanh( ( TB[i][j] - TA[i][j] ) / ( TB[i][j] + TA[i][j] ) * tanh( y_beam ) ); // center of mass rapidity 
-
-
-             C_eta       =  exp( IDB->eta_platue ) * TMath::Erfc( -IDB->eta_fall / sqrt(2.) ) 
-                               + exp( -IDB->eta_platue ) * TMath::Erfc( IDB->eta_fall / sqrt(2.) ) ; 
-         
-             MB[i][j]    /=  IDB->tau0 * 
-                              (  sinh(IDB->eta_platue) + sqrt( TMath::Pi() / 8 ) * IDB->eta_fall * exp( IDB->eta_fall * IDB->eta_fall / 2 ) * C_eta ) ;
-             MA[i][j]    /=  IDB->tau0 * 
-                              (  sinh(IDB->eta_platue) + sqrt( TMath::Pi() / 8 ) * IDB->eta_fall * exp( IDB->eta_fall * IDB->eta_fall / 2 ) * C_eta ) ; 
- 
-        }
-
-
-
-        double fA = f_F(-eta,frac);
-        double fB = f_F(eta,frac);
-
-        double H_eta   =  exp(  - pow( fabs(eta - ( y_CM[i][j] ) ) - IDB->eta_platue  , 2 )  /
-			     ( 2 * pow(IDB->eta_fall,2) ) *  theta(fabs(eta - ( y_CM[i][j]  ) ) - IDB->eta_platue ) );
-	
-	c  =  f->get_cell(i,j,k);         		
-	double nb    =  0 ;
-        double nq    =  0 ;
-        double ns    =  0 ; 
-	double eps   =  MB[i][j] * fB * H_eta + MA[i][j] * fA * H_eta ;  
-	double vx    =  0 ; 
-        double vy    =  0 ;
-        double veta  =  0 ;
-	double utau  =  1.0 / sqrt( 1.0 - vx * vx - vy * vy - veta * veta ) ;
-	double ux    =  utau * vx ;
-	double uy    =  utau * vy ;
-	double ueta  =  utau * veta / IDB->tau0 ;
-        
-	 // output will be a input to music
-	 out_file << eta << "\t" << x_ << "\t" << y_ << "\t" << eps 
-	            << "\t" << utau << "\t" << ux << "\t" << uy << "\t" << ueta
-	                 << "\t" << nb << "\t" << "0" << "\t" << "0" << endl; 
-	
-        total_nb += nb ; 
-	total_deposited_entropy += M[i][j] * H_eta ;
-	
-	c->set_prim_var( eos, IDB->tau0, eps, nb, nq,  ns,  vx,  vy,  veta );
-      }
-    }
-  }
-  
-  cout<<"total deposited energy : " << total_deposited_entropy * IDB->dx * IDB->dy * IDB->deta << endl;
-  cout<<"total deposited nb : " << total_nb * IDB->dx * IDB->dy * IDB->deta << endl;
-  out_file.close();
-  
-}
-
-
 
 
 

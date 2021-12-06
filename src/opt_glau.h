@@ -63,9 +63,8 @@ class opt_glau
 
   void boost_invariant_ic(grid* , EoS* );
   void rapidity_shifted_ic(grid* , EoS* );
-  void rapidity_tilted_ic(grid* , EoS* , int);
-  void energy_momentum_conserving_ic_by_chun_shen(grid* , EoS*, double  );
-  void energy_momentum_conserving_ic_with_tilt(grid* , EoS*, double  );
+  void rapidity_tilted_ic(grid* , EoS*, double etam, int baryon_flag);
+  void energy_momentum_conserving_ic_by_chun_shen(grid* , EoS*, double f_parameter, int baryon_flag);
   
 
   double NORM_BARYON_ENVELOP ; 
@@ -97,10 +96,10 @@ class opt_glau
 
     s0 = IDB->entropy_scale_factor;
     bmin = IDB->bmin; bmax = IDB->bmax;
-    if(IDB->SNN == 62.4){sigma = 3.155;} 
-    else if(IDB->SNN == 200.0){sigma = 4.2;} 
-    else if(IDB->SNN == 2760.0){sigma = 6.4;} 
-    else if(IDB->SNN == 5500.0){sigma = 7.2 ;} 
+    if      ( IDB->SNN == 62.4   ) { sigma = 3.56; } 
+    else if ( IDB->SNN == 200.0  ) { sigma = 4.2;  } 
+    else if ( IDB->SNN == 2760.0 ) { sigma = 6.4;  } 
+    else if ( IDB->SNN == 5500.0 ) { sigma = 7.2;  } 
     else{cout<<"SNN(energy) not recognised"<<endl; exit(1);}
   }
   
